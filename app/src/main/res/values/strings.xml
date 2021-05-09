@@ -2,8 +2,12 @@
     <string name="app_name">SecondLife</string>
     <string name="google">Ingrese con Google</string>
     <string name="facebook">Ingrese con Facebook</string>
+    <string name="back">Regresar</string>
     <string name="enter">Ingresar</string>
     <string name="register">Registrar</string>
+    <string name="resend">Reenviar</string>
+    <string name="forgotPassword">Recuperar contraseña</string>
+    <string name="txtForgotPassword">Ingrese por favor el código que le enviamos a su correo vinculado a su cuenta</string>
     <string name="login_user">Ingrese correo o nombre de usuario</string>
     <string name="user">Ingrese usuario</string>
     <string name="email">Ingrese correo</string>
@@ -11,4 +15,6 @@
     <string name="firstName">Ingrese nombre</string>
     <string name="lastName">Ingrese apellido</string>
     <string name="password">Ingrese contraseña</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
