@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">SecondLife</string>
+    <string name="google">Ingrese con Google</string>
+    <string name="facebook">Ingrese con Facebook</string>
+    <string name="enter">Ingresar</string>
+    <string name="register">Registrar</string>
+    <string name="login_user">Ingrese correo o nombre de usuario</string>
+    <string name="user">Ingrese usuario</string>
+    <string name="email">Ingrese correo</string>
+    <string name="dni">Ingrese DNI</string>
+    <string name="firstName">Ingrese nombre</string>
+    <string name="lastName">Ingrese apellido</string>
+    <string name="password">Ingrese contraseña</string>
 </resources>

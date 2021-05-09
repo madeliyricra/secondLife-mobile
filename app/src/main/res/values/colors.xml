@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="google">#ED254E</color>
+    <color name="facebook">#3c66c4</color>
+    <color name="primary">#020E26</color>
+    <color name="secondary">#F2B544</color>
+    <color name="third">#F2A444</color>
+    <color name="fourth">#8C6637</color>
+    <color name="fifth">#F2D6B3</color>
 </resources>
