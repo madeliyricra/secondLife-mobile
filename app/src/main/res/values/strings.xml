@@ -13,6 +13,7 @@
     <string name="address">Ingrese dirección</string>
     <string name="remember_address">Guardar dirección</string>
     <string name="save_and_continue">Guardar y continuar</string>
+    <string name="_continue">Continuar</string>
     <string name="user">Ingrese usuario</string>
     <string name="email">Ingrese correo</string>
     <string name="dni">Ingrese DNI</string>
