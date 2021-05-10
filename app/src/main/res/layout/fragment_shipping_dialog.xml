@@ -12,13 +12,13 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_marginLeft="20dp"
+            android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="26dp"
+            android:layout_marginLeft="20dp"
+            android:text="Proceso de pago"
             android:textColor="@color/primary"
-            android:text="Progreso de pago" />
+            android:textSize="26dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,12 +59,22 @@
             android:layout_marginRight="20dp"
             android:gravity="center_vertical"
             android:layout_height="40dp"
-            android:paddingLeft="20dp"
+            android:paddingLeft="10dp"
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/ic_lock"
             android:textColor="@color/primary"
             android:background="@drawable/message_notification"
             android:text="Mantemos seguros tus datos" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Nombre en tarjeta"
+            android:textColor="@color/primary"
+            android:textSize="14dp" />
 
         <EditText
             android:id="@+id/txtName"
@@ -73,7 +83,6 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
             android:gravity="center_vertical"
             android:hint="@string/name"
             android:paddingLeft="10dp"
@@ -83,61 +92,121 @@
             android:background="@drawable/border_redondo"
             android:textSize="14dp" />
 
-        <EditText
-            android:id="@+id/txtEmail"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center_vertical"
-            android:hint="@string/email"
-            android:paddingLeft="10dp"
-            android:ems="10"
-            android:maxLength="50"
-            android:inputType="textEmailAddress"
-            android:background="@drawable/border_redondo"
-            android:textSize="14dp" />
-
-        <EditText
-            android:id="@+id/txtDNI"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:maxLength="8"
-            android:layout_marginBottom="10dp"
-            android:gravity="center_vertical"
-            android:hint="@string/dni"
-            android:paddingLeft="10dp"
-            android:ems="10"
-            android:inputType="number"
-            android:background="@drawable/border_redondo"
-            android:textSize="14dp" />
-
-        <EditText
-            android:id="@+id/txtAddress"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:maxLength="8"
-            android:layout_marginBottom="10dp"
-            android:gravity="center_vertical"
-            android:hint="@string/address"
-            android:paddingLeft="10dp"
-            android:ems="10"
-            android:inputType="number"
-            android:background="@drawable/border_redondo"
-            android:textSize="14dp" />
-
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+        <TextView
+            android:id="@+id/textView10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/remember_address" />
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Número de tarjeta"
+            android:textColor="@color/primary"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/txtCard"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center_vertical"
+            android:hint="4000-0000-XXXX-XXXX"
+            android:paddingLeft="10dp"
+            android:ems="10"
+            android:maxLength="16"
+            android:inputType="number"
+            android:background="@drawable/border_redondo"
+            android:textSize="14dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Fecha de vencimiento"
+            android:textColor="@color/primary"
+            android:textSize="14dp" />
+
+         <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/txtMounth"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:maxLength="2"
+            android:gravity="center"
+            android:hint="MM"
+            android:ems="10"
+            android:inputType="number"
+            android:background="@drawable/border_redondo"
+            android:textSize="14dp" />
+
+             <EditText
+                 android:id="@+id/txtYear"
+                 android:layout_width="70dp"
+                 android:layout_height="40dp"
+                 android:layout_marginLeft="5dp"
+                 android:layout_marginRight="20dp"
+                 android:maxLength="2"
+                 android:gravity="center"
+                 android:hint="YY"
+                 android:ems="10"
+                 android:inputType="number"
+                 android:background="@drawable/border_redondo"
+                 android:textSize="14dp" />
+         </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="70dp"
+                android:gravity="end"
+                android:layout_marginBottom="10dp"
+                android:text="CVV"
+                android:textColor="@color/primary"
+                android:textSize="14dp" />
+            <EditText
+                android:id="@+id/txtCvv"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:maxLength="3"
+                android:gravity="center"
+                android:hint="YYY"
+                android:ems="10"
+                android:inputType="number"
+                android:background="@drawable/border_redondo"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+    </LinearLayout>
 
         <Button
             android:id="@+id/btnSave"
@@ -148,8 +217,9 @@
             android:layout_height="wrap_content"
             android:textAllCaps="false"
             android:textColor="@color/white"
+            android:drawableLeft="@drawable/ic_check"
             android:backgroundTint="@color/primary"
-            android:text="@string/save_and_continue" />
+            android:text="@string/confirm" />
 
         <ProgressBar
             android:id="@+id/progressBar2"
@@ -158,7 +228,7 @@
             android:layout_height="40dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            android:progress="1"/>
+            android:progress="66"/>
 
     </LinearLayout>
 
