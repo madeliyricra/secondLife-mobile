@@ -6,15 +6,20 @@
     tools:context=".MainActivity"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="55dp">
+    android:padding="50dp">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_personal_information"/>
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="26dp"
         android:textColor="@color/primary"
-        android:text="@string/register" />
+        android:text="@string/register"
+        android:textAlignment="center"/>
 
     <EditText
         android:id="@+id/txtEmail"
@@ -118,7 +123,6 @@
         android:layout_height="wrap_content"
         android:textAllCaps="false"
         android:backgroundTint="@color/primary"
-        android:text="@string/register" />
-
-
+        android:text="@string/register"
+        android:textColor="@color/white"/>
 </LinearLayout>
