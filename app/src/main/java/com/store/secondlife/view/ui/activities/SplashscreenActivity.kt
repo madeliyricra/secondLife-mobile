@@ -50,6 +50,7 @@ class SplashscreenActivity : AppCompatActivity() {
             boolean=animation(ivLogoSecondLife, R.raw.name, boolean)
         }*/
     }
+    /*hola*/
     /*private fun animation(imageView: LottieAnimationView, animation: Int,
                             anim:Boolean):Boolean{
         if(!anim){
