@@ -40,6 +40,7 @@
                     android:layout_marginBottom="20dp"
                     android:layout_marginTop="10dp"/>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_height="fill_parent"
                 android:layout_width="match_parent"
@@ -94,7 +95,8 @@
                             android:textAlignment="center"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-        </LinearLayout>
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -117,6 +119,45 @@
                     android:padding="10dp"/>
             </LinearLayout>
             <LinearLayout
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/border_back"
+                android:padding="10dp"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_home"
+                        android:textSize="12sp"
+                        android:textColor="@color/white"/>
+                    <Button
+                        android:id="@+id/btnSeeSell"
+                        android:layout_width="100dp"
+                        android:layout_height="35dp"
+                        android:text="@string/btn_ver"
+                        android:background="@drawable/border_redondo"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="10dp"
+                        android:textSize="10sp"
+                        android:drawableRight="@drawable/ic_arrow_right"/>
+                </LinearLayout>
+                <ImageView
+                    android:layout_height="100dp"
+                    android:layout_width="100dp"
+                    android:src="@drawable/ic_sell"/>
+
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -136,6 +177,7 @@
                     android:layout_height="match_parent"
                     android:padding="10dp"/>
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

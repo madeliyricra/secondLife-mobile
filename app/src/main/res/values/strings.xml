@@ -28,4 +28,11 @@
     <string name="message_banner">La mejor manera de ayudar al medio ambiente, es reciclando.</string>
     <string name="text_home_1">Estamos aquí para ayudarte, comunícate con nosotros.</string>
     <string name="text_home_2">Reciba con total seguridad su pedido en hasta 24 horas.</string>
+    <string name="btn_ver">Ver más</string>
+    <string name="text_home">Si tienes un producto tecnológico que no usas podrias venderlo en nuestra app</string>
+    <string name="title_profile_1">Datos personales</string>
+    <string name="title_profile_2">Direcciones</string>
+    <string name="title_profile_3">Mis compras</string>
+    <string name="title_profile_4">Mis ventas</string>
+    <string name="title_profile_5">Medios de pago</string>
 </resources>
