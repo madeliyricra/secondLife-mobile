@@ -1,42 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
-    android:layout_height="250dp"
     android:layout_margin="5dp"
     android:layout_width="match_parent"
-    app:cardCornerRadius="@dimen/cardCornerRadius"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="20dp"
     app:cardElevation="4dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_margin="5dp"
         android:padding="10dp">
-        <ImageView
-            android:id="@+id/tvItemSpeakerImage"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/altoImageViewHome"
-            android:src="@mipmap/ic_launcher"
-            android:layout_margin="10dp"/>
-        <TextView
-            android:id="@+id/tvItemSpeakerName"
+            android:layout_height="130dp"
+            android:orientation="horizontal"
+            android:layout_margin="5dp" >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/item"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre del producto"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Descripción del producto"
+                    android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="$120.00"
+                    android:textSize="13sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nombre Expositor"
-            android:textStyle="bold"
-            android:gravity="center_horizontal"
-            android:textSize="@dimen/tamanioTitulo"
-            android:textColor="@color/dark_blue_700"/>
-        <TextView
-            android:id="@+id/tvItemSpeakerWork"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Trabajo Expositor"
-            android:gravity="center_horizontal"
-            android:textSize="@dimen/tamanioSubtitulo"
-            android:textColor="@color/ddark_blue_700"/>
+            android:orientation="horizontal"
+            android:layout_margin="5dp">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_close"
+                    android:src="@drawable/ic_close"
+                    android:padding="10dp"
+                    android:layout_marginRight="5dp"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_redondo"
+                    android:src="@drawable/ic_notfavorite"
+                    android:padding="10dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5">
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_dec"
+                    android:background="@drawable/border_redondo"
+                    android:padding="10dp"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border_redondo"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="1"/>
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_add"
+                    android:background="@drawable/border_redondo"
+                    android:padding="10dp"/>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
