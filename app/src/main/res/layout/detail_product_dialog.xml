@@ -137,12 +137,53 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-                android:paddingRight="20dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:layout_margin="5dp">
 
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5">
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_dec"
+                        android:background="@drawable/border_redondo"
+                        android:padding="10dp"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border_redondo"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center"
+                        android:text="1"/>
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_add"
+                        android:background="@drawable/border_redondo"
+                        android:padding="10dp"/>
+                </LinearLayout>
+                <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_redondo"
+                    android:backgroundTint="@color/primary"
+                    android:text="Añadir al carrito"
+                    android:textColor="@color/white"
+                    android:textAllCaps="false"
+                    android:padding="10dp"
+                    android:layout_marginRight="5dp"/>
+            </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
