@@ -4,16 +4,16 @@
         android:fromAlpha="0.0"
         android:toAlpha="1.0"
         android:interpolator="@android:anim/accelerate_interpolator"
-        android:duration="500"
+        android:duration="1000"
         android:repeatMode="reverse"
-        android:repeatCount="4"/>
+        android:repeatCount="2"/>
 
     <scale
         android:duration="500"
         android:pivotX="50%"
         android:pivotY="50%"
         android:repeatMode="reverse"
-        android:repeatCount="4"
+        android:repeatCount="1"
         android:toXScale="110%"
         android:toYScale="110%"
         android:fromXScale="100%"

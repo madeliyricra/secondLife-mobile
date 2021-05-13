@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.store.secondlife.view.ui.fragments.ProfileFragment"
-    android:background="@color/white">
+    tools:context="com.store.secondlife.view.ui.fragments.ProfileFragment">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -60,136 +59,65 @@
                         android:layout_alignParentRight="true"/>
                 </RelativeLayout>
                 <!--datos personales-->
-                <RelativeLayout
-                    android:id="@+id/rl_sectionPersonal"
+                <Button
+                    android:id="@+id/btn_personal_data"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center"
-                    android:background="@drawable/border_banner_2"
+                    android:background="@drawable/hover_btn"
+                    android:textAllCaps="false"
                     android:padding="15dp"
-                    android:layout_marginTop="10dp">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_person_profile"
-                        android:layout_alignParentLeft="true"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/title_profile_1"
-                        android:layout_centerInParent="true"
-                        android:textColor="@color/primary"/>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_arrow_right_profile"
-                        android:layout_alignParentRight="true"/>
-                </RelativeLayout>
+                    android:text="@string/title_profile_1"
+                    android:drawableLeft="@drawable/ic_person_profile"
+                    android:drawableRight="@drawable/ic_arrow_right_profile"
+                    android:layout_marginBottom="10dp" />
                 <!-- direcciones-->
-                <RelativeLayout
+                <Button
+                    android:id="@+id/btn_addresses"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center"
-                    android:background="@drawable/border_banner_2"
+                    android:background="@drawable/hover_btn"
+                    android:textAllCaps="false"
                     android:padding="15dp"
-                    android:layout_marginTop="10dp">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_address_profile"
-                        android:layout_alignParentLeft="true"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/title_profile_2"
-                        android:layout_centerInParent="true"
-                        android:textColor="@color/primary"/>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_arrow_right_profile"
-                        android:layout_alignParentRight="true"/>
-                </RelativeLayout>
+                    android:text="@string/title_profile_2"
+                    android:drawableLeft="@drawable/ic_address_profile"
+                    android:drawableRight="@drawable/ic_arrow_right_profile"
+                    android:layout_marginBottom="10dp"/>
                 <!--mis compras-->
-                <RelativeLayout
+                <Button
+                    android:id="@+id/btn_buy"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center"
-                    android:background="@drawable/border_banner_2"
+                    android:background="@drawable/hover_btn"
+                    android:textAllCaps="false"
                     android:padding="15dp"
-                    android:layout_marginTop="10dp">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_buy_profile"
-                        android:layout_alignParentLeft="true"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/title_profile_3"
-                        android:layout_centerInParent="true"
-                        android:textColor="@color/primary"/>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_arrow_right_profile"
-                        android:layout_alignParentRight="true"/>
-                </RelativeLayout>
+                    android:text="@string/title_profile_3"
+                    android:drawableLeft="@drawable/ic_buy_profile"
+                    android:drawableRight="@drawable/ic_arrow_right_profile"
+                    android:layout_marginBottom="10dp"/>
                 <!--mis ventas-->
-                <RelativeLayout
+                <Button
+                    android:id="@+id/btn_sales"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center"
-                    android:background="@drawable/border_banner_2"
+                    android:background="@drawable/hover_btn"
+                    android:textAllCaps="false"
                     android:padding="15dp"
-                    android:layout_marginTop="10dp">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_store_profile"
-                        android:layout_alignParentLeft="true"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/title_profile_4"
-                        android:layout_centerInParent="true"
-                        android:textColor="@color/primary"/>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_arrow_right_profile"
-                        android:layout_alignParentRight="true"/>
-                </RelativeLayout>
+                    android:text="@string/title_profile_4"
+                    android:drawableLeft="@drawable/ic_store_profile"
+                    android:drawableRight="@drawable/ic_arrow_right_profile"
+                    android:layout_marginBottom="10dp"/>
                 <!--medios de pago-->
-                <RelativeLayout
+                <Button
+                    android:id="@+id/btn_cards"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center"
-                    android:background="@drawable/border_banner_2"
+                    android:background="@drawable/hover_btn"
+                    android:textAllCaps="false"
                     android:padding="15dp"
-                    android:layout_marginTop="10dp">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_card_profile"
-                        android:layout_alignParentLeft="true"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/title_profile_5"
-                        android:layout_centerInParent="true"
-                        android:textColor="@color/primary"/>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_arrow_right_profile"
-                        android:layout_alignParentRight="true"/>
-                </RelativeLayout>
+                    android:text="@string/title_profile_5"
+                    android:drawableLeft="@drawable/ic_add_card"
+                    android:drawableRight="@drawable/ic_arrow_right_profile"
+                    android:layout_marginBottom="10dp"/>
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>

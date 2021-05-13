@@ -12,6 +12,7 @@ import com.airbnb.lottie.LottieAnimationView
 import com.github.ybq.android.spinkit.sprite.Sprite
 import com.github.ybq.android.spinkit.style.DoubleBounce
 import com.github.ybq.android.spinkit.style.ThreeBounce
+import com.github.ybq.android.spinkit.style.Wave
 import com.store.secondlife.MainActivity
 import com.store.secondlife.R
 import kotlinx.android.synthetic.main.activity_splashscreen.*
@@ -24,7 +25,7 @@ class SplashscreenActivity : AppCompatActivity() {
 
         //progress bar
         val progressBar = findViewById<View>(R.id.spin_kit) as ProgressBar
-        val ThreeBounce: Sprite = ThreeBounce()
+        val ThreeBounce: Sprite = Wave()
         progressBar.indeterminateDrawable = ThreeBounce
 
         var boolean=false
@@ -45,21 +46,6 @@ class SplashscreenActivity : AppCompatActivity() {
             }
 
         })
-        //startActivity(intent)
-        /*ivLogoSecondLife.setOnClickListener{
-            boolean=animation(ivLogoSecondLife, R.raw.name, boolean)
-        }*/
     }
-    /*hola*/
-    /*private fun animation(imageView: LottieAnimationView, animation: Int,
-                            anim:Boolean):Boolean{
-        if(!anim){
-            imageView.setAnimation(animation)
-            imageView.playAnimation()
-        }else{
-            imageView.setImageResource(R.drawable.logo_entry)
-        }
-        return !anim;
-    }*/
 
 }

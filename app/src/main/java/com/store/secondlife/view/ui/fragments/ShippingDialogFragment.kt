@@ -30,7 +30,7 @@ class ShippingDialogFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shipping_dialog, container, false)
+        return inflater.inflate(R.layout.shipping_dialog, container, false)
     }
 
     companion object {
