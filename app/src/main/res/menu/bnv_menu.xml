@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_home"/>
     <item
         android:id="@+id/navCategoryFragment"
-        android:title="Categoria"
+        android:title="Categoría"
         android:icon="@drawable/ic_category"/>
     <item
         android:id="@+id/navShoppingFragment"
