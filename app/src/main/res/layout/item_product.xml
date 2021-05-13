@@ -4,6 +4,7 @@
     android:layout_margin="5dp"
     android:layout_width="wrap_content"
     app:cardElevation="4dp"
+    app:cardCornerRadius="28px"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -16,8 +17,9 @@
         <ImageView
             android:id="@+id/tvItemSpeakerImage"
             android:layout_width="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_height="match_parent"
-            android:padding="5dp"
             android:src="@drawable/item_cuadrado" />
         <TextView
             android:id="@+id/tvItemSpeakerName"
@@ -30,8 +32,8 @@
             android:id="@+id/tvItemSpeakerWork"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Trabajo Expositor"
-            android:gravity="center_horizontal"/>
+            android:textColor="@color/primary"
+            android:text="$17.00"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
