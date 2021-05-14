@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="145dp"
-        android:layout_height="200dp"
+        android:layout_height="210dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:background="@drawable/border_redondo"
@@ -24,6 +24,13 @@
             android:layout_height="90dp"
             android:padding="5dp"
             android:src="@drawable/item_cuadrado" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Categoría"
+            android:textSize="9sp"
+            android:textColor="@color/primary"
+            android:gravity="center"/>
         <TextView
             android:id="@+id/tvItemSpeakerName"
             android:layout_width="match_parent"
@@ -50,7 +57,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2.5"
                 android:text="$100.00"
-                android:textColor="@color/primary"
+                android:textColor="@color/third"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 android:gravity="left|center_vertical"/>

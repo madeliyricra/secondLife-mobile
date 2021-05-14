@@ -18,7 +18,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1.1">
             <ImageView
                 android:id="@+id/tvItemSpeakerImage"
                 android:layout_width="90dp"
@@ -42,12 +42,11 @@
                 android:gravity="center_vertical"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:text="Pequeña descripción de producto a la venta"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 android:fontFamily="sans-serif"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="10dp"/>
+                android:gravity="center_vertical"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -60,49 +59,35 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Marca del producto"
-                        android:textSize="9sp"
+                        android:text="Marca de producto"
                         android:textColor="@color/fourth"
-                        android:gravity="center_vertical"/>
-                    <TextView
+                        android:textSize="9sp"
+                        android:gravity="left|center_vertical"/>
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="$100.00"
-                        android:textColor="@color/primary"
-                        android:textSize="10sp"
-                        android:textStyle="bold"
-                        android:gravity="left|center_vertical"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2">
-                    <ImageButton
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_dec"
-                        android:background="@drawable/hover_operation"
-                        android:padding="10dp"/>
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/border_redondo"
-                        android:layout_weight="1"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginLeft="5dp"
-                        android:gravity="center"
-                        android:text="1"/>
-                    <ImageButton
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_add"
-                        android:background="@drawable/hover_operation"
-                        android:padding="10dp"/>
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="$100.00"
+                            android:textSize="9sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/third"
+                            android:gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Categoría"
+                            android:gravity="right"
+                            android:textSize="9sp"
+                            android:paddingRight="20dp"
+                            android:textColor="@color/primary"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>
