@@ -82,12 +82,12 @@
         android:name="com.store.secondlife.view.ui.fragments.PasswordFragment"
         android:label="fragment_password"
         tools:layout="@layout/fragment_password" />
-    <fragment
+    <!---->
+    <dialog
         android:id="@+id/detailProductDialogFragment"
         android:name="com.store.secondlife.view.ui.fragments.DetailProductDialogFragment"
         android:label="detail_product_dialog"
         tools:layout="@layout/detail_product_dialog" />
-    <!---->
     <dialog
         android:id="@+id/profileInformationDialogFragment"
         android:name="com.store.secondlife.view.ui.fragments.ProfileInformationDialogFragment"
