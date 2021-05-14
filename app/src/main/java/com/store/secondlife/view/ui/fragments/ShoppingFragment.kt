@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.store.secondlife.R
+import kotlinx.android.synthetic.main.fragment_shopping.*
 
 class ShoppingFragment : Fragment() {
 
@@ -17,4 +18,10 @@ class ShoppingFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_shopping, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        btn_shoppinng.setOnClickListener{
+
+        }
+    }
 }
