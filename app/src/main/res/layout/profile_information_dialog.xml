@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        android:layout_marginBottom="10dp"
         tools:context=".view.ui.fragments.ProfileInformationDialogFragment"
         android:background="#00020E26">
         <ScrollView
@@ -18,8 +17,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="20dp">
+                android:orientation="vertical">
                 <!--seccion de informacion personal-->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cvInformation"
@@ -233,7 +231,8 @@
                                 android:layout_width="120dp"
                                 android:layout_height="120dp"
                                 android:gravity="center"
-                                android:background="@drawable/circle_profile">
+                                android:background="@drawable/circle_profile"
+                                android:layout_marginTop="20dp">
                                 <ImageView
                                     android:layout_width="70dp"
                                     android:layout_height="70dp"
@@ -249,8 +248,7 @@
                     android:id="@+id/cvAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     app:cardElevation="0dp">
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -269,7 +267,7 @@
                                 android:orientation="vertical"
                                 android:background="@drawable/border_profile"
                                 android:padding="10dp"
-                                android:layout_marginTop="250dp">
+                                android:layout_marginTop="280dp">
                                 <Button
                                     android:id="@+id/btn_myaddress"
                                     android:layout_width="match_parent"
@@ -321,7 +319,8 @@
                             android:layout_centerHorizontal="true"
                             android:gravity="center_horizontal"
                             android:padding="25dp"
-                            android:background="@color/gray">
+                            android:background="@color/gray"
+                            android:layout_marginTop="20dp">
                         </LinearLayout>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
@@ -331,7 +330,7 @@
                     android:id="@+id/cvBuy"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="55dp"
+                    android:layout_marginTop="70dp"
                     android:visibility="gone"
                     app:cardElevation="0dp">
                     <RelativeLayout
@@ -380,9 +379,9 @@
                     android:id="@+id/cvSales"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="55dp"
                     android:visibility="gone"
-                    app:cardElevation="0dp">
+                    app:cardElevation="0dp"
+                    android:layout_marginTop="70dp">
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -430,8 +429,7 @@
                     android:id="@+id/cvCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="45dp"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     app:cardElevation="0dp">
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -440,7 +438,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
-                            android:layout_marginTop="90dp">
+                            android:layout_marginTop="120dp">
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="200dp"
@@ -609,11 +607,12 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center">
+                            android:gravity="center"
+                            android:layout_marginTop="55dp">
                             <ImageView
                                 android:layout_width="150dp"
                                 android:layout_height="150dp"
-                                android:src="@drawable/card"/>
+                                android:src="@drawable/card" />
                         </LinearLayout>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
