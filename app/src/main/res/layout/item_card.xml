@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="20dp"
-    android:layout_marginEnd="100dp"
+    android:layout_marginEnd="150dp"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
     app:cardCornerRadius="15dp"
@@ -13,7 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:backgroundTint="@color/fifth"
+        android:backgroundTint="@color/primary"
         android:background="@drawable/border_redondo"
         android:orientation="vertical"
         android:padding="5dp"
@@ -62,6 +62,7 @@
                     android:background="@null"
                     android:letterSpacing="0.2"
                     android:textSize="15sp"
+                    android:textColor="@color/white"
                     android:layout_marginEnd="10dp"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -70,6 +71,7 @@
                     android:background="@null"
                     android:letterSpacing="0.2"
                     android:textSize="15sp"
+                    android:textColor="@color/white"
                     android:layout_marginEnd="10dp"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -78,6 +80,7 @@
                     android:background="@null"
                     android:letterSpacing="0.2"
                     android:textSize="15sp"
+                    android:textColor="@color/white"
                     android:layout_marginEnd="10dp"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -85,7 +88,8 @@
                     android:text="9999"
                     android:background="@null"
                     android:letterSpacing="0.2"
-                    android:textSize="15sp"
+                    android:textSize="12sp"
+                    android:textColor="@color/white"
                     android:layout_marginEnd="10dp"/>
             </LinearLayout>
         </LinearLayout>
