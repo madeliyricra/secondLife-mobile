@@ -92,7 +92,14 @@
         android:id="@+id/profileInformationDialogFragment"
         android:name="com.store.secondlife.view.ui.fragments.ProfileInformationDialogFragment"
         android:label="ProfileInformationDialogFragment"
-        tools:layout="@layout/profile_information_dialog"/>
+        tools:layout="@layout/profile_information_dialog">
+        <action
+            android:id="@+id/action_profileInformationDialogFragment_to_addAddressDialogFragment"
+            app:destination="@id/addAddressDialogFragment" />
+        <action
+            android:id="@+id/action_profileInformationDialogFragment_to_detailPurchaseDialogFragment"
+            app:destination="@id/detailPurchaseDialogFragment" />
+    </dialog>
     <!--proceso de pago / dialog-->
     <dialog
         android:id="@+id/shippingDialog"
@@ -126,6 +133,16 @@
         android:name="com.store.secondlife.view.ui.fragments.ResultShippingDialogFragment"
         android:label="ResultShippingDialog"
         tools:layout="@layout/result_order_dialog"/>
+    <fragment
+        android:id="@+id/addAddressDialogFragment"
+        android:name="com.store.secondlife.view.ui.fragments.AddAddressDialogFragment"
+        android:label="AddAddressDialogFragment"
+        tools:layout="@layout/add_address_dialog"/>
+    <fragment
+        android:id="@+id/detailPurchaseDialogFragment"
+        android:name="com.store.secondlife.view.ui.fragments.DetailPurchaseDialogFragment"
+        android:label="DetailPurchaseDialogFragment"
+        tools:layout="@layout/detail_purchase_dialog"/>
     <!---->
 
 </navigation>

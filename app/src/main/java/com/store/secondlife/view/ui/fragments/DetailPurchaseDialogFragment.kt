@@ -35,7 +35,7 @@ class DetailPurchaseDialogFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail_purchase, container, false)
+        return inflater.inflate(R.layout.detail_purchase_dialog, container, false)
     }
 
     companion object {
