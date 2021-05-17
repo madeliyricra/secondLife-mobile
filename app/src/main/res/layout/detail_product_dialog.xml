@@ -8,15 +8,15 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".view.ui.fragments.DetailProductDialogFragment"
-        android:layout_marginTop="50dp">
+        tools:context=".view.ui.fragments.DetailProductDialogFragment">
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="50dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

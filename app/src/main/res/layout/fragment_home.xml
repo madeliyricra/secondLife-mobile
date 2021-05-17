@@ -6,99 +6,112 @@
     android:layout_height="match_parent"
     tools:context=".view.ui.fragments.HomeFragment"
     android:background="@color/white">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="190dp"
+                android:background="@drawable/background_1"
                 android:gravity="right"
-                android:orientation="horizontal"
-                android:background="@drawable/background_1">
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="190dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/message_banner"
-                    android:textAlignment="center"
-                    android:textSize="14sp"
-                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="20dp"
-                    android:layout_marginTop="20dp"
-                    android:textColor="@color/white"
                     android:fontFamily="sans-serif-smallcaps"
-                    android:textStyle="bold"/>
+                    android:padding="20dp"
+                    android:text="@string/message_banner"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_design_back"
-                    android:padding="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
-                    android:layout_marginTop="10dp"/>
+                    android:padding="20dp"
+                    android:src="@drawable/ic_design_back" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="3dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
                     android:layout_height="90dp"
-                    android:layout_weight="3"
                     android:layout_margin="5dp"
-                    app:cardElevation="0dp"
-                    android:stateListAnimator="@null">
+                    android:layout_weight="3"
+                    android:stateListAnimator="@null"
+                    app:cardElevation="0dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
+                        android:background="@drawable/border_banner"
                         android:gravity="center"
-                        android:padding="10dp"
-                        android:background="@drawable/border_banner" >
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
                         <ImageView
-                            android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
-                            android:src="@drawable/ic_atention"/>
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_atention" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/text_home_1"
-                            android:textSize="11sp"
-                            android:textAlignment="center"/>
+                            android:textAlignment="center"
+                            android:textSize="11sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
                     android:layout_height="90dp"
                     android:layout_weight="3"
-                    app:cardElevation="0dp"
-                    android:stateListAnimator="@null">
+                    android:stateListAnimator="@null"
+                    app:cardElevation="0dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
+                        android:background="@drawable/border_banner_2"
                         android:gravity="center"
-                        android:padding="10dp"
-                        android:background="@drawable/border_banner_2">
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
                         <ImageView
-                            android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
-                            android:src="@drawable/ic_clock"/>
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_clock" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/text_home_2"
-                            android:textSize="11sp"
-                            android:textAlignment="center"/>
+                            android:textAlignment="center"
+                            android:textSize="11sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
@@ -106,93 +119,103 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:layout_marginBottom="20dp">
+                android:paddingRight="20dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/category"
-                    android:textSize="18sp"
                     android:drawableLeft="@drawable/line_vertical"
-                    android:textColor="@color/primary"/>
+                    android:text="@string/category"
+                    android:textColor="@color/primary"
+                    android:textSize="18sp" />
                 <!--Lista de categorias-->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvCategory"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="10dp"/>
+                    android:padding="10dp" />
             </LinearLayout>
+
             <LinearLayout
-                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="20dp"
-                android:backgroundTint="@color/third"
                 android:background="@drawable/border_banner"
+                android:backgroundTint="@color/third"
+                android:gravity="center"
+                android:orientation="horizontal"
                 android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:gravity="center">
+                android:paddingBottom="10dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="4"
-                    android:orientation="vertical"
-                    android:padding="5dp"
                     android:gravity="center_vertical"
-                    android:layout_marginLeft="10dp">
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/text_home"
-                        android:textSize="13.5sp"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/white"
+                        android:textSize="13.5sp" />
+
                     <Button
                         android:id="@+id/btnSeeSell"
                         android:layout_width="100dp"
                         android:layout_height="35dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/border_back"
+                        android:drawableRight="@drawable/ic_arrow_right"
                         android:text="@string/btn_ver"
                         android:textAllCaps="false"
-                        android:background="@drawable/border_back"
                         android:textColor="@color/white"
-                        android:layout_marginTop="10dp"
-                        android:textSize="10sp"
-                        android:drawableRight="@drawable/ic_arrow_right"/>
+                        android:textSize="10sp" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="110dp"
-                    android:layout_weight="2" >
+                    android:layout_weight="2">
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_sell"/>
+                        android:src="@drawable/ic_sell" />
                 </LinearLayout>
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/recommend"
                     android:drawableLeft="@drawable/line_vertical"
+                    android:text="@string/recommend"
                     android:textColor="@color/primary"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
                 <!--Lista de productos recomendados-->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvRecommend"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="10dp"/>
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:padding="10dp" />
             </LinearLayout>
 
         </LinearLayout>
