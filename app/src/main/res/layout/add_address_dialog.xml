@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="40dp"
+    tools:context=".view.ui.fragments.AddAddressDialogFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="30dp">
+
+    <SearchView
+        android:id="@+id/txtSearch"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/border_redondo"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/border_redondo"
+        android:layout_marginBottom="20dp"></LinearLayout>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@drawable/ic_home_work"
+            android:background="@drawable/border_redondo"
+            android:text="Referencia"
+            android:layout_marginBottom="10dp" />
+
+    <EditText
+        android:id="@+id/txtEtiqueta"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:hint="Ingrese etiqueta"
+        android:paddingLeft="10dp"
+        android:ems="10"
+        android:maxLength="50"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/ic_etiqueta"
+        android:inputType="text"
+        android:background="@drawable/border_redondo"
+        android:textSize="14sp"
+        android:layout_marginBottom="20dp" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:background="@drawable/border_redondo"
+            android:backgroundTint="@color/fifth"
+            android:text="Agregar dirección"
+            android:textColor="@color/primary"/>
+
+
+
+    </LinearLayout>
+
+</FrameLayout>
+<com.google.android.material.appbar.AppBarLayout
+android:layout_width="match_parent"
+android:layout_height="90dp"
+android:background="@drawable/back_pane_profile"
+app:elevation="0dp">
+<Toolbar
+    android:id="@+id/toolbarConference"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:gravity="center_vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@color/material_on_surface_stroke"
+            android:src="@drawable/ic_arrow_left" />
+        <TextView
+            android:id="@+id/tv_title_profile"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="4"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:text="Agregar dirección"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="25dp"
+            android:layout_weight="1"
+            android:background="@color/material_on_surface_stroke"
+            android:src="@drawable/ic_home" />
+    </LinearLayout>
+</Toolbar>
+</com.google.android.material.appbar.AppBarLayout>
+</RelativeLayout>

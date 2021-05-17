@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ui.fragments.DetailPurchaseDialogFragment">
+
+
+
+</FrameLayout>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@drawable/back_pane_profile"
+        app:elevation="0dp">
+        <Toolbar
+            android:id="@+id/toolbarConference"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center_vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@color/material_on_surface_stroke"
+                    android:src="@drawable/ic_arrow_left" />
+                <TextView
+                    android:id="@+id/tv_title_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="4"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:text="Detalle de compra"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_weight="1"
+                    android:background="@color/material_on_surface_stroke"
+                    android:src="@drawable/ic_home" />
+            </LinearLayout>
+        </Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+</RelativeLayout>
