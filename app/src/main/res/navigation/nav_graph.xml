@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/na_graph"
+    app:startDestination="@id/navHomeFragment">
+    <fragment
+        android:id="@+id/navHomeFragment"
+        android:name="com.store.secondlife.view.ui.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_homeFragment_to_categoryFragment"
+            app:destination="@id/navCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navCategoryFragment"
+        android:name="com.store.secondlife.view.ui.fragments.CategoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category">
+        <action
+            android:id="@+id/action_categoryFragment_to_shoppingFragment"
+            app:destination="@id/navShoppingFragment" />
+        <action
+            android:id="@+id/action_navCategoryFragment_to_productFragment"
+            app:destination="@id/productFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navShoppingFragment"
+        android:name="com.store.secondlife.view.ui.fragments.ShoppingFragment"
+        android:label="fragment_shopping"
+        tools:layout="@layout/fragment_shopping">
+        <action
+            android:id="@+id/action_shoppingFragment_to_profileFragment"
+            app:destination="@id/navProfileFragment" />
+        <action
+            android:id="@+id/action_navShoppingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_navShoppingFragment_to_confirmDialog"
+            app:destination="@id/confirmDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/navProfileFragment"
+        android:name="com.store.secondlife.view.ui.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navProfileFragment_to_profileInformationDialogFragment"
+            app:destination="@id/profileInformationDialogFragment" />
+    </fragment>
+
+    <!---->
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.store.secondlife.view.ui.fragments.ProductFragment"
+        android:label="fragment_product"
+        tools:layout="@layout/fragment_product" >
+        <action
+            android:id="@+id/action_productFragment_to_detailProductDialogFragment"
+            app:destination="@id/detailProductDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.store.secondlife.view.ui.fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_passwordFragment"
+            app:destination="@id/passwordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.store.secondlife.view.ui.fragments.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/passwordFragment"
+        android:name="com.store.secondlife.view.ui.fragments.PasswordFragment"
+        android:label="fragment_password"
+        tools:layout="@layout/fragment_password" />
+    <!---->
+    <dialog
+        android:id="@+id/detailProductDialogFragment"
+        android:name="com.store.secondlife.view.ui.fragments.DetailProductDialogFragment"
+        android:label="detail_product_dialog"
+        tools:layout="@layout/detail_product_dialog" />
+    <dialog
+        android:id="@+id/profileInformationDialogFragment"
+        android:name="com.store.secondlife.view.ui.fragments.ProfileInformationDialogFragment"
+        android:label="ProfileInformationDialogFragment"
+        tools:layout="@layout/profile_information_dialog">
+        <action
+            android:id="@+id/action_profileInformationDialogFragment_to_addAddressDialogFragment"
+            app:destination="@id/addAddressDialogFragment" />
+        <action
+            android:id="@+id/action_profileInformationDialogFragment_to_detailPurchaseDialogFragment"
+            app:destination="@id/detailPurchaseDialogFragment" />
+    </dialog>
+    <!--proceso de pago / dialog-->
+    <dialog
+        android:id="@+id/shippingDialog"
+        android:name="com.store.secondlife.view.ui.fragments.ShippingDialogFragment"
+        android:label="ShippingDialogFragment"
+        tools:layout="@layout/shipping_dialog">
+        <action
+            android:id="@+id/action_shippingDialog_to_resultShippingDialog"
+            app:destination="@id/resultShippingDialog" />
+    </dialog>
+    <dialog
+        android:id="@+id/confirmDialog"
+        android:name="com.store.secondlife.view.ui.fragments.ConfirmDialogFragment"
+        android:label="ConfirmDialogFragment"
+        tools:layout="@layout/confirm_dialog">
+        <action
+            android:id="@+id/action_confirmDialog_to_paymentDialog"
+            app:destination="@id/paymentDialog" />
+    </dialog>
+    <dialog
+        android:id="@+id/paymentDialog"
+        android:name="com.store.secondlife.view.ui.fragments.PaymentDialogFragment"
+        android:label="PaymentDialogFragment"
+        tools:layout="@layout/payment_dialog">
+        <action
+            android:id="@+id/action_paymentDialog_to_shippingDialog"
+            app:destination="@id/shippingDialog" />
+    </dialog>
+    <dialog
+        android:id="@+id/resultShippingDialog"
+        android:name="com.store.secondlife.view.ui.fragments.ResultShippingDialogFragment"
+        android:label="ResultShippingDialog"
+        tools:layout="@layout/result_order_dialog"/>
+    <fragment
+        android:id="@+id/addAddressDialogFragment"
+        android:name="com.store.secondlife.view.ui.fragments.AddAddressDialogFragment"
+        android:label="AddAddressDialogFragment"
+        tools:layout="@layout/add_address_dialog"/>
+    <fragment
+        android:id="@+id/detailPurchaseDialogFragment"
+        android:name="com.store.secondlife.view.ui.fragments.DetailPurchaseDialogFragment"
+        android:label="DetailPurchaseDialogFragment"
+        tools:layout="@layout/detail_purchase_dialog"/>
+    <!---->
+
+</navigation>

@@ -1,3 +1,40 @@
 <resources>
     <string name="app_name">SecondLife</string>
+    <string name="google">Ingrese con Google</string>
+    <string name="facebook">Ingrese con Facebook</string>
+    <string name="back">Regresar</string>
+    <string name="enter">Ingresar</string>
+    <string name="register">Registrar</string>
+    <string name="resend">Reenviar</string>
+    <string name="forgotPassword">Recuperar contraseña</string>
+    <string name="txtForgotPassword">Ingrese por favor el código que le enviamos a su correo vinculado a su cuenta</string>
+    <string name="login_user">Ingrese correo o nombre de usuario</string>
+    <string name="name">Ingrese nombre</string>
+    <string name="address">Ingrese dirección</string>
+    <string name="remember_address">Guardar dirección</string>
+    <string name="save_and_continue">Guardar y continuar</string>
+    <string name="_continue">Continuar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="user">Ingrese usuario</string>
+    <string name="email">Ingrese correo</string>
+    <string name="dni">Ingrese DNI</string>
+    <string name="firstName">Ingrese nombre</string>
+    <string name="lastName">Ingrese apellido</string>
+    <string name="password">Ingrese contraseña</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_os">Online Store</string>
+    <string name="category">Categorías</string>
+    <string name="recommend">Recomendados</string>
+    <string name="message_banner">La mejor manera de ayudar al medio ambiente, es reciclando.</string>
+    <string name="text_home_1">Estamos aquí para ayudarte, comunícate con nosotros.</string>
+    <string name="text_home_2">Reciba con total seguridad su pedido en hasta 24 horas.</string>
+    <string name="btn_ver">Ver más</string>
+    <string name="text_home">Si tienes un producto tecnológico que no usas podrias venderlo en nuestra app</string>
+    <string name="title_profile_1">Datos personales</string>
+    <string name="title_profile_2">Direcciones</string>
+    <string name="title_profile_3">Mis compras</string>
+    <string name="title_profile_4">Mis ventas</string>
+    <string name="title_profile_5">Medios de pago</string>
+    <string name="app_label">app_label</string>
 </resources>
