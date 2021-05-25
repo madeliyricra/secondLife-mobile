@@ -37,4 +37,8 @@
     <string name="title_profile_4">Mis ventas</string>
     <string name="title_profile_5">Medios de pago</string>
     <string name="app_label">app_label</string>
+    <string name="btnSignIn">Ingresar</string>
+    <string name="btnSignUp">Registrar</string>
+    <string name="btnok">Listo</string>
+    <string name="btncancel">Cancelar</string>
 </resources>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/na_graph"
-    app:startDestination="@id/navHomeFragment">
+    app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/navHomeFragment"
         android:name="com.store.secondlife.view.ui.fragments.HomeFragment"
@@ -60,6 +60,7 @@
             android:id="@+id/action_productFragment_to_detailProductDialogFragment"
             app:destination="@id/detailProductDialogFragment" />
     </fragment>
+    <!--Logueo-->
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.store.secondlife.view.ui.fragments.LoginFragment"
@@ -68,15 +69,19 @@
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_passwordFragment"
-            app:destination="@id/passwordFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.store.secondlife.view.ui.fragments.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_passwordFragment"
+            app:destination="@id/passwordFragment" />
+    </fragment>
     <fragment
         android:id="@+id/passwordFragment"
         android:name="com.store.secondlife.view.ui.fragments.PasswordFragment"
