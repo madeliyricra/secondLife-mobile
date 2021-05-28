@@ -122,12 +122,21 @@
             android:layout_marginBottom="10dp" />
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnok"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAllCaps="false"
             android:backgroundTint="@color/primary"
-            android:text="@string/register"
-            android:textColor="@color/white"/>
+            android:text="@string/btnok"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btncancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primary"
+            android:text="@string/btncancel"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
     </LinearLayout>
 </FrameLayout>
