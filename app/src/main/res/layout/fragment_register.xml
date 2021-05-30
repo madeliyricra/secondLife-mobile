@@ -121,13 +121,32 @@
             android:background="@drawable/border_redondo"
             android:layout_marginBottom="10dp" />
 
-        <Button
-            android:id="@+id/btnLogin"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAllCaps="false"
-            android:backgroundTint="@color/primary"
-            android:text="@string/register"
-            android:textColor="@color/white"/>
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <ImageButton
+                android:id="@+id/btncancel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/border_redondo"
+                android:backgroundTint="@color/primary"
+                android:src="@drawable/hover_arrow_left"
+                android:layout_marginEnd="5dp"/>
+            <Button
+                android:id="@+id/btnok"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@drawable/border_redondo"
+                android:backgroundTint="@color/primary"
+                android:text="Guardar"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
     </LinearLayout>
 </FrameLayout>
