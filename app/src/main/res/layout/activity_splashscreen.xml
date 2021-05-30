@@ -33,6 +33,6 @@
             android:text="@string/text_os"
             android:textColor="@color/fourth"
             android:textSize="14sp"
-            android:fontFamily="sans-serif-light"/>
+            android:fontFamily="sans-serif-light" />
     </LinearLayout>
 </RelativeLayout>

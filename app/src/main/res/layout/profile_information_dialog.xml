@@ -153,7 +153,6 @@
                                         android:drawablePadding="10dp"
                                         android:hint="Teléfono"
                                         android:inputType="phone"
-                                        android:paddingLeft="10dp"
                                         android:textSize="14dp" />
                                 </LinearLayout>
                             </LinearLayout>

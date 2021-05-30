@@ -88,5 +88,4 @@ class LoginFragment : Fragment(), View.OnClickListener {
     private fun updateUI(user: FirebaseUser?) {
 
     }
-
 }
