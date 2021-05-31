@@ -36,6 +36,12 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
     private lateinit var auth: FirebaseAuth
 
+    companion object {
+        private const val TAG = "GoogleActivity"
+        private const val RC_SIGN_IN = 9001
+        private const val TAG2 = "EmailPassword"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Configure Google Sign In
@@ -56,6 +62,11 @@ class LoginFragment : Fragment(), View.OnClickListener {
             requireActivity().startActivity(intent)
             requireActivity().finish()
         }
+    }
+
+    private fun signIn() {
+        val signInIntent = googleSignInClient.signInIntent
+        startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
     override fun onStart() {
@@ -101,10 +112,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
                 }
             }
     }
-    private fun signIn() {
-        val signInIntent = googleSignInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -139,13 +147,12 @@ class LoginFragment : Fragment(), View.OnClickListener {
                         Log.d(TAG2, "signInWithEmail:success")
                         val user = auth.currentUser
                         updateUI(user)
-                        findNavController().navigate(R.id.action_loginFragment_to_navProfileFragment)
+                        findNavController().navigate(R.id.navProfileFragment)
                     } else {
                         Log.w(TAG2, "signInWithEmail:failure", task.exception)
                         Toast.makeText(context, "No se puede realizar esta acción.",
                             Toast.LENGTH_SHORT).show()
                         updateUI(null)
-
                     }
                 }
         } else if (btnSignUp == p0) {
@@ -169,10 +176,6 @@ class LoginFragment : Fragment(), View.OnClickListener {
     private fun updateUI(user: FirebaseUser?) {
     }
 
-    companion object {
-        private const val TAG = "GoogleActivity"
-        private const val RC_SIGN_IN = 9001
-        private const val TAG2 = "EmailPassword"
-    }
+
 
 }
