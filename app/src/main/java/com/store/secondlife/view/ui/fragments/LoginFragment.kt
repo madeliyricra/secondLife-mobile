@@ -175,7 +175,11 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
     private fun updateUI(user: FirebaseUser?) {
     }
+//<<<<<<< HEAD
 
 
 
 }
+//=======
+
+//>>>>>>> 2de37b9371854727c82ef3a4c8f947969dc8c092
