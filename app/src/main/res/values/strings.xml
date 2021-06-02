@@ -41,4 +41,7 @@
     <string name="btnSignUp">Registrar</string>
     <string name="btnok">Listo</string>
     <string name="btncancel">Cancelar</string>
+    <string name="facebook_app_id">1017218139104508</string>
+    <string name="fb_login_protocol_scheme">fb1017218139104508</string>
+
 </resources>
