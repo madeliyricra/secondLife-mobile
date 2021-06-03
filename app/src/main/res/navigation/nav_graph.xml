@@ -6,9 +6,9 @@
     app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/navHomeFragment"
-        android:name="com.store.secondlife.view.ui.fragments.HomeFragment"
+        android:name="com.store.secondlife.view.ui.fragments.ProductFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_login">
+        tools:layout="@layout/fragment_product">
         <action
             android:id="@+id/action_homeFragment_to_categoryFragment"
             app:destination="@id/navCategoryFragment" />

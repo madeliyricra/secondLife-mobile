@@ -5,17 +5,19 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
-import com.airbnb.lottie.LottieAnimationView
 import com.github.ybq.android.spinkit.sprite.Sprite
-import com.github.ybq.android.spinkit.style.DoubleBounce
-import com.github.ybq.android.spinkit.style.ThreeBounce
 import com.github.ybq.android.spinkit.style.Wave
+import com.google.firebase.firestore.FirebaseFirestore
 import com.store.secondlife.MainActivity
 import com.store.secondlife.R
+import com.store.secondlife.model.Direccion
+import com.store.secondlife.model.Producto
+import com.store.secondlife.model11.Tarjeta
 import kotlinx.android.synthetic.main.activity_splashscreen.*
+import org.json.JSONArray
+import org.json.JSONObject
 
 
 class SplashscreenActivity : AppCompatActivity() {
@@ -46,6 +48,7 @@ class SplashscreenActivity : AppCompatActivity() {
             }
 
         })
+
     }
 
 }

@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.store.secondlife.R
-import com.store.secondlife.network.DatabaseAccess
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
@@ -21,9 +20,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        DatabaseAccess databaseAccess= DatabaseAccess.getIn;
-        btnSeeSell.setOnClickListener{
-            DatabaseAccess
-        }
+
     }
 }

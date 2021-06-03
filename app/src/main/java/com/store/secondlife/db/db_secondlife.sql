@@ -1,4 +1,4 @@
-/*----------------categoria----------------*/
+﻿/*----------------categoria----------------*/
 DROP TABLE IF EXISTS tb_categoria;
 CREATE TABLE tb_categoria ( 
 	id_categ INTEGER NOT NULL,
@@ -14,35 +14,60 @@ CREATE TABLE tb_categoria (
 		1.- activo
 		2.- desactivo
 */     
-/*---------------tabla login----------------*/
-DROP TABLE IF EXISTS tb_login;
-CREATE TABLE tb_login (
-	id_log TEXT,
+/*----------------tabla rol----------------*/
+DROP TABLE IF EXISTS tb_rol;
+CREATE TABLE tb_rol (
+	id_rol INTEGER NOT NULL,
+	nom_rol TEXT NOT NULL,
+	
+	CONSTRAINT PKrol PRIMARY KEY (id_rol AUTOINCREMENT),
+	CONSTRAINT CKrol_nom CHECK (length(nom_rol)>=3)
+);
+ 
+/*----------------tabla usuario----------------*/
+DROP TABLE IF EXISTS tb_usuario;
+CREATE TABLE tb_usuario (
+	id_usua TEXT,
+	dni_usua TEXT NOT NULL,
+	id_rol INTEGER NOT NULL,
+	nom_usua  TEXT NOT NULL,
+	ape_usua TEXT NOT NULL,
+	tel_usua TEXT NOT NULL,
+	fec_nac_usua DATE NOT NULL,
+
 	usuario TEXT NOT NULL,
 	pass TEXT NOT NULL,
 	email_log TEXT NOT NULL,
+	
     estado INTEGER NOT NULL DEFAULT 1,
 	
-	CONSTRAINT PKlogin PRIMARY KEY (id_log),
+	CONSTRAINT PKusua PRIMARY KEY (id_usua),
+	CONSTRAINT FKusua_rol FOREIGN KEY(id_rol) REFERENCES tb_rol(id_rol),
+    CONSTRAINT CKusua_dni CHECK (length(dni_usua)=8),
+    CONSTRAINT CKusua_dato CHECK (length(nom_usua)>=2 AND (length(ape_usua)>=2)),
+    CONSTRAINT CKusua_tel CHECK (length(tel_usua)=9),
+	
 	CONSTRAINT UQlogin UNIQUE(usuario, email_log),
     CONSTRAINT CKusua CHECK(length(usuario)>=7),
     CONSTRAINT CKpass CHECK (length(pass)>=7),
     CONSTRAINT CKlogins_est CHECK (estado in (1, 2)),
     CONSTRAINT CKlogin_email CHECK (length(email_log)>=10)
+	
+	CONSTRAINT CKemp_est CHECK (estado IN (1, 2))
 );
 
-DROP TRIGGER IF EXISTS  tg_insertar_idlogin;
-CREATE TRIGGER tg_insertar_idlogin
-AFTER INSERT ON tb_login
+DROP TRIGGER IF EXISTS tg_insertar_idusuario;
+CREATE TRIGGER tg_insertar_idusuario
+AFTER INSERT ON tb_usuario
 FOR EACH ROW
 BEGIN
-	-- agregar id
-	UPDATE tb_login
-	SET id_log=SUBSTR(REPLACE(SUBSTR(
-      QUOTE(ZEROBLOB((5 + 1) / 2)), 3, 5), '0', '0'), 1, 5 - length((SELECT COUNT(*) FROM tb_login)))
-      || SUBSTR(((SELECT COUNT(*) FROM tb_login)), 1, 5)
-	  WHERE id_log IS NULL;
-END;
+    -- insertar id
+	UPDATE tb_usuario
+	SET id_usua=SUBSTR(REPLACE(SUBSTR(
+      QUOTE(ZEROBLOB((5 + 1) / 2)), 3, 5), '0', '0'), 1, 5 - length((SELECT COUNT(*) FROM tb_usuario)))
+      || SUBSTR(((SELECT COUNT(*) FROM tb_usuario)), 1, 5)
+	 WHERE id_usua IS NULL;
+END;	
 
 /*---------------tabla numero de cuenta----------------*/
 DROP TABLE IF EXISTS tb_tarjeta;
@@ -52,10 +77,10 @@ CREATE TABLE tb_tarjeta (
     num_tarj TEXT NOT NULL,
     fec_venc DATE NOT NULL,
     cvv INTEGER NOT NULL,
-    id_log TEXT NOT NULL,
+    id_usua TEXT NOT NULL,
 	
 	CONSTRAINT PKtarjeta PRIMARY KEY (id_tarj),
-	CONSTRAINT FKtarj_log FOREIGN KEY(id_log)REFERENCES tb_login(id_log),
+	CONSTRAINT FKtarj_usua FOREIGN KEY(id_usua)REFERENCES tb_usuario(id_usua),
 	CONSTRAINT CKtarj_tip CHECK (length(tip_tarj)>=4),
 	CONSTRAINT CKtarj_num CHECK (length(num_tarj)=16),
 	CONSTRAINT CKtarj_cvv CHECK (cvv>=100 and cvv<=999)
@@ -117,10 +142,10 @@ CREATE TABLE tb_direccion(
     desc_direc TEXT NOT NULL,
     etiqueta TEXT NOT NULL,
     id_dist  INTEGER NOT NULL,
-	id_log TEXT NOT NULL,
+	id_usua TEXT NOT NULL,
 	
 	CONSTRAINT PKdireccion PRIMARY KEY(id_direc),
-    CONSTRAINT FKdirec_log FOREIGN KEY(id_log) REFERENCES tb_login(id_log),
+    CONSTRAINT FKdirec_usua FOREIGN KEY(id_usua) REFERENCES tb_usuario(id_usua),
 	CONSTRAINT FKdirec_dist FOREIGN KEY(id_dist) REFERENCES tb_distrito(id_dist),
 	CONSTRAINT CKdirec_desc CHECK (length(desc_direc)>=4)
 );
@@ -137,99 +162,13 @@ BEGIN
       || SUBSTR(((SELECT COUNT(*) FROM tb_direccion)), 1, 5)
 	 WHERE id_direc IS NULL;
 END;      
-/*----------------tabla rol----------------*/
-/*----------------tabla empleado----------------*/
-DROP TABLE IF EXISTS tb_rol;
-CREATE TABLE tb_rol (
-	id_rol INTEGER NOT NULL,
-	nom_rol TEXT NOT NULL,
-	sue_min REAL NOT NULL,
-	sue_max REAL NOT NULL,
-	
-	CONSTRAINT PKrol PRIMARY KEY (id_rol AUTOINCREMENT),
-	CONSTRAINT CKrol_nom CHECK (length(nom_rol)>=3),
-	CONSTRAINT CKrol_suemax CHECK (sue_min>=930 and sue_min<=1200),
-	CONSTRAINT CKrol_suemin CHECK(sue_max>=1200 and sue_max<=5000)
-);
- 
-/*----------------tabla empleado----------------*/
-DROP TABLE IF EXISTS tb_empleado;
-CREATE TABLE tb_empleado (
-	id_emp TEXT,
-	dni_emp TEXT NOT NULL,
-	id_rol INTEGER NOT NULL,
-	nom_emp  TEXT NOT NULL,
-	ape_emp TEXT NOT NULL,
-	tel_emp TEXT NOT NULL,
-	dir_emp TEXT NOT NULL,
-	fec_nac_emp DATE NOT NULL,
-	obs_emp  TEXT,
-	sue_emp REAL NOT NULL,
-    id_log TEXT NOT NULL,
-    estado INTEGER NOT NULL DEFAULT 1,
-	
-	CONSTRAINT PKemp PRIMARY KEY (id_emp),
-	CONSTRAINT FKemp_rol FOREIGN KEY(id_rol) REFERENCES tb_rol(id_rol),
-    CONSTRAINT FKemp_log FOREIGN KEY (id_log) REFERENCES tb_login (id_log),
-    CONSTRAINT CKemp_dni CHECK (length(dni_emp)=8),
-    CONSTRAINT CKemp_dato CHECK (length(nom_emp)>=2 AND (length(ape_emp)>=2)),
-    CONSTRAINT CKemp_tel CHECK (length(tel_emp)=9),
-    CONSTRAINT CKemp_sue CHECK (sue_emp>=0 AND sue_emp<=5000),
-	CONSTRAINT CKemp_est CHECK (estado IN (1, 2))
-);
-
-DROP TRIGGER IF EXISTS tg_insertar_idempleado;
-CREATE TRIGGER tg_insertar_idempleado
-AFTER INSERT ON tb_empleado
-FOR EACH ROW
-BEGIN
-    -- insertar id
-	UPDATE tb_empleado
-	SET id_emp=SUBSTR(REPLACE(SUBSTR(
-      QUOTE(ZEROBLOB((5 + 1) / 2)), 3, 5), '0', '0'), 1, 5 - length((SELECT COUNT(*) FROM tb_empleado)))
-      || SUBSTR(((SELECT COUNT(*) FROM tb_empleado)), 1, 5)
-	 WHERE id_emp IS NULL;
-END;	
-
-/*----------------tabla cliente----------------*/
-DROP TABLE IF EXISTS tb_cliente;
-CREATE TABLE tb_cliente (
-	id_clie TEXT,
-	dni_clie TEXT NOT NULL,
-	nom_clie TEXT NOT NULL,
-	ape_clie TEXT NOT NULL,
-	fec_nac_clie datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    tel_clie TEXT,
-    id_log TEXT,
-    estado INTEGER NOT NULL DEFAULT 1,
-	
-	CONSTRAINT PKclie PRIMARY KEY(id_clie),
-	CONSTRAINT FKclie_log FOREIGN KEY (id_log) REFERENCES tb_login (id_log),
-    CONSTRAINT CKclie_dni CHECK (length(dni_clie)=8),
-    CONSTRAINT CKclie_dato CHECK (length(nom_clie)>=2 AND (length(ape_clie)>=2)),
-    CONSTRAINT CKclie_tel CHECK (length(tel_clie)=9),
-    CONSTRAINT CKclie_est CHECK (estado IN (1, 2))
-);
-	
-DROP TRIGGER IF EXISTS tg_insertar_idcliente;
-CREATE TRIGGER tg_insertar_idcliente
-AFTER INSERT ON tb_cliente 
-FOR EACH ROW
-BEGIN
-	-- insertar id
-	UPDATE tb_cliente
-	SET id_clie=SUBSTR(REPLACE(SUBSTR(
-      QUOTE(ZEROBLOB((5 + 1) / 2)), 3, 5), '0', '0'), 1, 5 - length((SELECT COUNT(*) FROM tb_cliente)))
-      || SUBSTR(((SELECT COUNT(*) FROM tb_cliente)), 1, 5)
-	 WHERE id_clie IS NULL;
-END;
 
 /*---------------- tabla registro ----------------*/
 DROP TABLE IF EXISTS tb_registro;
 CREATE TABLE tb_registro (
 	id_regis TEXT,
 	id_categ INTEGER NOT NULL,
-	id_clie TEXT NOT NULL,
+	id_usua TEXT NOT NULL,
 	descrip_prod TEXT NOT NULL,
 	observacion TEXT,
 	fecha_regis datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -241,7 +180,7 @@ CREATE TABLE tb_registro (
 	
 	CONSTRAINT PKregistro PRIMARY KEY(id_regis),
     CONSTRAINT FKregis_categ FOREIGN KEY (id_categ) REFERENCES tb_categoria(id_categ),
-    CONSTRAINT FKregis_clie FOREIGN KEY (id_clie) REFERENCES tb_cliente(id_clie),
+    CONSTRAINT FKregis_usua FOREIGN KEY (id_usua) REFERENCES tb_usuario(id_usua),
     CONSTRAINT CKregis_prod CHECK (length(descrip_prod)>=10 AND length(observacion)>=10),
     CONSTRAINT CKregis_prec CHECK (precio>=5.0),
     CONSTRAINT CKregis_stock CHECK (stock>=0 AND stock <=100),
@@ -325,7 +264,7 @@ END;
 DROP TABLE IF EXISTS tb_boleta;
 CREATE TABLE tb_boleta (
 	num_bol TEXT NOT NULL,
-	id_log TEXT NOT NULL,
+	id_usua TEXT NOT NULL,
 	tipo_pago INTEGER NOT NULL,
     descrip_pago TEXT NOT NULL,
     id_direc TEXT NOT NULL,
@@ -335,7 +274,7 @@ CREATE TABLE tb_boleta (
 	total_bol REAL NOT NULL,
 	
 	CONSTRAINT PKbol PRIMARY KEY (num_bol),
-    CONSTRAINT FKbol_log FOREIGN KEY (id_log) REFERENCES tb_login(id_log),
+    CONSTRAINT FKbol_usua FOREIGN KEY (id_usua) REFERENCES tb_login(id_usua),
     CONSTRAINT FKbol_direc FOREIGN KEY (id_direc) REFERENCES tb_direccion(id_direc),
     CONSTRAINT CKbol_impo CHECK (impo_bol>=1.0),
     CONSTRAINT CKbol_envio CHECK  (envio>=1.0),
@@ -387,7 +326,7 @@ BEGIN
 	 WHERE num_det_bol IS NULL;
 END;
 /*---------------------ingreso de datos-----------------------*/
-insert into tb_categoria(nom_categ, descrip_categ) values ('Laptops', 'Computadoras portátiles de peso y tamaño ligero, su tamaño es aproximado al de un portafolio.');
+/*insert into tb_categoria(nom_categ, descrip_categ) values ('Laptops', 'Computadoras portátiles de peso y tamaño ligero, su tamaño es aproximado al de un portafolio.');
 insert into tb_categoria(nom_categ, descrip_categ) values ('Impresoras', 'Periféricos encargados de transferir las imágenes y textos de tu PC a papel.');
 insert into tb_categoria(nom_categ, descrip_categ) values ('Smartphones', 'Teléfonos celulares inteligentes.');
 insert into tb_categoria(nom_categ, descrip_categ) values ('Cámaras', 'Aparatos para registrar imágenes estáticas o en movimiento.');
@@ -455,12 +394,13 @@ insert into tb_cliente values (null,'76428945', 'Juan', 'Rodriguez Suarez', '200
 insert into tb_cliente values (null,'73248756', 'Roberto', 'Fernandez Ramirez', '2002-04-23', '987654321', null, 1);
 insert into tb_cliente values (null,'73200896', 'Alex', 'Quispe Cavero', '2002-04-23', '987654321', null, 1);
 
-insert into tb_rol values (null, 'técnico infomático', 1200, 2000);
-insert into tb_rol values (null, 'personal seguridad', 1200, 1800);
-insert into tb_rol values (null, 'personal delivery', 930, 1200);
-
+insert into tb_rol values (null, 'técnico infomático');
+insert into tb_rol values (null, 'personal seguridad');
+insert into tb_rol values (null, 'personal delivery');
+insert into tb_rol values (null, 'cliente');
+insert into tb_rol values (null, 'proveedor');*/
 /*----------------------LAPTOPS-------------------------*/
-insert into tb_registro values (null, 1, '00001', 'Es una laptop HP...', 'El equipo muestra ligero rapones en la pintura de la parte frontal, software y componentes en buen estado.', '2021-05-01', 1, 800.0, 'no imagen', 6.0, 1);
+/*insert into tb_registro values (null, 1, '00001', 'Es una laptop HP...', 'El equipo muestra ligero rapones en la pintura de la parte frontal, software y componentes en buen estado.', '2021-05-01', 1, 800.0, 'no imagen', 6.0, 1);
 insert into tb_producto values (null, '632541-001', 1, 'HP', '15-dw1085la', 'Procesador: i3-10110U; RAM: 4GB DDR4; ROM: 256GB SSD; Pantalla: 15,6" FHD',
 								'Equipo en buen estado, pintura refaccionada', '2021-05-07', 1, 1500.0, 'no imagen', 8.5, 1);
                                 
@@ -500,9 +440,9 @@ insert into tb_registro values (null, 1, '00001', 'Es una laptop ...', 'El equip
 insert into tb_producto values (null, '852147-004', 1, 'ASUS', 'ROG Zephyrus G14', 'Procesador: Ryzen 9 4900HS; RAM: 16GB; ROM: 1TB SSD; Pantalla: 14" QHD',
 								'Equipo en buen estado, completamente restaurado', '2021-11-30', 1, 5000.0, 'no imagen', 2.0, 1);
 
-
+*/
 /*----------------------IMPRESORAS-------------------------*/
-insert into tb_registro values (null, 1, '00001', 'Es una impresora ...', 'El equipo muestra ligeros raspones en el cuerpo y nivel de tinta al 50%', '2021-05-10', 1, 450.0, 'no imagen', 6.0, 1);      	
+/*insert into tb_registro values (null, 1, '00001', 'Es una impresora ...', 'El equipo muestra ligeros raspones en el cuerpo y nivel de tinta al 50%', '2021-05-10', 1, 450.0, 'no imagen', 6.0, 1);      	
 insert into tb_producto values (null, '524786-001', 2, 'HP', 'Multifuncional Ink Tank 415', 'Capacidad: 60 hojas; Wi-Fi: No; Bluetooth: No; NFC: No',
 								'Equipo en buen estado, pintura refaccionada y tinta al 100%', '2020-07-07', 1, 700.0, 'no imagen', 8.5, 1);
                         
@@ -542,9 +482,9 @@ insert into tb_registro values (null, 1, '00001', 'Es una impresora ...', 'El eq
 insert into tb_producto values (null, '842364-004', 2, 'Epson', 'Multifuncional Wifi EcoTank L4160', 'Capacidad: 100 hojas; Wi-Fi: Si; Bluetooth: No; NFC: No',
 								'Equipo en buen estado, completamente restaurado y tinta al 100%', '2020-07-25', 1, 650.0, 'no imagen', 7.0, 1);
               
-              
+     */         
 /*----------------------SMARTPHONES-------------------------*/
-insert into tb_registro values (null, 1, '00001', 'Es una celular ...', 'El equipo muestra ligeros raspones en el cuerpo', '2021-05-10', 1, 3500.0, 'no imagen', 6.0, 1);    
+/*insert into tb_registro values (null, 1, '00001', 'Es una celular ...', 'El equipo muestra ligeros raspones en el cuerpo', '2021-05-10', 1, 3500.0, 'no imagen', 6.0, 1);    
 insert into tb_producto values (null, '125487-001', 3, 'Apple', 'iPhone 12 Blue', 'Pantalla: 6.1" FHD+; RAM: 4GB; ROM: 128GB; Procesador: A14 Bionic; Cámara posterior: 12MP; Cámara frontal: 12MP',
 								'Equipo en buen estado, pintura refaccionada', '2020-07-07', 1, 4000.0, 'no imagen', 8.5, 1);
                                 
@@ -584,7 +524,7 @@ insert into tb_registro values (null, 1, '00001', 'Es una celular ...', 'El equi
 insert into tb_producto values (null, '993254-004', 3, 'Samsung', 'Galaxy A71 Blanco', 'Capacidad: 100 hojas; Wi-Fi: Si; Bluetooth: No; NFC: No',
 								'Equipo en buen estado, completamente restaurado', '2020-07-25',  1, 750.0, 'no imagen', 7.0, 1);
 
-
+*/
 
 /*----------------------CÁMARAS-------------------------*/
 
