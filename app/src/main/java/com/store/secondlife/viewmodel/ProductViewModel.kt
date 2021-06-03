@@ -12,11 +12,11 @@ class ProductViewModel: ViewModel() {
     val listaProducto:MutableLiveData<List<Producto>> = MutableLiveData()
     val isLoading= MutableLiveData<Boolean>()
 
-    fun refresh(){
-        getProductFromFirebase()
+    fun refresh(cat: String){
+        getProductFromFirebase(cat)
     }
 
-    private fun getProductFromFirebase() {
+    private fun getProductFromFirebase(cat:String) {
        firestoreService.getProducto(object : Callback<List<Producto>>{
            override fun onSuccess(result: List<Producto>?) {
               listaProducto.postValue(result)
@@ -26,7 +26,7 @@ class ProductViewModel: ViewModel() {
                processFinished()
            }
 
-       })
+       }, cat)
     }
 
     fun processFinished(){

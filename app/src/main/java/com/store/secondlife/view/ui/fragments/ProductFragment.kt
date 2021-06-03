@@ -6,12 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.*
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.store.secondlife.R
+import com.store.secondlife.model.Categoria
 import com.store.secondlife.model.Producto
 import com.store.secondlife.view.adapter.ProductAdapter
 import com.store.secondlife.view.adapter.ProductListener
@@ -30,16 +29,17 @@ class ProductFragment : Fragment(), ProductListener {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val category=arguments?.getSerializable("categoria") as Categoria
         super.onViewCreated(view, savedInstanceState)
         viewModel=ViewModelProviders.of(this).get(ProductViewModel::class.java)
-        viewModel.refresh()
+        viewModel.refresh(category.key)
         productoAdapter= ProductAdapter(this)
 
         rvProducto.apply {
             layoutManager=GridLayoutManager(context,2)
             adapter=productoAdapter
         }
-        viewModel.listaProducto.observe(viewLifecycleOwner, Observer<List<Producto>> { producto ->
+        viewModel.listaProducto.observe(viewLifecycleOwner,Observer<List<Producto>> { producto ->
             producto.let {
                 productoAdapter.updateData(producto)
             }

@@ -1,5 +1,7 @@
 package com.store.secondlife.network
 
+import android.nfc.Tag
+import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.store.secondlife.model.Categoria
@@ -15,8 +17,9 @@ class FirestoreService {
     init{
         firebaseFirestore.firestoreSettings==settings
     }
-    fun getProducto(callbak:Callback<List<Producto>>){
-        firebaseFirestore.collection("categoria").document("T8VT5QGGnqWXXAq3Cnf4")
+    /*----metodos con el firebase-------------*/
+    fun getProducto(callbak:Callback<List<Producto>>, cat:String){
+        firebaseFirestore.collection("categoria").document(cat)
             .collection(PRODUCTO_COLLECTION_NAME)
             .orderBy("marca")
             .get()
@@ -30,14 +33,21 @@ class FirestoreService {
     }
     fun getCategoria(callbak: Callback<List<Categoria>>){
         firebaseFirestore.collection(CATEGORIA_COLLECTION_NAME)
-            .orderBy("mombre")
             .get()
             .addOnSuccessListener { result->
-                for(doc in result){
-                    val list=result.toObjects(Categoria::class.java)
-                    callbak.onSuccess(list)
-                    break
+                val lis:ArrayList<Categoria> =ArrayList<Categoria>()
+                result.forEach { doc ->
+                    val c:Categoria= Categoria()
+                    c.key=doc.id
+                    c.nombre=doc.getString("nombre").toString()
+                    c.descripcion=doc.getString("descripcion").toString()
+                    c.imagen=doc.getString("imagen").toString()
+                    lis.add(c)
+
+                    val cod=doc.id
                 }
+                callbak.onSuccess(lis)
             }
     }
+
 }

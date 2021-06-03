@@ -26,12 +26,12 @@ class ProductAdapter(val productListener:ProductListener):
         val producto=listProduct[position] as Producto
         Glide.with(holder.itemView.context)
             .load(producto.imagen)
-            .apply(RequestOptions.circleCropTransform())
+            .apply(RequestOptions.centerCropTransform())
             .into(holder.ivimagen)
-        holder.tvcategoria.text=producto.imagen
+        holder.tvcategoria.text=producto.marca
         holder.tvmodelo.text=producto.modelo
         holder.tvmarca.text=producto.marca
-        holder.tvprecio.text= producto.precio.toString()
+        holder.tvprecio.text= "S/. "+producto.precio.toString()
 
         holder.itemView.setOnClickListener {
             productListener.onProductClicked(producto, position)
