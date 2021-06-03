@@ -29,7 +29,7 @@ RecyclerView.Adapter<CategoryAdapter.ViewHoldel>() {
         val category=listCategory[position] as Categoria
         Glide.with(holder.itemView.context)
             .load(category.imagen)
-            .apply(RequestOptions.centerCropTransform())
+            .apply(RequestOptions.fitCenterTransform())
             .into(holder.ivimagen)
         holder.tvnombre.text=category.nombre
         holder.tvdescripcion.text=category.descripcion

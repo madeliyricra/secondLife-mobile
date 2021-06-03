@@ -19,7 +19,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="190dp"
-                android:background="@drawable/background_1"
+                android:background="@drawable/back_1"
                 android:gravity="right"
                 android:orientation="horizontal">
 
@@ -146,7 +146,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/border_banner"
-                android:backgroundTint="@color/third"
+                android:backgroundTint="@color/primary"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:paddingTop="10dp"
@@ -173,7 +173,7 @@
                         android:layout_width="100dp"
                         android:layout_height="35dp"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/border_back"
+                        android:background="@drawable/border_secundary"
                         android:drawableRight="@drawable/ic_arrow_right"
                         android:text="@string/btn_ver"
                         android:textAllCaps="false"

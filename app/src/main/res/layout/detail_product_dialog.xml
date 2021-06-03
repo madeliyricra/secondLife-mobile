@@ -33,7 +33,7 @@
                             android:gravity="center"
                             android:background="@drawable/pane_detail_prod">
                             <ImageView
-                                android:id="@+id/imagePrincipal"
+                                android:id="@+id/iv_imagen"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:src="@drawable/exemplo_product"
@@ -46,7 +46,7 @@
                         android:orientation="vertical"
                         android:layout_marginTop="20dp">
                         <TextView
-                            android:id="@+id/textView2"
+                            android:id="@+id/tv_nombre"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="20dp"
@@ -55,7 +55,7 @@
                             android:textColor="@color/primary"
                             android:text="Nombre del producto" />
                         <TextView
-                            android:id="@+id/textView"
+                            android:id="@+id/tv_precio"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="18dp"
@@ -64,7 +64,7 @@
                             android:textColor="@color/third"
                             android:text="$99.90" />
                         <TextView
-                            android:id="@+id/textView3"
+                            android:id="@+id/tv_observacion"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="16sp"
@@ -124,6 +124,7 @@
                                 android:background="@drawable/border_redondo"
                                 android:padding="10dp"/>
                             <TextView
+                                android:id="@+id/tv_cantidad"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/border_redondo"
@@ -166,6 +167,7 @@
                     android:gravity="left|center_vertical"
                     android:paddingLeft="20dp">
                     <TextView
+                        android:id="@+id/tv_categoria"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="20dp"
@@ -181,6 +183,7 @@
                         android:textSize="12sp"
                         android:layout_marginEnd="5dp"/>
                     <TextView
+                        android:id="@+id/tv_marca"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="20dp"

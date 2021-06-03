@@ -38,7 +38,7 @@ class ProductAdapter(val productListener:ProductListener):
         }
     }
 
-    fun updateData(data:List<Producto>){
+    fun updateData(data: List<Producto>){
         listProduct.clear()
         listProduct.addAll(data)
         notifyDataSetChanged()
