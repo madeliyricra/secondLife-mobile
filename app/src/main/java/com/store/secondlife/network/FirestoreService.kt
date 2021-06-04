@@ -1,7 +1,6 @@
 package com.store.secondlife.network
 
-import android.nfc.Tag
-import android.util.Log
+
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.store.secondlife.model.Categoria
