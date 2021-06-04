@@ -67,11 +67,12 @@ class RegisterFragment : Fragment(), View.OnClickListener {
     override fun onClick(p0: View?) {
 
         if (p0 == btnok) {
-            val email: String = txtEmail.text.isNotEmpty().toString().trim()
-            val contra: String = txtPassword.text.isNotEmpty().toString().trim()
+            val email: String = txtEmail.text.toString()
+            val contra: String = txtPassword.text.toString()
 
             auth.createUserWithEmailAndPassword(email,contra)
                 .addOnCompleteListener(requireActivity()) { task ->
+
                     if (task.isSuccessful) {
                         val user = auth.currentUser
                         val intent = Intent(requireContext(),MainActivity::class.java)

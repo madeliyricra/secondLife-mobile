@@ -31,7 +31,7 @@
 <!--            android:textColor="@color/white" />-->
 
         <com.facebook.login.widget.LoginButton
-            android:id="@+id/login_button"
+            android:id="@+id/buttonFacebookLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
