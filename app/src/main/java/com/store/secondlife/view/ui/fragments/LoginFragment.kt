@@ -24,6 +24,7 @@ import com.facebook.login.widget.LoginButton
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.store.secondlife.MainActivity
 import com.store.secondlife.R
 
 
@@ -31,27 +32,53 @@ class LoginFragment : Fragment(), View.OnClickListener {
     lateinit var btnSignIn: Button
     lateinit var btnSignUp: Button
     lateinit var btnGoogle: Button
-    //lateinit var btnFacebook: Button
+
+   // lateinit var btnFacebook: Button
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var callbackManager: CallbackManager
-     lateinit var buttonFacebookLogin: LoginButton
+    lateinit var buttonFacebookLogin: LoginButton
 
     lateinit var txtusu: EditText
     lateinit var txtpass: EditText
 
-    private lateinit var auth: FirebaseAuth
 
     companion object {
-        private const val TAG = "GoogleActivity"
-        private const val RC_SIGN_IN = 9001
+           private const val TAG = "GoogleActivity"
+         private const val RC_SIGN_IN = 9001
         private const val TAG2 = "EmailPassword"
-        private const val TAG3 = "FacebookLogin"
+         private const val TAG3 = "FacebookLogin"
+    }
+
+    private lateinit var emauth: FirebaseAuth
+    private lateinit var goauth: FirebaseAuth
+    private lateinit var fbauth: FirebaseAuth
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_login, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        btnSignIn = view.findViewById(R.id.btnSignIn)
+        btnSignIn.setOnClickListener(this)
+        btnSignUp = view.findViewById(R.id.btnSignUp)
+        btnSignUp.setOnClickListener(this)
+        btnGoogle = view.findViewById(R.id.btnGoogle)
+        btnGoogle.setOnClickListener(this)
+
+        txtusu = view.findViewById(R.id.txtusu)
+        txtpass = view.findViewById(R.id.txtpass)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Initialize Firebase Auth
-        auth = Firebase.auth
+        emauth = Firebase.auth
+        fbauth = Firebase.auth
 
         // Initialize Facebook Login button
         callbackManager = CallbackManager.Factory.create()
@@ -83,13 +110,12 @@ class LoginFragment : Fragment(), View.OnClickListener {
         googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
 
         // Initialize Firebase Auth
-        auth = FirebaseAuth.getInstance()
+        emauth = Firebase.auth
+        goauth = Firebase.auth
 
-        btnSignIn.setOnClickListener {
+        btnGoogle.setOnClickListener {
             signIn()
         }
-
-
     }
 
     private fun signIn() {
@@ -100,17 +126,17 @@ class LoginFragment : Fragment(), View.OnClickListener {
     override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        updateUI(currentUser)
+        val currentUsergo = goauth.currentUser
+        updateUI(currentUsergo)
 
-
-        if(currentUser != null) {
+        val currentUser = emauth.currentUser
+        if (currentUser != null) {
             reload()
         }
 
-    }
+        val currentUserfb = fbauth.currentUser
+        updateUI(currentUserfb)
 
-    private fun updateUI(user: FirebaseUser?) {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -141,12 +167,12 @@ class LoginFragment : Fragment(), View.OnClickListener {
         Log.d(TAG, "handleFacebookAccessToken:$token")
 
         val credential = FacebookAuthProvider.getCredential(token.token)
-        auth.signInWithCredential(credential)
+        fbauth.signInWithCredential(credential)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG3, "signInWithCredential:success")
-                    val user = auth.currentUser
+                    val user = fbauth.currentUser
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
@@ -161,61 +187,43 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
-        auth.signInWithCredential(credential)
+        goauth.signInWithCredential(credential)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
-                    val user = auth.currentUser
+                    val user = goauth.currentUser
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                     updateUI(null)
-
                 }
             }
-    }
-
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        btnSignIn = view.findViewById(R.id.btnSignIn)
-        btnSignIn.setOnClickListener(this)
-        btnSignUp = view.findViewById(R.id.btnSignUp)
-        btnSignUp.setOnClickListener(this)
-        btnGoogle=view.findViewById(R.id.btnGoogle)
-        btnGoogle.setOnClickListener(this)
-
-        txtusu = view.findViewById(R.id.txtusu)
-        txtpass = view.findViewById(R.id.txtpass)
     }
 
     override fun onClick(p0: View?) {
 
         if (btnSignIn == p0) {
-            val usu: String = txtusu.text.toString()
-            val pass: String = txtpass.text.toString()
-            auth.signInWithEmailAndPassword(usu, pass)
+            val usu: String = txtusu.text.isNotEmpty().toString().trim()
+            val pass: String = txtpass.text.isNotEmpty().toString().trim()
+
+            emauth.signInWithEmailAndPassword(usu,pass)
                 .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
-                        Log.d(TAG2, "signInWithEmail:success")
-                        val user = auth.currentUser
+                        val user = emauth.currentUser
+                        val intent = Intent(requireContext(), MainActivity::class.java)
+                        requireActivity().startActivity(intent)
+                        requireActivity().finish()
                         updateUI(user)
                         findNavController().navigate(R.id.navProfileFragment)
                     } else {
                         Log.w(TAG2, "signInWithEmail:failure", task.exception)
-                        Toast.makeText(context, "No se puede realizar esta acción.",
-                            Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            context, "No se puede realizar esta acción.",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         updateUI(null)
                     }
                 }
@@ -233,7 +241,11 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
         }
     }
-        private fun reload() {
 
-        }
+    private fun updateUI(user: FirebaseUser?) {
+    }
+
+    private fun reload() {
+
+    }
 }

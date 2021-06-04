@@ -17,16 +17,7 @@
             android:layout_marginBottom="20dp"
             android:src="@drawable/ic_login_1" />
 
-
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/buttonFacebookLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp" />
-
-<!--        <Button-->
+        <!--        <Button-->
 <!--            android:id="@+id/btnFaceook"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"-->
@@ -38,6 +29,16 @@
 <!--            android:text="@string/facebook"-->
 <!--            android:textAllCaps="false"-->
 <!--            android:textColor="@color/white" />-->
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp" />
 
         <Button
             android:id="@+id/btnGoogle"
@@ -60,7 +61,7 @@
             android:background="@drawable/border_redondo"
             android:gravity="center_vertical"
             android:hint="@string/login_user"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:maxLength="50"
             android:paddingLeft="10dp"
             android:textSize="14dp" />

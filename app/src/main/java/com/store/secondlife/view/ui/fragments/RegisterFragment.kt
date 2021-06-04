@@ -1,6 +1,5 @@
 package com.store.secondlife.view.ui.fragments
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -20,6 +19,7 @@ import com.store.secondlife.MainActivity
 import com.store.secondlife.R
 
 class RegisterFragment : Fragment(), View.OnClickListener {
+
     lateinit var btnok: Button
     lateinit var btncancel: Button
 
@@ -30,6 +30,10 @@ class RegisterFragment : Fragment(), View.OnClickListener {
     lateinit var txtLastName: EditText
     lateinit var txtPassword: EditText
     private lateinit var auth: FirebaseAuth
+
+    companion object {
+        private const val TAG = "EmailPassword"
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,26 +67,23 @@ class RegisterFragment : Fragment(), View.OnClickListener {
     override fun onClick(p0: View?) {
 
         if (p0 == btnok) {
-            val email: String = txtEmail.text.toString()
-            val contra: String = txtPassword.text.toString()
+            val email: String = txtEmail.text.isNotEmpty().toString().trim()
+            val contra: String = txtPassword.text.isNotEmpty().toString().trim()
 
-            auth.createUserWithEmailAndPassword(email, contra)
+            auth.createUserWithEmailAndPassword(email,contra)
                 .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
-                        Log.d(TAG, "createUserWithEmail:success")
-                        Toast.makeText(
-                            context, "Usuario creado exitosamente.",
-                            Toast.LENGTH_SHORT).show()
                         val user = auth.currentUser
-                        updateUI(user)
-                        /*val intent:Intent=Intent(requireContext(),MainActivity::class.java)
+                        val intent = Intent(requireContext(),MainActivity::class.java)
                         requireActivity().startActivity(intent)
-                        requireActivity().finish()*/
+                        requireActivity().finish()
+                        updateUI(user)
                         findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+
                     } else {
                         Log.w(TAG, "createUserWithEmail:failure", task.exception)
                         Toast.makeText(
-                            context, "Authentication failed.",
+                            context, "No se puede realizar esta acción",
                             Toast.LENGTH_SHORT).show()
                         updateUI(null)
                     }
@@ -93,10 +94,6 @@ class RegisterFragment : Fragment(), View.OnClickListener {
     }
 
     private fun updateUI(user: FirebaseUser?) {
-    }
-
-    companion object {
-        private const val TAG = "EmailPassword"
     }
 
 }

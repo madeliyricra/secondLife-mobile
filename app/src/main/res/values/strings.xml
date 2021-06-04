@@ -39,7 +39,7 @@
     <string name="app_label">app_label</string>
     <string name="btnSignIn">Ingresar</string>
     <string name="btnSignUp">Registrar</string>
-    <string name="btnok">Listo</string>
+    <string name="btnok">Guardar</string>
     <string name="btncancel">Cancelar</string>
     <string name="facebook_app_id">1017218139104508</string>
     <string name="fb_login_protocol_scheme">fb1017218139104508</string>
