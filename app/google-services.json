@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "167207741043",
+    "firebase_url": "https://fir-prueba-429df-default-rtdb.firebaseio.com",
     "project_id": "fir-prueba-429df",
     "storage_bucket": "fir-prueba-429df.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "167207741043-i5iiee5sslr8o8el0f981dcudn7vjht0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.store.secondlife",
+            "certificate_hash": "a6daed36286cf292469163068db1f1797f92a429"
+          }
+        },
         {
           "client_id": "167207741043-qm3e8ni3rfk10vkl6nv56j17ed3l500a.apps.googleusercontent.com",
           "client_type": 3
