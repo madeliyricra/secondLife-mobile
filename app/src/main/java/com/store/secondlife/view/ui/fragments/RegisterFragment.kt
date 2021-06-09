@@ -23,12 +23,12 @@ class RegisterFragment : Fragment(), View.OnClickListener {
     lateinit var btnok: Button
     lateinit var btncancel: Button
 
-    lateinit var txtEmail: EditText
+    lateinit var usua: EditText
     lateinit var txtUser: EditText
     lateinit var txtDNI: EditText
     lateinit var txtFirstName: EditText
     lateinit var txtLastName: EditText
-    lateinit var txtPassword: EditText
+    lateinit var passw: EditText
     private lateinit var auth: FirebaseAuth
 
     companion object {
@@ -51,12 +51,12 @@ class RegisterFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        txtEmail = view.findViewById(R.id.txtEmail)
+        usua = view.findViewById(R.id.usua)
         txtUser = view.findViewById(R.id.txtUser)
         txtDNI = view.findViewById(R.id.txtDNI)
         txtFirstName = view.findViewById(R.id.txtFirstName)
         txtLastName = view.findViewById(R.id.txtLastName)
-        txtPassword = view.findViewById(R.id.txtPassword)
+        passw = view.findViewById(R.id.passw)
 
         btnok = view.findViewById(R.id.btnok)
         btncancel = view.findViewById(R.id.btncancel)
@@ -67,8 +67,8 @@ class RegisterFragment : Fragment(), View.OnClickListener {
     override fun onClick(p0: View?) {
 
         if (p0 == btnok) {
-            val email: String = txtEmail.text.toString()
-            val contra: String = txtPassword.text.toString()
+            val email: String = usua.text.toString()
+            val contra: String = passw.text.toString()
 
             auth.createUserWithEmailAndPassword(email,contra)
                 .addOnCompleteListener(requireActivity()) { task ->

@@ -5,17 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.store.secondlife.R
 import kotlinx.android.synthetic.main.fragment_profile.*
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ProfileFragment : Fragment() {
+class ProfileFragment : Fragment(), View.OnClickListener  {
+
+    lateinit var btnlogout:Button
+    private lateinit var auth: FirebaseAuth
+
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -25,10 +28,25 @@ class ProfileFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        auth = Firebase.auth
+
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnclick()
 
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            reload()
+        }
     }
 
     fun btnclick(){
@@ -43,5 +61,30 @@ class ProfileFragment : Fragment() {
                 findNavController().navigate(R.id.profileInformationDialogFragment, bundle)
             }
         }
+    }
+    private fun signOut() {
+        // [START auth_sign_out]
+        Firebase.auth.signOut()
+        // [END auth_sign_out]
+    }
+
+    override fun onClick(p0: View?) {
+
+        if (p0 == btnlogout){
+            auth.signOut()
+            Toast.makeText(
+                    context, "Sesión cerrada",
+            Toast.LENGTH_SHORT
+            ).show()
+
+        }else{
+            Toast.makeText(
+                context, "Debes iniciar sesión para realizar esta acción",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
+    private fun reload() {
+
     }
 }

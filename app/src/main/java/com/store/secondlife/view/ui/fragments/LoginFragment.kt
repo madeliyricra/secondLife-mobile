@@ -38,8 +38,8 @@ class LoginFragment : Fragment(), View.OnClickListener {
     private lateinit var callbackManager: CallbackManager
     lateinit var buttonFacebookLogin: LoginButton
 
-    lateinit var txtusu: EditText
-    lateinit var txtpass: EditText
+    lateinit var usua: EditText
+    lateinit var passw: EditText
 
 
     companion object {
@@ -70,8 +70,8 @@ class LoginFragment : Fragment(), View.OnClickListener {
 //        btnGoogle = view.findViewById(R.id.btnGoogle)
 //        btnGoogle.setOnClickListener(this)
 
-        txtusu = view.findViewById(R.id.txtusu)
-        txtpass = view.findViewById(R.id.txtpass)
+        usua = view.findViewById(R.id.usua)
+        passw = view.findViewById(R.id.passw)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -205,8 +205,8 @@ class LoginFragment : Fragment(), View.OnClickListener {
     override fun onClick(p0: View?) {
 
         if (btnSignIn == p0) {
-            val usu: String = txtusu.text.toString().trim()
-            val pass: String = txtpass.text.toString().trim()
+            val usu: String = usua.text.toString().trim()
+            val pass: String = passw.text.toString().trim()
 
             emauth.signInWithEmailAndPassword(usu,pass)
                 .addOnCompleteListener(requireActivity()) { task ->
@@ -217,7 +217,6 @@ class LoginFragment : Fragment(), View.OnClickListener {
                         requireActivity().startActivity(intent)
                         requireActivity().finish()
                         updateUI(user)
-                        findNavController().navigate(R.id.navProfileFragment)
                     } else {
                         Log.w(TAG2, "signInWithEmail:failure", task.exception)
                         Toast.makeText(

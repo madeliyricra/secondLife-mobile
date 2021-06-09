@@ -118,6 +118,15 @@
                     android:drawableLeft="@drawable/ic_add_card"
                     android:drawableRight="@drawable/ic_arrow_right_profile"
                     android:layout_marginBottom="10dp"/>
+                <Button
+                    android:id="@+id/btnlogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/hover_btn"
+                    android:textAllCaps="false"
+                    android:padding="15dp"
+                    android:text="@string/btnlogout"
+                    android:layout_marginBottom="10dp"/>
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>
