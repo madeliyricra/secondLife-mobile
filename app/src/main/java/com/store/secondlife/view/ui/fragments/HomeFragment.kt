@@ -80,7 +80,7 @@ class HomeFragment : Fragment(), CategoryListener, ProductListener {
 
     override fun onProductClicked(product: Producto, positio: Int) {
         var bundle= bundleOf("producto" to product)
-        //bundle.putString("categoria",category.nombre)
+        bundle.putString("categoria","categoria")
         findNavController().navigate(R.id.detailProductDialogFragment, bundle)
     }
 }
