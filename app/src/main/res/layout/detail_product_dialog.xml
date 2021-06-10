@@ -246,13 +246,13 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="horizontal">
-                <ImageButton
-                    android:id="@+id/ib_retornar"
+                <Button
+                    android:id="@+id/dp_retornar"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_weight="0.7"
-                    android:background="@color/material_on_surface_stroke"
-                    android:src="@drawable/hover_arrow_left"/>
+                    android:background="@drawable/hover_arrow_left"
+                   />
                 <TextView
                     android:id="@+id/tv_title_producto"
                     android:layout_width="0dp"
