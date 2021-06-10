@@ -72,7 +72,6 @@ class ProductFragment : Fragment(), ProductListener, CategoryListener {
     override fun onProductClicked(product: Producto, position: Int) {
         var bundle= bundleOf("producto" to product)
         bundle.putString("categoria",category.nombre)
-        println("hola"+product.descripcion)
         findNavController().navigate(R.id.detailProductDialogFragment, bundle)
     }
 

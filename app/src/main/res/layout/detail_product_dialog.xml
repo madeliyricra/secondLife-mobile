@@ -249,8 +249,8 @@
                 <Button
                     android:id="@+id/dp_retornar"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="0.7"
+                    android:layout_height="25dp"
+                    android:layout_weight="0.5"
                     android:background="@drawable/hover_arrow_left"
                    />
                 <TextView

@@ -51,7 +51,7 @@ class HomeFragment : Fragment(), CategoryListener, ProductListener {
         categoryAdapter= CategoryHomeAdapter(this)
 
         rvCategory.apply{
-            layoutManager= LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
+            layoutManager=GridLayoutManager(context,3)
             adapter=categoryAdapter
         }
 
@@ -64,7 +64,7 @@ class HomeFragment : Fragment(), CategoryListener, ProductListener {
         productoAdapter= ProductHomeAdapter(this)
 
         rvRecommend.apply {
-            layoutManager=GridLayoutManager(context,2)
+            layoutManager= LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
             adapter=productoAdapter
         }
         productViewModel.listaProducto.observe(viewLifecycleOwner,Observer<List<Producto>> { producto ->
@@ -79,6 +79,8 @@ class HomeFragment : Fragment(), CategoryListener, ProductListener {
     }
 
     override fun onProductClicked(product: Producto, positio: Int) {
-        TODO("Not yet implemented")
+        var bundle= bundleOf("producto" to product)
+        //bundle.putString("categoria",category.nombre)
+        findNavController().navigate(R.id.detailProductDialogFragment, bundle)
     }
 }

@@ -12,6 +12,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.store.secondlife.R
 import com.store.secondlife.model.Producto
 import kotlinx.android.synthetic.main.detail_product_dialog.*
+import kotlinx.android.synthetic.main.fragment_product.*
 import kotlinx.android.synthetic.main.item_category.*
 import kotlinx.android.synthetic.main.item_category.iv_imagen
 import kotlinx.android.synthetic.main.item_category.tv_nombre

@@ -1,8 +1,6 @@
 package com.store.secondlife.network
 
 
-import androidx.lifecycle.MutableLiveData
-import com.google.common.collect.ArrayListMultimap
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.store.secondlife.model.Categoria
@@ -55,7 +53,6 @@ class FirestoreService {
                 lis.forEach { c ->
                     firebaseFirestore.collection("categoria").document(c.key)
                         .collection(PRODUCTO_COLLECTION_NAME)
-                        .orderBy("calidad")
                         .get()
                         .addOnSuccessListener { result ->
 
@@ -76,8 +73,15 @@ class FirestoreService {
                                 prod.add(p)
 
                             }
-                            println("cant " + prod.size)
-                            callbak.onSuccess(prod)
+                            val pro:ArrayList<Producto> =ArrayList<Producto>()
+                            var num=0
+                            for(p in prod.sortedByDescending { producto ->  producto.calidad }){
+                              if(num<6){
+                                  num++
+                                  pro.add(p)
+                              }
+                            }
+                            callbak.onSuccess(pro)
                         }
                 }
 
