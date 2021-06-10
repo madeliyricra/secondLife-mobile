@@ -12,9 +12,9 @@ import com.bumptech.glide.request.RequestOptions
 import com.store.secondlife.R
 import com.store.secondlife.model.Producto
 import kotlinx.android.synthetic.main.detail_product_dialog.*
-import kotlinx.android.synthetic.main.detail_product_dialog.iv_imagen
-import kotlinx.android.synthetic.main.detail_product_dialog.tv_nombre
 import kotlinx.android.synthetic.main.item_category.*
+import kotlinx.android.synthetic.main.item_category.iv_imagen
+import kotlinx.android.synthetic.main.item_category.tv_nombre
 
 
 class DetailProductDialogFragment : DialogFragment() {
@@ -37,7 +37,7 @@ class DetailProductDialogFragment : DialogFragment() {
         val categoria = arguments?.getString("categoria") as String
         dataProducto(producto, categoria)
 
-        ib_retornar.setOnClickListener {
+        dp_retornar.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
 
         }
