@@ -20,21 +20,20 @@ import com.store.secondlife.R
 
 class RegisterFragment : Fragment(), View.OnClickListener {
 
-    lateinit var btnok: Button
-    lateinit var btncancel: Button
+    private lateinit var btnok: Button
+    private lateinit var btncancel: Button
 
-    lateinit var txtEmail: EditText
-    lateinit var txtUser: EditText
-    lateinit var txtDNI: EditText
-    lateinit var txtFirstName: EditText
-    lateinit var txtLastName: EditText
-    lateinit var txtPassword: EditText
+    private lateinit var txtEmail: EditText
+    private lateinit var txtUser: EditText
+    private lateinit var txtDNI: EditText
+    private lateinit var txtFirstName: EditText
+    private lateinit var txtLastName: EditText
+    private lateinit var txtPassword: EditText
     private lateinit var auth: FirebaseAuth
 
     companion object {
         private const val TAG = "EmailPassword"
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,14 +71,13 @@ class RegisterFragment : Fragment(), View.OnClickListener {
 
             auth.createUserWithEmailAndPassword(email,contra)
                 .addOnCompleteListener(requireActivity()) { task ->
-
                     if (task.isSuccessful) {
                         val user = auth.currentUser
-                        val intent = Intent(requireContext(),MainActivity::class.java)
+                        val intent = Intent(requireContext(), MainActivity::class.java)
                         requireActivity().startActivity(intent)
                         requireActivity().finish()
                         updateUI(user)
-                        findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+                        findNavController().navigate(R.id.loginFragment)
 
                     } else {
                         Log.w(TAG, "createUserWithEmail:failure", task.exception)
@@ -90,7 +88,7 @@ class RegisterFragment : Fragment(), View.OnClickListener {
                     }
                 }
         } else if (p0 == btncancel) {
-            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+            findNavController().navigate(R.id.loginFragment)
         }
     }
 

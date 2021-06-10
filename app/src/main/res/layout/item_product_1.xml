@@ -2,8 +2,7 @@
 <androidx.cardview.widget.CardView
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
-    android:layout_marginTop="2dp"
-    android:layout_marginBottom="2dp"
+    android:layout_margin="10dp"
     app:cardBackgroundColor="@android:color/transparent"
     app:cardElevation="0dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -67,13 +66,7 @@
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
-            <ImageButton
-                android:id="@+id/ib_agregarproducto"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#00020E26"
-                android:src="@drawable/ic_add_prod"/>
+
         </LinearLayout>
     </LinearLayout>
 

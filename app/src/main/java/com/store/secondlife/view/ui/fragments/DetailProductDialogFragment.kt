@@ -5,11 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Lifecycle
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.store.secondlife.R
 import com.store.secondlife.model.Producto
 import kotlinx.android.synthetic.main.detail_product_dialog.*
+import kotlinx.android.synthetic.main.detail_product_dialog.iv_imagen
+import kotlinx.android.synthetic.main.detail_product_dialog.tv_nombre
+import kotlinx.android.synthetic.main.item_category.*
 
 
 class DetailProductDialogFragment : DialogFragment() {
@@ -29,17 +34,26 @@ class DetailProductDialogFragment : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val producto=arguments?.getSerializable("producto") as Producto
+        val categoria = arguments?.getString("categoria") as String
+        dataProducto(producto, categoria)
 
-        dataProducto(producto)
+        ib_retornar.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
 
+        }
     }
-    fun dataProducto(p:Producto){
+    fun dataProducto(p:Producto, categoria:String){
         tv_marca.text=p.marca
         tv_precio.text= p.precio.toString()
          Glide.with(iv_imagen.context)
             .load(p.imagen)
             .apply(RequestOptions.fitCenterTransform())
             .into(iv_imagen)
+        tv_cantidad.text=p.stock.toString()
+        tv_nombre.text=p.modelo
+        tv_observacion.text=p.observacion
+        tv_caracteristica.text=p.descripcion
+        tv_categoria.text=categoria
     }
     override fun onStart() {
         super.onStart()

@@ -37,7 +37,9 @@ class HomeFragment : Fragment(), CategoryListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        btnSeeSell.setOnClickListener {
+            findNavController().navigate(R.id.loginFragment)
+        }
         /*-------vista de categorias-----------------*/
         viewModel= ViewModelProviders.of(this).get(CategoryViewModel::class.java)
         viewModel.refresh()

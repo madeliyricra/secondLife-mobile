@@ -30,6 +30,8 @@ class ProductFragment : Fragment(), ProductListener, CategoryListener {
     private lateinit var categoryAdapter:CategoryProductAdapter
     private  lateinit var categoryViewModel:CategoryViewModel
 
+    private var category= Categoria()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_product, container, false)
@@ -37,7 +39,7 @@ class ProductFragment : Fragment(), ProductListener, CategoryListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val category=arguments?.getSerializable("categoria") as Categoria
+        category=arguments?.getSerializable("categoria") as Categoria
         /*---------lista de categorias--------------------*/
         categoryViewModel=ViewModelProviders.of(this).get(CategoryViewModel::class.java)
         categoryViewModel.refresh()
@@ -62,14 +64,15 @@ class ProductFragment : Fragment(), ProductListener, CategoryListener {
             adapter=productoAdapter
         }
         productViewModel.listaProducto.observe(viewLifecycleOwner,Observer<List<Producto>> { producto ->
-            producto.let {
-                productoAdapter.updateData(producto)
-            }
+            productoAdapter.updateData(producto)
         })
+
     }
 
-    override fun onProductClicked(product: Producto, positio: Int) {
+    override fun onProductClicked(product: Producto, position: Int) {
         var bundle= bundleOf("producto" to product)
+        bundle.putString("categoria",category.nombre)
+        println("hola"+product.descripcion)
         findNavController().navigate(R.id.detailProductDialogFragment, bundle)
     }
 

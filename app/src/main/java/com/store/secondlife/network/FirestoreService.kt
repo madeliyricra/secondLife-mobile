@@ -30,6 +30,21 @@ class FirestoreService {
                 }
             }
     }
+
+    fun getProductoRecommend(callbak:Callback<List<Producto>>, cat:String){
+        firebaseFirestore.collection("categoria").document(cat)
+            .collection(PRODUCTO_COLLECTION_NAME)
+            .orderBy("calidad")
+            .get()
+            .addOnSuccessListener { result->
+                for(doc in result){
+                    val list=result.toObjects(Producto::class.java)
+                    callbak.onSuccess(list)
+                    break
+                }
+            }
+    }
+
     fun getCategoria(callbak: Callback<List<Categoria>>){
         firebaseFirestore.collection(CATEGORIA_COLLECTION_NAME)
             .get()
