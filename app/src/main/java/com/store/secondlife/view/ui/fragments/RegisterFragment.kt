@@ -17,6 +17,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.store.secondlife.MainActivity
 import com.store.secondlife.R
+import com.store.secondlife.model.Usuario
 
 class RegisterFragment : Fragment(), View.OnClickListener {
 
@@ -66,8 +67,12 @@ class RegisterFragment : Fragment(), View.OnClickListener {
     override fun onClick(p0: View?) {
 
         if (p0 == btnok) {
+            val u:Usuario= Usuario()
+            u.dni=txtDNI.text.toString()
+
             val email: String = txtEmail.text.toString()
             val contra: String = txtPassword.text.toString()
+
 
             auth.createUserWithEmailAndPassword(email,contra)
                 .addOnCompleteListener(requireActivity()) { task ->
@@ -93,6 +98,7 @@ class RegisterFragment : Fragment(), View.OnClickListener {
     }
 
     private fun updateUI(user: FirebaseUser?) {
+
     }
 
 }

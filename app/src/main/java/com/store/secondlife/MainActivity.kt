@@ -7,6 +7,7 @@ import androidx.navigation.ui.NavigationUI
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.JsonObject
 import com.store.secondlife.model.Categoria
+import com.store.secondlife.model.Producto
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
 import org.json.JSONObject
@@ -19,9 +20,9 @@ class MainActivity  : AppCompatActivity()  {
         setActionBar(findViewById(R.id.toolbar_main))
         configNav()
 
-
     }
     fun configNav(){
         NavigationUI.setupWithNavController(bnvMenu, Navigation.findNavController(this, R.id.fragContent))
     }
+
 }

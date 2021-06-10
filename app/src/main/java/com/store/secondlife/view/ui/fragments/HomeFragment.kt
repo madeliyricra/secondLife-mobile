@@ -13,20 +13,24 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.store.secondlife.R
 import com.store.secondlife.model.Categoria
-import com.store.secondlife.view.adapter.CategoryAdapter
-import com.store.secondlife.view.adapter.CategoryHomeAdapter
-import com.store.secondlife.view.adapter.CategoryListener
+import com.store.secondlife.model.Producto
+import com.store.secondlife.view.adapter.*
 import com.store.secondlife.viewmodel.CategoryViewModel
+import com.store.secondlife.viewmodel.ProductHomeViewModel
+import com.store.secondlife.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.fragment_category.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.rvCategory
+import kotlinx.android.synthetic.main.fragment_product.*
 
 
-class HomeFragment : Fragment(), CategoryListener {
-
+class HomeFragment : Fragment(), CategoryListener, ProductListener {
 
     private lateinit var categoryAdapter: CategoryHomeAdapter
     private lateinit var viewModel: CategoryViewModel
+
+    private lateinit var productoAdapter: ProductHomeAdapter
+    private lateinit var productViewModel: ProductHomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,18 +51,34 @@ class HomeFragment : Fragment(), CategoryListener {
         categoryAdapter= CategoryHomeAdapter(this)
 
         rvCategory.apply{
-            layoutManager= GridLayoutManager(context,3)
+            layoutManager= LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
             adapter=categoryAdapter
         }
 
         viewModel.listaCategory.observe(viewLifecycleOwner, Observer<List<Categoria>>{ categoria->
             categoryAdapter.updateData(categoria)
         })
-        /*--------------------------------------*/
+        /*--------------vista de producto------------------------*/
+        productViewModel=ViewModelProviders.of(this).get(ProductHomeViewModel::class.java)
+        productViewModel.refresh()
+        productoAdapter= ProductHomeAdapter(this)
+
+        rvRecommend.apply {
+            layoutManager=GridLayoutManager(context,2)
+            adapter=productoAdapter
+        }
+        productViewModel.listaProducto.observe(viewLifecycleOwner,Observer<List<Producto>> { producto ->
+            productoAdapter.updateData(producto)
+        })
+
     }
     override fun onCategoryClicked(category: Categoria, position: Int) {
         var bundle= bundleOf("categoria" to category)
         findNavController().navigate(R.id.productFragment, bundle)
 
+    }
+
+    override fun onProductClicked(product: Producto, positio: Int) {
+        TODO("Not yet implemented")
     }
 }
