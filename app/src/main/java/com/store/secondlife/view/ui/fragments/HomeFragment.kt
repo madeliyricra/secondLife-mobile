@@ -51,7 +51,7 @@ class HomeFragment : Fragment(), CategoryListener, ProductListener {
         categoryAdapter= CategoryHomeAdapter(this)
 
         rvCategory.apply{
-            layoutManager=GridLayoutManager(context,3)
+            layoutManager= LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
             adapter=categoryAdapter
         }
 

@@ -12,8 +12,8 @@ import com.store.secondlife.R
 import com.store.secondlife.model.Producto
 import com.store.secondlife.view.ui.fragments.ProductFragment
 
-class ProductAdapter(val productListener:ProductListener):
-    RecyclerView.Adapter<ProductAdapter.ViewHoldel>() {
+class Product1Adapter(val cat:String, val productListener:ProductListener):
+    RecyclerView.Adapter<Product1Adapter.ViewHoldel>() {
 
     private var listProduct=ArrayList<Producto>()
 
@@ -29,9 +29,9 @@ class ProductAdapter(val productListener:ProductListener):
 
         Glide.with(holder.itemView.context)
             .load(producto.imagen)
-            .apply(RequestOptions.centerCropTransform())
+            .apply(RequestOptions.fitCenterTransform())
             .into(holder.ivimagen)
-        holder.tvcategoria.text=producto.marca
+        holder.tvcategoria.text=cat
         holder.tvmodelo.text=producto.modelo
         holder.tvmarca.text=producto.marca
         holder.tvprecio.text= "S/. "+producto.precio.toString()

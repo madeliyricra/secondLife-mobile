@@ -32,7 +32,7 @@ class CategoryHomeAdapter(val categoryListener:CategoryListener):
     override fun onBindViewHolder(holder: ViewHoldel, position: Int) {
         val category=listCategory[position] as Categoria
         Glide.with(holder.itemView.context)
-            .load(category.imagen)
+            .load(category.icon)
             .apply(RequestOptions.fitCenterTransform())
             .into(holder.ivimagen)
         holder.tvnombre.text=category.nombre

@@ -5,16 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.Lifecycle
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.store.secondlife.R
 import com.store.secondlife.model.Producto
 import kotlinx.android.synthetic.main.detail_product_dialog.*
-import kotlinx.android.synthetic.main.fragment_product.*
-import kotlinx.android.synthetic.main.item_category.*
-import kotlinx.android.synthetic.main.item_category.iv_imagen
 import kotlinx.android.synthetic.main.item_category.tv_nombre
 
 
@@ -44,8 +39,9 @@ class DetailProductDialogFragment : DialogFragment() {
         }
     }
     fun dataProducto(p:Producto, categoria:String){
+        tv_calidad.text=p.calidad.toString()
         tv_marca.text=p.marca
-        tv_precio.text= p.precio.toString()
+        tv_precio.text= "S/ "+p.precio.toString()
          Glide.with(iv_imagen.context)
             .load(p.imagen)
             .apply(RequestOptions.fitCenterTransform())

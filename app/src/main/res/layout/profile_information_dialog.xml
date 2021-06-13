@@ -23,7 +23,7 @@
                     android:id="@+id/cvInformation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="55dp"
+                    android:layout_marginTop="60dp"
                     android:visibility="visible"
                     app:cardElevation="0dp">
                     <RelativeLayout
@@ -622,13 +622,13 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="85dp"
         android:background="@drawable/back_pane_profile"
         app:elevation="0dp">
         <Toolbar
             android:id="@+id/toolbarConference"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="70dp"
             android:gravity="center_vertical">
 
             <LinearLayout

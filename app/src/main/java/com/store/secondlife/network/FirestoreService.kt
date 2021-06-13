@@ -4,12 +4,14 @@ package com.store.secondlife.network
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.store.secondlife.model.Categoria
+import com.store.secondlife.model.Direccion
 import com.store.secondlife.model.Producto
+import com.store.secondlife.model.Usuario
+import com.store.secondlife.model11.Tarjeta
 import java.util.*
+import java.util.zip.ZipEntry
 import kotlin.collections.ArrayList
 
-const val PRODUCTO_COLLECTION_NAME="producto"
-const val  CATEGORIA_COLLECTION_NAME="categoria"
 
 class FirestoreService {
 
@@ -20,23 +22,105 @@ class FirestoreService {
         firebaseFirestore.firestoreSettings==settings
     }
     /*----metodos con el firebase-------------*/
+    /*-------------------usuario-----------------*/
+    fun getUsuario(callback: Callback<Usuario>, user:String){
+        firebaseFirestore.collection("usuario").document(user)
+            .get()
+            .addOnSuccessListener { result->
+                if(result!=null){
+                    val us=Usuario()
+                    us.key= result.id
+                    us.nombre=result.getString("nombre").toString()
+                    us.apellido=result.getString("apellido").toString()
+                    us.imagen=result.getString("imagen").toString()
+                    us.email=result.getString("email").toString()
+                    us.rol=result.getString("rol").toString()
+                    us.dni=result.getString("dni").toString()
+                    us.fec_nacimiento=result.getDate("date") as Date
+                    us.telefono=result.getString("telefono").toString()
+                    us.usuario=result.getString("usuario").toString()
+                    us.estado=result.getDouble("estado")!!.toInt()
+                    callback.onSuccess(us)
+                }else{
+                    print("Usuario no encontrado")
+                }
+            }
+    }
+
+    fun getDireccion(callbak: Callback<List<Direccion>>, user: String){
+        firebaseFirestore.collection("usuario").document(user)
+            .collection("direccion")
+            .orderBy("etiqueta")
+            .get()
+            .addOnSuccessListener { result ->
+                val list:ArrayList<Direccion> = ArrayList<Direccion>()
+                result.forEach { doc ->
+                    val d=Direccion()
+                    d.key=doc.id
+                    d.nombre=doc.getString("nombre").toString()
+                    d.etiqueta=doc.getString("etiqueta").toString()
+                    d.icono=doc.getString("icono").toString()
+                    d.latitud=doc.getString("latitud").toString()
+                    d.longitud=doc.getString("longitud").toString()
+                    d.referencia=doc.getString("referencia").toString()
+                    list.add(d)
+                    callbak.onSuccess(list)
+                }
+            }
+
+    }
+
+    fun getTarjeta(callbak: Callback<List<Tarjeta>>, user: String){
+        firebaseFirestore.collection("usuario").document(user)
+            .collection("direccion")
+            .orderBy("etiqueta")
+            .get()
+            .addOnSuccessListener {result ->
+                val list:ArrayList<Tarjeta> = ArrayList<Tarjeta>()
+                result.forEach { doc ->
+                    val t=Tarjeta()
+                    t.key=doc.id
+                    t.cvv=doc.getString("cvv")!!.toInt()
+                    t.fec_vencimiento=doc.getString("fec_vencimiento").toString()
+                    t.numero=doc.getString("numero").toString()
+                    t.tipo=doc.getString("tipo").toString()
+                    list.add(t)
+                    callbak.onSuccess(list)
+                }
+            }
+    }
+
+    /*--------------------producto------------*/
     fun getProducto(callbak:Callback<List<Producto>>, cat:String){
         firebaseFirestore.collection("categoria").document(cat)
-            .collection(PRODUCTO_COLLECTION_NAME)
+            .collection("producto")
             .orderBy("marca")
             .get()
             .addOnSuccessListener { result->
+                val list:ArrayList<Producto> =ArrayList<Producto>()
                 for(doc in result){
-                    val list=result.toObjects(Producto::class.java)
+                    val p=Producto()
+                    p.key=doc.id
+                    p.calidad= doc.getDouble("calidad") as Double
+                    p.codigo=doc.getString("codigo").toString()
+                    p.estado= doc.getDouble("estado")!!.toInt()
+                    p.fec_compra=doc.getDate("fec_compra") as Date
+                    p.marca=doc.getString("marca").toString()
+                    p.modelo=doc.getString("modelo").toString()
+                    p.observacion=doc.getString("observacion").toString()
+                    p.precio=doc.getDouble("precio") as Double
+                    p.stock= doc.getDouble("stock")!!.toInt()
+                    p.descripcion=doc.getString("descripcion").toString()
+                    p.imagen=doc.getString("imagen").toString()
+                    list.add(p)
                     callbak.onSuccess(list)
-                    break
                 }
             }
     }
 
     fun getProductoRecommend(callbak:Callback<List<Producto>>){
 
-        firebaseFirestore.collection(CATEGORIA_COLLECTION_NAME)
+        firebaseFirestore.collection("categoria")
             .get()
             .addOnSuccessListener { result ->
 
@@ -52,7 +136,7 @@ class FirestoreService {
                 val prod:ArrayList<Producto> =ArrayList<Producto>()
                 lis.forEach { c ->
                     firebaseFirestore.collection("categoria").document(c.key)
-                        .collection(PRODUCTO_COLLECTION_NAME)
+                        .collection("producto")
                         .get()
                         .addOnSuccessListener { result ->
 
@@ -88,9 +172,8 @@ class FirestoreService {
             }
     }
 
-
     fun getCategoria(callbak: Callback<List<Categoria>>){
-        firebaseFirestore.collection(CATEGORIA_COLLECTION_NAME)
+        firebaseFirestore.collection("categoria")
             .get()
             .addOnSuccessListener { result->
                 val lis:ArrayList<Categoria> =ArrayList<Categoria>()
@@ -99,6 +182,7 @@ class FirestoreService {
                     c.key=doc.id
                     c.nombre=doc.getString("nombre").toString()
                     c.descripcion=doc.getString("descripcion").toString()
+                    c.icon=doc.getString("icon").toString()
                     c.imagen=doc.getString("imagen").toString()
                     lis.add(c)
                 }

@@ -15,6 +15,7 @@ class Usuario(): Serializable {
     lateinit var usuario:String
     lateinit var email:String
     lateinit var rol:String
+    lateinit var imagen:String
     var estado:Int = 0
 
 }

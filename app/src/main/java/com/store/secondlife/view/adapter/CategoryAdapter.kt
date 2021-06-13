@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -28,7 +29,6 @@ RecyclerView.Adapter<CategoryAdapter.ViewHoldel>() {
         val category=listCategory[position] as Categoria
         Glide.with(holder.itemView.context)
             .load(category.imagen)
-            .apply(RequestOptions.fitCenterTransform())
             .into(holder.ivimagen)
         holder.tvnombre.text=category.nombre
         holder.tvdescripcion.text=category.descripcion
