@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
+import com.store.secondlife.auth.LoginActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity  : AppCompatActivity()  {

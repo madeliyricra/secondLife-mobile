@@ -67,8 +67,8 @@ class RegisterFragment : Fragment(), View.OnClickListener {
     override fun onClick(p0: View?) {
 
         if (p0 == btnok) {
-            val email: String = usua.text.toString()
-            val contra: String = passw.text.toString()
+            val email: String = usua.text.toString().trim()
+            val contra: String = passw.text.toString().trim()
 
             auth.createUserWithEmailAndPassword(email,contra)
                 .addOnCompleteListener(requireActivity()) { task ->

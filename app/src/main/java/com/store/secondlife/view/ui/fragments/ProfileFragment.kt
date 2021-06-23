@@ -37,8 +37,6 @@ class ProfileFragment : Fragment(), View.OnClickListener  {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnclick()
-
-
     }
 
     override fun onStart() {
@@ -62,16 +60,12 @@ class ProfileFragment : Fragment(), View.OnClickListener  {
             }
         }
     }
-    private fun signOut() {
-        // [START auth_sign_out]
-        Firebase.auth.signOut()
-        // [END auth_sign_out]
-    }
+
 
     override fun onClick(p0: View?) {
 
         if (p0 == btnlogout){
-            auth.signOut()
+            signOut()
             Toast.makeText(
                     context, "Sesión cerrada",
             Toast.LENGTH_SHORT
@@ -83,6 +77,11 @@ class ProfileFragment : Fragment(), View.OnClickListener  {
                 Toast.LENGTH_LONG
             ).show()
         }
+    }
+    private fun signOut() {
+        // [START auth_sign_out]
+        Firebase.auth.signOut()
+        // [END auth_sign_out]
     }
     private fun reload() {
 
