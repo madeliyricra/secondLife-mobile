@@ -15,6 +15,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:layout_marginTop="50dp"
             android:src="@drawable/ic_personal_information"/>
         <TextView
             android:id="@+id/textView"

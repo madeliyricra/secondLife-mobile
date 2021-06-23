@@ -18,8 +18,7 @@ open class BaseActivity : AppCompatActivity() {
         setContentView(R.layout.activity_base)
     }
     fun errorsnackbar(message:String, errorMessage: Boolean){
-        val snackBar=
-            Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG)
+        val snackBar=Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG)
         val snackBarView =snackBar.view
 
         if (errorMessage){

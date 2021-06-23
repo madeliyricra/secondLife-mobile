@@ -13,6 +13,7 @@ import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
+import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
 import com.google.firebase.auth.FacebookAuthProvider
@@ -22,7 +23,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.store.secondlife.R
 
-class FacebookFragment : Fragment(),View.OnClickListener {
+class FacebookFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var callbackManager: CallbackManager
@@ -30,35 +31,36 @@ class FacebookFragment : Fragment(),View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-         // Initialize Firebase Auth
-         auth = Firebase.auth
+        // Initialize Firebase Auth
+        auth = Firebase.auth
 
-         //  Initialize Facebook Login button
+        //  Initialize Facebook Login button
         callbackManager = CallbackManager.Factory.create()
 
+        @Suppress("DEPRECATION")
         buttonFacebookLogin.setReadPermissions("email", "public_profile")
 
-        buttonFacebookLogin.registerCallback(callbackManager, object :
-            FacebookCallback<LoginResult> {
-            override fun onSuccess(loginResult: LoginResult) {
-                Log.d(TAG, "facebook:onSuccess:$loginResult")
-                handleFacebookAccessToken(loginResult.accessToken)
-                buttonFacebookLogin.setOnClickListener(){
+            LoginManager.getInstance().logInWithReadPermissions(this, listOf("email"))
+            buttonFacebookLogin.registerCallback(callbackManager, object :
+                FacebookCallback<LoginResult> {
+                override fun onSuccess(loginResult: LoginResult) {
+                    Log.d(TAG, "facebook:onSuccess:$loginResult")
+                    handleFacebookAccessToken(loginResult.accessToken)
+                    findNavController().navigate(R.id.navProfileFragment)
 
-                findNavController().navigate(R.id.navProfileFragment)}
-            }
+                }
+                override fun onCancel() {
+                    Log.d(TAG, "facebook:onCancel")
+                }
 
-            override fun onCancel() {
-                Log.d(TAG, "facebook:onCancel")
-            }
-
-            override fun onError(error: FacebookException) {
-                Log.d(TAG, "facebook:onError", error)
-            }
-        })
-        // [END initialize_fblogin]
-
+                override fun onError(error: FacebookException) {
+                    Log.d(TAG, "facebook:onError", error)
+                }
+            })
+            // [END initialize_fblogin]
     }
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -69,8 +71,6 @@ class FacebookFragment : Fragment(),View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        buttonFacebookLogin= view.findViewById(R.id.buttonFacebookLogin)
-        buttonFacebookLogin.setOnClickListener(this)
     }
 
     override fun onStart() {
@@ -102,12 +102,15 @@ class FacebookFragment : Fragment(),View.OnClickListener {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    Toast.makeText(context, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        context, "Authentication failed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     updateUI(null)
                 }
             }
     }
+
     // [END auth_with_facebook]
     private fun updateUI(user: FirebaseUser?) {
 
@@ -117,7 +120,4 @@ class FacebookFragment : Fragment(),View.OnClickListener {
         private const val TAG = "FacebookLogin"
     }
 
-    override fun onClick(p0: View?) {
-        TODO("Not yet implemented")
-    }
 }

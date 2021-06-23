@@ -5,11 +5,9 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.view.View.OnClickListener
-import androidx.fragment.app.FragmentManager
 import com.google.firebase.auth.FirebaseAuth
 import com.store.secondlife.R
 import com.store.secondlife.view.ui.activities.BaseActivity
-import com.store.secondlife.view.ui.fragments.ProfileFragment
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 
