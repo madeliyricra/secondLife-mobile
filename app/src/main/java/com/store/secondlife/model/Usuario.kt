@@ -12,7 +12,7 @@ class Usuario(): Serializable {
     lateinit var apellido:String
     lateinit var telefono:String
     lateinit var fec_nacimiento:Date
-    lateinit var usuario:String
+    var usuario:String=""
     lateinit var email:String
     lateinit var rol:String
     lateinit var imagen:String
