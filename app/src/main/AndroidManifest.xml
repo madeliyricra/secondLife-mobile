@@ -7,16 +7,17 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo_entry"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SecondLife">
+        android:theme="@style/Theme.SecondLife"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true">
+
         <activity android:name=".auth.ForgotPasswordActivity" />
         <activity android:name=".view.ui.activities.BaseActivity" />
         <activity android:name=".auth.LoginActivity" />
         <activity android:name=".auth.RegisterActivity" />
-        android:theme="@style/Theme.SecondLife"
-        android:hardwareAccelerated="false"
-        android:largeHeap="true">
+
         <!--redurcir la memoria del aplicativo-->
         <activity android:name=".view.ui.activities.SplashscreenActivity">
             <intent-filter>
