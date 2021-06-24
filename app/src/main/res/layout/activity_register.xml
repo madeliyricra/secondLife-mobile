@@ -4,7 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".view.ui.fragments.RegisterFragment">
+    tools:context=".auth.RegisterActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,9 +18,9 @@
         android:padding="50dp">
 
         <ImageView
+            android:layout_marginTop="55dp"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_marginTop="50dp"
             android:src="@drawable/ic_personal_information"/>
         <TextView
             android:id="@+id/textView"
@@ -128,7 +133,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="10dp">
 
-            <Button
+            <ImageButton
                 android:id="@+id/btncancel"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -140,6 +145,7 @@
 
             <Button
                 android:id="@+id/btnok"
+                android:name="flecha"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -151,4 +157,5 @@
 
         </LinearLayout>
     </LinearLayout>
+    </ScrollView>
 </FrameLayout>

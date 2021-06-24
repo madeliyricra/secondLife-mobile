@@ -1,4 +1,4 @@
-package com.store.secondlife.view.ui.fragments
+package com.store.secondlife.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -23,27 +22,20 @@ import com.google.firebase.ktx.Firebase
 import com.store.secondlife.R
 
 
-class LoginFragment : Fragment(), View.OnClickListener {
-    lateinit var btnSignIn: Button
-    lateinit var btnSignUp: Button
-    lateinit var usua: EditText
-    lateinit var passw: EditText
+class GoogleFragment : Fragment(), View.OnClickListener {
 
-    lateinit var sign_in_button:Button
+    private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
-
+    lateinit var btnGoogle: Button
+    lateinit var sign_in_button:Button
 
     companion object {
-        private const val TAG1 = "EmailPassword"
-        private const val TAG2 = "GoogleActivity"
+        private const val TAG = "GoogleActivity"
         const val RC_SIGN_IN = 9001
     }
 
-    private lateinit var auth: FirebaseAuth
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Initialize Firebase Auth
         auth = Firebase.auth
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -51,9 +43,10 @@ class LoginFragment : Fragment(), View.OnClickListener {
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
-//        sign_in_button.setOnClickListener(View.OnClickListener {
-//            signIn()
-//        })
+        sign_in_button.setOnClickListener(View.OnClickListener {
+            signIn()
+
+        })
 
 
     }
@@ -63,32 +56,24 @@ class LoginFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        return inflater.inflate(R.layout.fragment_google, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnSignIn = view.findViewById(R.id.btnSignIn)
-        btnSignIn.setOnClickListener(this)
-        btnSignUp = view.findViewById(R.id.btnSignUp)
-        btnSignUp.setOnClickListener(this)
-
+        btnGoogle = view.findViewById(R.id.btnGoogle)
+        btnGoogle.setOnClickListener(this)
         sign_in_button= view.findViewById(R.id.sign_in_button)
         sign_in_button.setOnClickListener(this)
 
-        usua = view.findViewById(R.id.usua)
-        passw = view.findViewById(R.id.passw)
     }
 
     override fun onStart() {
         super.onStart()
-
         val currentUser = auth.currentUser
         updateUI(currentUser)
-        if (currentUser != null) {
-            reload()
-        }
     }
+
     @Suppress("DEPRECATION")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -96,14 +81,16 @@ class LoginFragment : Fragment(), View.OnClickListener {
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-                // Google Sign In was successful, authenticate with Firebase
-                val account = task.getResult(ApiException::class.java)!!
-                Log.d(TAG2, "firebaseAuthWithGoogle:" + account.id)
-                firebaseAuthWithGoogle(account.idToken!!)
-            } catch (e: ApiException) {
-                // Google Sign In failed, update UI appropriately
-                Log.w(TAG2, "Google sign in failed", e)
+            if (task.isSuccessful) {
+                try {
+                    // Google Sign In was successful, authenticate with Firebase
+                    val account = task.getResult(ApiException::class.java)!!
+                    Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
+                    firebaseAuthWithGoogle(account.idToken!!)
+                } catch (e: ApiException) {
+                    // Google Sign In failed, update UI appropriately
+                    Log.w(TAG, "Google sign in failed", e)
+                }
             }
         }
     }
@@ -114,17 +101,17 @@ class LoginFragment : Fragment(), View.OnClickListener {
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG2, "signInWithCredential:success")
+                    Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
                     updateUI(user)
+
                 } else {
                     // If sign in fails, display a message to the user.
-                    Log.w(TAG2, "signInWithCredential:failure", task.exception)
+                    Log.w(TAG, "signInWithCredential:failure", task.exception)
                     updateUI(null)
                 }
             }
     }
-
 
     @Suppress("DEPRECATION")
     private fun signIn() {
@@ -133,49 +120,23 @@ class LoginFragment : Fragment(), View.OnClickListener {
         findNavController().navigate(R.id.navHomeFragment)
     }
 
+    private fun updateUI(user: FirebaseUser?) {
+    }
+
     override fun onClick(p0: View?) {
-
-        if (btnSignIn == p0) {
-            val usu: String = usua.text.toString().trim { it <= ' ' }
-            val pass: String = passw.text.toString().trim { it <= ' ' }
-
-            auth.signInWithEmailAndPassword(usu, pass)
-                .addOnCompleteListener(requireActivity()) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        val user = auth.currentUser
-                        updateUI(user)
-
-
-                        findNavController().navigate(R.id.navHomeFragment)
-                    } else {
-                        Log.w(TAG1, "signInWithEmail:failure", task.exception)
-                        Toast.makeText(
-                            context, "No se puede realizar esta acción.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-        } else if (btnSignUp == p0) {
-            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-        }
-        if (p0==sign_in_button){
+        if (sign_in_button == p0) {
             signIn()
             Toast.makeText(
                 context, "Finalmente lo hiciste campeón!",
                 Toast.LENGTH_SHORT
             ).show()
             findNavController().navigate(R.id.navProfileFragment)
-
-        }else{
-
+        } else {
+            Toast.makeText(
+                context, "Authentication failed.",
+                Toast.LENGTH_SHORT
+            ).show()
+            updateUI(null)
         }
-    }
-
-    private fun updateUI(user: FirebaseUser?) {
-
-    }
-
-    private fun reload() {
     }
 }
