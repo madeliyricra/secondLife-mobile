@@ -70,7 +70,8 @@ class ProductFragment : Fragment(), ProductListener{
                 layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
                 adapter=producto2Adapter
             }
-            productViewModel.listaProducto.observe(viewLifecycleOwner,Observer<List<Producto>> { producto ->
+            productViewModel.listaProducto.observe(viewLifecycleOwner,
+                Observer<List<Producto>> { producto ->
                 producto2Adapter.updateData(producto)
             })
         }

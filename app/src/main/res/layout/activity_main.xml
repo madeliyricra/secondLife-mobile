@@ -7,17 +7,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <Toolbar
             android:id="@+id/toolbar_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentInsetStart="0dp"
-            android:background="@color/secondary">
+            android:background="@color/secondary"
+            android:contentInsetStart="0dp">
+
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:gravity="center_horizontal">
                 <!--<LinearLayout
                     android:layout_width="match_parent"
@@ -34,25 +37,37 @@
                 </LinearLayout>-->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:gravity="center">
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:src="@drawable/logo_menu"/>
+                        android:src="@drawable/logo_menu" />
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="end">
-                    <Button
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="15dp">
+
+                    <ImageView
+                        android:id="@+id/cartButton"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginEnd="15dp"
-                        android:background="@drawable/ic_notifications"/>
-                </LinearLayout>
+                        android:src="@drawable/ic_shopping_cart" />
+
+                    <com.nex3z.notificationbadge.NotificationBadge
+                        android:id="@+id/badge"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_toEndOf="@id/cartButton"
+                        android:layout_marginTop="-5dp"
+                        android:layout_marginStart="-10dp"
+                        app:nbMaxTextLength="2" />
+
+                </RelativeLayout>
             </RelativeLayout>
         </Toolbar>
     </com.google.android.material.appbar.AppBarLayout>

@@ -9,5 +9,5 @@ class Direccion(): Serializable {
     lateinit var longitud:String
     lateinit var nombre:String
     lateinit var referencia:String
-    var icono=""
+    lateinit var icono:String
 }

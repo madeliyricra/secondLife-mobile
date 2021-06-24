@@ -12,24 +12,24 @@ import com.store.secondlife.R
 import com.store.secondlife.model.Categoria
 
 class CategoryHomeAdapter(val categoryListener:CategoryListener):
-    RecyclerView.Adapter<CategoryHomeAdapter.ViewHoldel>() {
+    RecyclerView.Adapter<CategoryHomeAdapter.ViewHolder>() {
 
     var listCategory=ArrayList<Categoria>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
-        =CategoryHomeAdapter.ViewHoldel(
+        =CategoryHomeAdapter.ViewHolder(
             LayoutInflater.from(parent.context).inflate(
                 R.layout.item_category_home,
                 parent, false
             )
         )
 
-    class ViewHoldel(itemView: View):RecyclerView.ViewHolder(itemView){
+    class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         val ivimagen=itemView.findViewById<ImageView>(R.id.tv_imagen)
         val tvnombre=itemView.findViewById<TextView>(R.id.tv_nombre)
     }
 
-    override fun onBindViewHolder(holder: ViewHoldel, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val category=listCategory[position] as Categoria
         Glide.with(holder.itemView.context)
             .load(category.icon)

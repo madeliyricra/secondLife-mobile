@@ -18,4 +18,6 @@ class Usuario(): Serializable {
     lateinit var imagen:String
     var estado:Int = 0
 
+
+
 }

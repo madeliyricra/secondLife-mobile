@@ -12,12 +12,12 @@ import com.store.secondlife.R
 import com.store.secondlife.model.Producto
 
 class Product2Adapter (val cat:String, val productListener:ProductListener):
-    RecyclerView.Adapter<Product2Adapter.ViewHoldel>() {
+    RecyclerView.Adapter<Product2Adapter.ViewHolder>() {
 
     private var listProduct=ArrayList<Producto>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
-            = ViewHoldel(
+            = ViewHolder(
         LayoutInflater.from(parent.context).inflate(
             R.layout.item_product_2,
         parent, false))
@@ -25,7 +25,7 @@ class Product2Adapter (val cat:String, val productListener:ProductListener):
     override fun getItemCount()=listProduct.size
 
     //dar valores a los componentes
-    override fun onBindViewHolder(holder: ViewHoldel, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val producto=listProduct[position] as Producto
 
         Glide.with(holder.itemView.context)
@@ -51,7 +51,7 @@ class Product2Adapter (val cat:String, val productListener:ProductListener):
     }
 
     //obtener datos del item
-    class ViewHoldel(itemView: View): RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val ivimagen=itemView.findViewById<ImageView>(R.id.iv_imagen)
         val tvcategoria=itemView.findViewById<TextView>(R.id.tv_categoria)
         val tvnombre=itemView.findViewById<TextView>(R.id.tv_nombre)

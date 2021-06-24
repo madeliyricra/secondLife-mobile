@@ -2,31 +2,30 @@ package com.store.secondlife.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.store.secondlife.model.Usuario
+import com.store.secondlife.model11.Tarjeta
 import com.store.secondlife.network.Callback
 import com.store.secondlife.network.FirestoreService
 import java.lang.Exception
 
-class UserViewModel:ViewModel() {
+class CardViewModel: ViewModel() {
     val firestoreService= FirestoreService()
-    val usuario: MutableLiveData<Usuario> = MutableLiveData()
+    val listaTarjeta: MutableLiveData<List<Tarjeta>> = MutableLiveData()
     val isLoading= MutableLiveData<Boolean>()
 
-    fun refresh(user:String){
-        getUserFromFirebase(user)
+    fun refresh(user: String){
+        getCardFromFirebase(user)
     }
 
-    private fun getUserFromFirebase(user: String) {
-        firestoreService.getUsuario(object :Callback<Usuario>
-        {
-            override fun onSuccess(result: Usuario?) {
-                usuario.postValue(result)
+    private fun getCardFromFirebase(user: String) {
+        firestoreService.getTarjeta(object : Callback<List<Tarjeta>> {
+            override fun onSuccess(result: List<Tarjeta>?) {
+                listaTarjeta.postValue(result)
                 processFinished()
             }
-
             override fun onFailed(exception: Exception) {
                 processFinished()
             }
+
         }, user)
     }
 

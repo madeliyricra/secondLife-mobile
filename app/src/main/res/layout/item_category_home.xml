@@ -5,8 +5,9 @@
     android:layout_marginEnd="5dp"
     android:layout_marginTop="10dp"
     android:layout_width="60dp"
-    app:cardCornerRadius="10px"
-    app:cardElevation="2dp"
+    app:cardBackgroundColor="#00FFFFFF"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="0dp"
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -14,7 +15,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/fifth"
+        android:background="@drawable/border_banner_2"
+        android:backgroundTint="@color/fifth"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="5dp">

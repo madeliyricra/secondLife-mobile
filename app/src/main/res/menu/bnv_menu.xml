@@ -9,10 +9,6 @@
         android:title="Categoría"
         android:icon="@drawable/ic_category"/>
     <item
-        android:id="@+id/navShoppingFragment"
-        android:title="Carrito"
-        android:icon="@drawable/ic_shopping"/>
-    <item
         android:id="@+id/navProfileFragment"
         android:title="Perfil"
         android:icon="@drawable/ic_profile"/>

@@ -19,10 +19,13 @@ class MainActivity  : AppCompatActivity()  {
 
         setActionBar(findViewById(R.id.toolbar_main))
         configNav()
-
+        init()
     }
     fun configNav(){
         NavigationUI.setupWithNavController(bnvMenu, Navigation.findNavController(this, R.id.fragContent))
+    }
+    private fun init(){
+
     }
 
 }

@@ -1,6 +1,8 @@
 package com.store.secondlife.network
 
 
+import android.widget.Toast
+import com.facebook.FacebookSdk
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.store.secondlife.model.Categoria
@@ -36,7 +38,7 @@ class FirestoreService {
                     us.email=result.getString("email").toString()
                     us.rol=result.getString("rol").toString()
                     us.dni=result.getString("dni").toString()
-                    us.fec_nacimiento=result.getDate("date") as Date
+                    us.fec_nacimiento=result.getDate("fec_nacimiento") as Date
                     us.telefono=result.getString("telefono").toString()
                     us.usuario=result.getString("usuario").toString()
                     us.estado=result.getDouble("estado")!!.toInt()
@@ -72,18 +74,19 @@ class FirestoreService {
 
     fun getTarjeta(callbak: Callback<List<Tarjeta>>, user: String){
         firebaseFirestore.collection("usuario").document(user)
-            .collection("direccion")
-            .orderBy("etiqueta")
+            .collection("tarjeta")
+            .orderBy("tipo")
             .get()
             .addOnSuccessListener {result ->
                 val list:ArrayList<Tarjeta> = ArrayList<Tarjeta>()
                 result.forEach { doc ->
                     val t=Tarjeta()
                     t.key=doc.id
-                    t.cvv=doc.getString("cvv")!!.toInt()
+                    t.cvv=doc.getDouble("cvv")!!.toInt()
                     t.fec_vencimiento=doc.getString("fec_vencimiento").toString()
                     t.numero=doc.getString("numero").toString()
                     t.tipo=doc.getString("tipo").toString()
+                    t.icono=doc.getString("icono").toString()
                     list.add(t)
                     callbak.onSuccess(list)
                 }
@@ -187,6 +190,21 @@ class FirestoreService {
                     lis.add(c)
                 }
                 callbak.onSuccess(lis)
+            }
+    }
+
+    /*-------------------descargar------------------------*/
+    fun saveInformationUser(u: Usuario){
+        val usuario=firebaseFirestore.collection("usuario")
+            .document(u.key)
+        usuario.update("usuario", true)
+            .addOnSuccessListener {
+                Toast.makeText(
+                    FacebookSdk.getApplicationContext(),
+                    "El usuario "+ u.usuario +"has sido actualizado", Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener {
+                Toast.makeText(FacebookSdk.getApplicationContext(),
+                    "Error al actualizar el usuario", Toast.LENGTH_SHORT).show()
             }
     }
 

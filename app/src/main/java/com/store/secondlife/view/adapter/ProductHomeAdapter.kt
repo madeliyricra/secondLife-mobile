@@ -12,19 +12,19 @@ import com.store.secondlife.R
 import com.store.secondlife.model.Producto
 
 class ProductHomeAdapter (val productListener:ProductListener):
-    RecyclerView.Adapter<ProductHomeAdapter.ViewHoldel>() {
+    RecyclerView.Adapter<ProductHomeAdapter.ViewHolder>() {
 
     var listProduct=ArrayList<Producto>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
-            = ViewHoldel(
+            = ViewHolder(
         LayoutInflater.from(parent.context).inflate(
             R.layout.item_product_1,
         parent, false))
 
     override fun getItemCount()=listProduct.size
 
-    override fun onBindViewHolder(holder: ViewHoldel, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val producto=listProduct[position] as Producto
         Glide.with(holder.itemView.context)
             .load(producto.imagen)
@@ -46,7 +46,7 @@ class ProductHomeAdapter (val productListener:ProductListener):
         notifyDataSetChanged()
     }
 
-    class ViewHoldel(itemView: View): RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val ivimagen=itemView.findViewById<ImageView>(R.id.iv_imagen)
         val tvcategoria=itemView.findViewById<TextView>(R.id.tv_categoria)
         val tvmodelo=itemView.findViewById<TextView>(R.id.tv_modelo)

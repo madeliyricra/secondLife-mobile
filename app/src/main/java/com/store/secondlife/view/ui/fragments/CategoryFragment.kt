@@ -38,13 +38,15 @@ class CategoryFragment : Fragment(), CategoryListener {
         categoryAdapter= CategoryAdapter(this)
 
         rvCategory.apply{
-            layoutManager= LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
+            layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter=categoryAdapter
         }
 
         viewModel.listaCategory.observe(viewLifecycleOwner, Observer<List<Categoria>>{ categoria->
             categoryAdapter.updateData(categoria)
         })
+
+
     }
 
     override fun onCategoryClicked(category: Categoria, position: Int) {

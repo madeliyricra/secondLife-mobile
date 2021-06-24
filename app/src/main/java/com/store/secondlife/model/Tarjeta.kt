@@ -7,5 +7,6 @@ class Tarjeta():Serializable {
     lateinit var tipo:String
     lateinit var  numero:String
     lateinit var fec_vencimiento: String
+    lateinit var icono: String
     var cvv:Int=0
 }
