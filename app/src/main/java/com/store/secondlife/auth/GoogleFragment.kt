@@ -43,9 +43,10 @@ class GoogleFragment : Fragment(), View.OnClickListener {
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
-        sign_in_button.setOnClickListener {
+        sign_in_button.setOnClickListener(View.OnClickListener {
+            signIn()
 
-        }
+        })
 
 
     }
@@ -55,7 +56,7 @@ class GoogleFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        return inflater.inflate(R.layout.fragment_google, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

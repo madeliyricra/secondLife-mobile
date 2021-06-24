@@ -19,7 +19,8 @@
             android:layout_height="150dp"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="20dp"
-            android:src="@drawable/ic_login_1" />
+            android:src="@drawable/ic_login_1"
+             />
 
         <!--        <Button-->
 <!--            android:id="@+id/btnFaceook"-->
@@ -47,23 +48,24 @@
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"
-            android:layout_width="match_parent"
+            android:layout_width="352dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
 
             />
 
-        <Button
+        <!--<Button
             android:id="@+id/btnGoogle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border_redondo"
             android:backgroundTint="@color/google"
-            android:drawableLeft="@drawable/logo_google"
-            android:paddingLeft="20dp"
+            android:drawableStart="@drawable/logo_google"
+            android:paddingStart="20dp"
             android:text="@string/google"
             android:textAllCaps="false"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            tools:ignore="RtlSymmetry" />-->
 
         <EditText
             android:id="@+id/usua"
@@ -76,8 +78,10 @@
             android:hint="@string/login_user"
             android:inputType="textEmailAddress"
             android:maxLength="50"
-            android:paddingLeft="10dp"
-            android:textSize="14dp" />
+            android:paddingStart="10dp"
+            android:textSize="14sp"
+            android:importantForAutofill="no"
+            tools:ignore="RtlSymmetry" />
 
         <EditText
             android:id="@+id/passw"
@@ -89,8 +93,10 @@
             android:hint="@string/password"
             android:inputType="textPassword"
             android:maxLength="50"
-            android:paddingLeft="10dp"
-            android:textSize="14dp" />
+            android:paddingStart="10dp"
+            android:textSize="14sp"
+            android:importantForAutofill="no"
+            tools:ignore="RtlSymmetry" />
 
         <Button
             android:id="@+id/btnSignIn"
