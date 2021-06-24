@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.facebook.FacebookSdk
 import com.store.secondlife.R
 import com.store.secondlife.model.Direccion
 import com.store.secondlife.model.Producto
@@ -26,6 +28,7 @@ import com.store.secondlife.viewmodel.CardViewModel
 import com.store.secondlife.viewmodel.ProductViewModel
 import com.store.secondlife.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.profile_information_dialog.*
+import java.util.*
 
 
 class ProfileInformationDialogFragment : DialogFragment(), AddressListener, CardListener {
@@ -55,7 +58,7 @@ class ProfileInformationDialogFragment : DialogFragment(), AddressListener, Card
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val user:String="JnxUjOJY3hBUa6FYcgZd"
+        val user:String="VnS07VzY4T2JrLJYTz9M"
 
         btnArrow_left.setOnClickListener{
             findNavController().navigate(R.id.navProfileFragment)
@@ -83,13 +86,10 @@ class ProfileInformationDialogFragment : DialogFragment(), AddressListener, Card
         val pass=view.findViewById<EditText>(R.id.et_password)
         var key: String= ""
 
-        var u: Usuario= Usuario()
-
         userViewModel=ViewModelProviders.of(this).get(UserViewModel::class.java)
         userViewModel.refresh(user)
         userViewModel.usuario.observe(viewLifecycleOwner, Observer<Usuario>{
             usuario->
-            u=usuario as Usuario
             key=usuario.key
             name.setText(usuario.nombre.toString())
             name.setSelection(et_Name.getText().length);
@@ -102,12 +102,14 @@ class ProfileInformationDialogFragment : DialogFragment(), AddressListener, Card
             pass.setText("falta")
         })
 
-
         btnSave.setOnClickListener {
-
+            val u: Usuario= Usuario()
             u.key=key
-            u.nombre=name.toString()
-            u.apellido=lastname.toString()
+            u.apellido=lastname.text.toString()
+            u.dni=dni.text.toString()
+            u.nombre=name.text.toString()
+            u.telefono=telephone.text.toString()
+            u.usuario=user_name.text.toString()
             firebase.saveInformationUser(u)
         }
     }
@@ -144,6 +146,34 @@ class ProfileInformationDialogFragment : DialogFragment(), AddressListener, Card
             Observer<List<Tarjeta>> { card ->
                 cardAdapter.updateData(card)
             })
+        btn_addCard.setOnClickListener {
+            val cvv=view.findViewById<EditText>(R.id.et_cvv)
+            val fecha=view.findViewById<EditText>(R.id.et_datefec)
+            val titular=view.findViewById<EditText>(R.id.et_titulary)
+            val numero=view.findViewById<EditText>(R.id.et_num1)
+            if(cvv.text.length>0 && fecha.text.length>0 && titular.text.length>0 &&
+                numero.text.length>0){
+
+                    val t: Tarjeta= Tarjeta()
+                t.cvv= Integer.parseInt(cvv.text.toString())
+                t.fec_vencimiento=fecha.text.toString()
+                t.numero=numero.text.toString()
+                t.titular=titular.text.toString()
+                t.tipo="visa"
+                firebase.addCard(t, user)
+                cardViewModel.listaTarjeta.observe(viewLifecycleOwner,
+                    Observer<List<Tarjeta>> { card ->
+                        cardAdapter.updateData(card)
+                    })
+
+            }else{
+                Toast.makeText(
+                    FacebookSdk.getApplicationContext(),
+                    "Ingresa correctamente los datos", Toast.LENGTH_SHORT
+                ).show()
+            }
+
+        }
     }
 
 

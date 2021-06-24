@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <dimen name="progress_dialog_content_padding">10dp</dimen>
+    <dimen name="progress_bar_size">50dp</dimen>
+    <dimen name="progress_text_marginStart">10dp</dimen>
+    <dimen name="progress_text_size">15sp</dimen>
+    <dimen name="forgot">14sp</dimen>
+
+
+
+
+
+</resources>

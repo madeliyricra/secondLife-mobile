@@ -10,6 +10,8 @@ import com.store.secondlife.model.Direccion
 import com.store.secondlife.model.Producto
 import com.store.secondlife.model.Usuario
 import com.store.secondlife.model11.Tarjeta
+import org.json.JSONArray
+import org.json.JSONObject
 import java.util.*
 import java.util.zip.ZipEntry
 import kotlin.collections.ArrayList
@@ -197,15 +199,47 @@ class FirestoreService {
     fun saveInformationUser(u: Usuario){
         val usuario=firebaseFirestore.collection("usuario")
             .document(u.key)
-        usuario.update("usuario", true)
+        usuario.update("apellido", u.apellido,
+                            "dni", u.dni,
+                            "nombre", u.nombre,
+                            "telefono", u.telefono,
+                            "usuario", u.usuario)
             .addOnSuccessListener {
                 Toast.makeText(
                     FacebookSdk.getApplicationContext(),
-                    "El usuario "+ u.usuario +"has sido actualizado", Toast.LENGTH_SHORT).show()
-            }.addOnFailureListener {
-                Toast.makeText(FacebookSdk.getApplicationContext(),
-                    "Error al actualizar el usuario", Toast.LENGTH_SHORT).show()
+                    "El usuario "+ u.usuario.toString() +" has sido actualizado", Toast.LENGTH_SHORT).show()
             }
     }
-
+    fun addCard(t: Tarjeta, key:String) {
+        /*val tarjeta= JSONArray("[\n" +
+                "            {\n" +
+                "                'tipo': '[" +
+                "" + t.tipo+
+                "                        ]',\n" +
+                "                'numero': '[" +
+                "" + t.numero+
+                "                           ]',\n" +
+                "                'fec_vencimiento': '[" +
+                "" + t.fec_vencimiento+
+                "                           ]',\n" +
+                "                'cvv': '[" +
+                "" + t.cvv+
+                "                       ]'\n" +
+                "            }\n" +
+                "        ]")*/
+        var  user= hashMapOf(
+            "tipo" to t.tipo,
+                "numero" to  t.numero,
+            "fec_vencimiento" to  t.fec_vencimiento,
+            "cvv" to  t.cvv
+        )
+        firebaseFirestore.collection("usuario").document(key)
+            .collection("tarjeta").document().set(user)
+            .addOnSuccessListener  {
+                Toast.makeText(
+                    FacebookSdk.getApplicationContext(),
+                    "Se ha generado una nueva tarjeta", Toast.LENGTH_SHORT
+                ).show()
+            }
+    }
 }
