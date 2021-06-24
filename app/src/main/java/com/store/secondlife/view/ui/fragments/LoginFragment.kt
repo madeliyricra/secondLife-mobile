@@ -162,7 +162,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
         if (p0==sign_in_button){
             signIn()
             Toast.makeText(
-                context, "Finalmente lo hiciste campeón!",
+                context, "F!",
                 Toast.LENGTH_SHORT
             ).show()
             findNavController().navigate(R.id.navProfileFragment)
