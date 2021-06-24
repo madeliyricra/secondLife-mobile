@@ -16,4 +16,7 @@
     <color name="fourth">#8C6637</color>
     <color name="fifth">#F2D6B3</color>
     <color name="gray">#ababab</color>
+    <color name="colorSnackBarError">#F72400</color>
+    <color name="colorSnackBarSuccess">#8BC34A</color>
+
 </resources>

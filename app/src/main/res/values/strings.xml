@@ -5,9 +5,10 @@
     <string name="back">Regresar</string>
     <string name="enter">Ingresar</string>
     <string name="register">Registrar</string>
-    <string name="resend">Reenviar</string>
+    <string name="regresar">Volver</string>
+    <string name="btnSend">Enviar</string>
     <string name="forgotPassword">Recuperar contraseña</string>
-    <string name="txtForgotPassword">Ingrese por favor el código que le enviamos a su correo vinculado a su cuenta</string>
+    <string name="txtForgotPassword">Ingrese su correo registrado. Se le enviará un correo de respuesta para reiniciar su contraseña.</string>
     <string name="login_user">Ingrese correo o nombre de usuario</string>
     <string name="name">Ingrese nombre</string>
     <string name="address">Ingrese dirección</string>
@@ -40,8 +41,19 @@
     <string name="btnSignIn">Ingresar</string>
     <string name="btnSignUp">Registrar</string>
     <string name="btnok">Guardar</string>
+    <string name="btnlogout">Cerrar Sesión</string>
     <string name="btncancel">Cancelar</string>
     <string name="facebook_app_id">1017218139104508</string>
     <string name="fb_login_protocol_scheme">fb1017218139104508</string>
+    <string name="errorusua">Ingresa el correo.</string>
+    <string name="erroruser">Ingresa el usuario.</string>
+    <string name="errordni">Ingresa el documento de identidad.</string>
+    <string name="errornombre">Ingresa el nombre.</string>
+    <string name="errorapellido">Ingresa el apellido.</string>
+    <string name="errorpass">Ingresa la contraseña.</string>
+    <string name="wait">Espere un momento&#8230;</string>
+    <string name="forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="send_succes">Revisa tu bandeja de entrada o spam.</string>
+
 
 </resources>

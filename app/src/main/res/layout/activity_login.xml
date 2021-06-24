@@ -4,13 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".view.ui.fragments.LoginFragment"
-    >
+    tools:context=".auth.LoginActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_height="match_parent"
+        android:gravity="center|right"
         android:orientation="vertical"
         android:padding="30dp">
 
@@ -18,54 +20,43 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/ic_login_1"
-             />
+            android:layout_marginTop="80dp"
+            android:src="@drawable/ic_login_1" />
 
         <!--        <Button-->
-<!--            android:id="@+id/btnFaceook"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            android:background="@drawable/border_redondo"-->
-<!--            android:backgroundTint="@color/facebook"-->
-<!--            android:drawableStart="@drawable/logo_facebook"-->
-<!--            android:paddingLeft="20dp"-->
-<!--            android:text="@string/facebook"-->
-<!--            android:textAllCaps="false"-->
-<!--            android:textColor="@color/white" />-->
-
+        <!--            android:id="@+id/btnFaceook"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginBottom="10dp"-->
+        <!--            android:background="@drawable/border_redondo"-->
+        <!--            android:backgroundTint="@color/facebook"-->
+        <!--            android:drawableStart="@drawable/logo_facebook"-->
+        <!--            android:paddingLeft="20dp"-->
+        <!--            android:text="@string/facebook"-->
+        <!--            android:textAllCaps="false"-->
+        <!--            android:textColor="@color/white" />-->
 
         <com.facebook.login.widget.LoginButton
-            android:id="@+id/login_button"
+            android:id="@+id/buttonFacebookLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="10dp"
-            android:paddingBottom="11dp"
-            android:paddingTop="11dp"/>
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp" />
 
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/sign_in_button"
-            android:layout_width="352dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-
-            />
-
-        <!--<Button
+        <Button
             android:id="@+id/btnGoogle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border_redondo"
             android:backgroundTint="@color/google"
-            android:drawableStart="@drawable/logo_google"
-            android:paddingStart="20dp"
+            android:drawableLeft="@drawable/logo_google"
+            android:paddingLeft="20dp"
             android:text="@string/google"
             android:textAllCaps="false"
-            android:textColor="@color/white"
-            tools:ignore="RtlSymmetry" />-->
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/usua"
@@ -78,10 +69,8 @@
             android:hint="@string/login_user"
             android:inputType="textEmailAddress"
             android:maxLength="50"
-            android:paddingStart="10dp"
-            android:textSize="14sp"
-            android:importantForAutofill="no"
-            tools:ignore="RtlSymmetry" />
+            android:paddingLeft="10dp"
+            android:textSize="14dp" />
 
         <EditText
             android:id="@+id/passw"
@@ -93,10 +82,8 @@
             android:hint="@string/password"
             android:inputType="textPassword"
             android:maxLength="50"
-            android:paddingStart="10dp"
-            android:textSize="14sp"
-            android:importantForAutofill="no"
-            tools:ignore="RtlSymmetry" />
+            android:paddingLeft="10dp"
+            android:textSize="14dp" />
 
         <Button
             android:id="@+id/btnSignIn"
@@ -117,5 +104,16 @@
             android:backgroundTint="@color/fifth"
             android:text="@string/btnSignUp"
             android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/forgot"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="@string/forgot_password" />
+
+
     </LinearLayout>
+    </ScrollView>
 </FrameLayout>
