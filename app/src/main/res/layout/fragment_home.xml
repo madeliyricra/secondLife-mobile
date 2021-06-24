@@ -18,9 +18,9 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="190dp"
+                android:layout_height="200dp"
                 android:background="@drawable/back_1"
-                android:gravity="right"
+                android:gravity="right|center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
@@ -119,10 +119,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -130,13 +128,16 @@
                     android:drawableLeft="@drawable/line_vertical"
                     android:text="@string/category"
                     android:textColor="@color/primary"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
                 <!--Lista de categorias-->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvCategory"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="10dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
             </LinearLayout>
 
             <LinearLayout
@@ -144,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/border_banner"
                 android:backgroundTint="@color/primary"
                 android:gravity="center"
@@ -166,18 +167,19 @@
                         android:layout_height="wrap_content"
                         android:text="@string/text_home"
                         android:textColor="@color/white"
-                        android:textSize="13.5sp" />
+                        android:textSize="12sp" />
 
                     <Button
                         android:id="@+id/btnSeeSell"
                         android:layout_width="100dp"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="15dp"
                         android:background="@drawable/border_secundary"
-                        android:drawableRight="@drawable/ic_arrow_right"
+                        android:backgroundTint="@color/secondary"
+                        android:drawableRight="@drawable/ic_arrow_right_profile"
                         android:text="@string/btn_ver"
                         android:textAllCaps="false"
-                        android:textColor="@color/white"
+                        android:textColor="@color/primary"
                         android:textSize="10sp" />
                 </LinearLayout>
 
@@ -191,31 +193,30 @@
                         android:layout_height="match_parent"
                         android:src="@drawable/ic_sell" />
                 </LinearLayout>
-
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:drawableLeft="@drawable/line_vertical"
                     android:text="@string/recommend"
                     android:textColor="@color/primary"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
                 <!--Lista de productos recomendados-->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvRecommend"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    android:padding="10dp" />
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
             </LinearLayout>
 
         </LinearLayout>

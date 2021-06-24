@@ -5,30 +5,30 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.core.os.bundleOf
 import androidx.lifecycle.*
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.store.secondlife.R
 import com.store.secondlife.model.Categoria
 import com.store.secondlife.model.Producto
-import com.store.secondlife.view.adapter.CategoryListener
-import com.store.secondlife.view.adapter.CategoryProductAdapter
-import com.store.secondlife.view.adapter.ProductAdapter
-import com.store.secondlife.view.adapter.ProductListener
-import com.store.secondlife.viewmodel.CategoryViewModel
+import com.store.secondlife.view.adapter.*
 import com.store.secondlife.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.fragment_product.*
 
 
-class ProductFragment : Fragment(), ProductListener, CategoryListener {
+class ProductFragment : Fragment(), ProductListener{
 
-    private lateinit var productoAdapter: ProductAdapter
+    private lateinit var producto1Adapter: Product1Adapter
+    private lateinit var producto2Adapter: Product2Adapter
+
     private lateinit var productViewModel: ProductViewModel
 
-    private lateinit var categoryAdapter:CategoryProductAdapter
-    private  lateinit var categoryViewModel:CategoryViewModel
+    private var category= Categoria()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -37,43 +37,65 @@ class ProductFragment : Fragment(), ProductListener, CategoryListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val category=arguments?.getSerializable("categoria") as Categoria
-        /*---------lista de categorias--------------------*/
-        categoryViewModel=ViewModelProviders.of(this).get(CategoryViewModel::class.java)
-        categoryViewModel.refresh()
-        categoryAdapter= CategoryProductAdapter(this)
+        category=arguments?.getSerializable("categoria") as Categoria
 
-        rv_categoria.apply {
-            layoutManager= LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
-            adapter=categoryAdapter
-        }
-        categoryViewModel.listaCategory.observe(viewLifecycleOwner,Observer<List<Categoria>> { categoria ->
-            categoria.let {
-                categoryAdapter.updateData(categoria)
-            }
-        })
+        Glide.with(view.context)
+            .load(category.imagen)
+            .apply(RequestOptions.fitCenterTransform())
+            .into(iv_imagencategoria)
+        tv_nombrecategoria.text=category.nombre
+        tv_descripcategoria.text=category.descripcion
+        ib_product1.setImageResource(R.drawable.ic_view_list_square_select)
        /*------------productos por categoria-----------------*/
+        viewProduct1()
+        /*------------estilos de producto--------------*/
+        viewProduct()
+    }
+
+    private fun viewProduct() {
+
+        ib_product1.setOnClickListener {
+            ib_product1.setImageResource(R.drawable.ic_view_list_square_select)
+            ib_product2.setImageResource(R.drawable.ic_view_list)
+            viewProduct1()
+        }
+        ib_product2.setOnClickListener {
+            ib_product2.setImageResource(R.drawable.ic_view_list_select)
+            ib_product1.setImageResource(R.drawable.ic_views_list_square)
+            productViewModel=ViewModelProviders.of(this).get(ProductViewModel::class.java)
+            productViewModel.refresh(category.key)
+            producto2Adapter= Product2Adapter(category.nombre, this)
+
+            rvProducto.apply {
+                layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                adapter=producto2Adapter
+            }
+            productViewModel.listaProducto.observe(viewLifecycleOwner,
+                Observer<List<Producto>> { producto ->
+                producto2Adapter.updateData(producto)
+            })
+        }
+    }
+
+    private fun viewProduct1() {
         productViewModel=ViewModelProviders.of(this).get(ProductViewModel::class.java)
         productViewModel.refresh(category.key)
-        productoAdapter= ProductAdapter(this)
+        producto1Adapter= Product1Adapter(category.nombre,this)
 
         rvProducto.apply {
-            layoutManager=GridLayoutManager(context,2)
-            adapter=productoAdapter
+            layoutManager=GridLayoutManager(context,3)
+            adapter=producto1Adapter
         }
         productViewModel.listaProducto.observe(viewLifecycleOwner,Observer<List<Producto>> { producto ->
-            producto.let {
-                productoAdapter.updateData(producto)
-            }
+            producto1Adapter.updateData(producto)
         })
     }
 
-    override fun onProductClicked(product: Producto, positio: Int) {
+    override fun onProductClicked(product: Producto, position: Int) {
         var bundle= bundleOf("producto" to product)
+        bundle.putString("categoria",category.nombre)
         findNavController().navigate(R.id.detailProductDialogFragment, bundle)
     }
 
-    override fun onCategoryClicked(category: Categoria, position: Int) {
-        TODO("Not yet implemented")
-    }
+
 }

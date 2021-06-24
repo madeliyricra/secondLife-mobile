@@ -4,6 +4,7 @@ import java.io.Serializable
 import java.util.*
 
 class Producto():Serializable {
+     lateinit var key:String
     lateinit var codigo:String
     lateinit var marca:String
     lateinit var modelo:String

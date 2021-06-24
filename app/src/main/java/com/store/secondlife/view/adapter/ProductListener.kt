@@ -4,4 +4,5 @@ import com.store.secondlife.model.Producto
 
 interface ProductListener {
     fun onProductClicked(product:Producto,positio:Int)
+
 }

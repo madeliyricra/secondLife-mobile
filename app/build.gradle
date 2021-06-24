@@ -41,7 +41,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.1'
-    implementation 'com.google.firebase:firebase-firestore:23.0.0'
+    implementation 'com.google.firebase:firebase-firestore:23.0.1'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
@@ -60,8 +60,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-firestore-ktx'
-// HEAD
+
     //RE captcha
+
     implementation 'androidx.browser:browser:1.3.0'
     //Google
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
@@ -69,16 +70,21 @@ dependencies {
     //Facebook
     implementation 'com.facebook.android:facebook-android-sdk:8.2.0'
 
-
-
-
-
-// 2de37b9371854727c82ef3a4c8f947969dc8c092
     /*animaciones*/
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
     implementation 'com.airbnb.android:lottie:3.6.1'
 
-    implementation  'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
+    implementation  'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
 
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+
+    //Notificaction Badge
+    implementation 'com.nex3z:notification-badge:1.0.4'
+
+    //EventBus
+    implementation 'org.greenrobot:eventbus:3.2.0'
+    /*--implementar el carousel-*/
+    // Circle Indicator (To fix the xml preview "Missing classes" error)
+    /*implementation 'me.relex:circleindicator:2.1.6'
+    implementation 'org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:2.0.2'*/
 }

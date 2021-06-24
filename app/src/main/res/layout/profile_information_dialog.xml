@@ -23,7 +23,7 @@
                     android:id="@+id/cvInformation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="55dp"
+                    android:layout_marginTop="60dp"
                     android:visibility="visible"
                     app:cardElevation="0dp">
                     <RelativeLayout
@@ -32,7 +32,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="15dp"
+                            android:layout_margin="10dp"
                             android:orientation="vertical"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp">
@@ -46,7 +46,7 @@
                                 android:layout_marginBottom="20dp"
                                 android:layout_marginTop="50dp">
                                 <EditText
-                                    android:id="@+id/txtName"
+                                    android:id="@+id/et_Name"
                                     android:layout_width="match_parent"
                                     android:layout_height="40dp"
                                     android:layout_marginTop="50dp"
@@ -56,12 +56,15 @@
                                     android:drawablePadding="10dp"
                                     android:gravity="center_vertical"
                                     android:hint="Nombre"
-                                    android:inputType="textEmailAddress"
+                                    android:textColor="@color/primary"
+                                    android:inputType="textPersonName"
                                     android:paddingLeft="10dp"
+                                    android:singleLine="true"
+                                    android:maxLength="50"
                                     android:textSize="14dp" />
 
                                 <EditText
-                                    android:id="@+id/txtLastName"
+                                    android:id="@+id/et_LastName"
                                     android:layout_width="match_parent"
                                     android:layout_height="40dp"
                                     android:layout_marginTop="10dp"
@@ -71,7 +74,10 @@
                                     android:drawablePadding="10dp"
                                     android:gravity="center_vertical"
                                     android:hint="Apellido"
-                                    android:inputType="textEmailAddress"
+                                    android:textColor="@color/primary"
+                                    android:inputType="textPersonName"
+                                    android:singleLine="true"
+                                    android:maxLength="50"
                                     android:paddingLeft="10dp"
                                     android:textSize="14dp" />
 
@@ -81,18 +87,21 @@
                                     android:gravity="center">
 
                                     <EditText
-                                        android:id="@+id/txtDNI"
+                                        android:id="@+id/et_DNI"
                                         android:layout_width="0dp"
                                         android:layout_height="40dp"
                                         android:layout_marginTop="10dp"
                                         android:layout_marginRight="5dp"
                                         android:layout_marginBottom="10dp"
                                         android:layout_weight="1.4"
+                                        android:textColor="@color/primary"
                                         android:background="@drawable/line_bottom"
                                         android:drawableLeft="@drawable/ic_iden_profile"
                                         android:drawablePadding="10dp"
                                         android:hint="Número de DNI"
-                                        android:inputType="phone"
+                                        android:inputType="numberSigned"
+                                        android:singleLine="true"
+                                        android:maxLength="8"
                                         android:paddingLeft="10dp"
                                         android:textSize="14dp" />
                                     <LinearLayout
@@ -107,12 +116,13 @@
                                             android:background="@drawable/line_bottom"
                                             android:src="@drawable/ic_calendar_profile"/>
                                         <EditText
-                                            android:id="@+id/txtDate"
+                                            android:id="@+id/et_date"
                                             android:layout_width="0dp"
                                             android:layout_height="40dp"
                                             android:layout_marginTop="10dp"
                                             android:layout_marginBottom="10dp"
                                             android:layout_weight="4"
+                                            android:textColor="@color/primary"
                                             android:background="@drawable/line_bottom"
                                             android:hint="Fecha de nac."
                                             android:inputType="date"
@@ -125,33 +135,42 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:orientation="horizontal">
-                                    <EditText
-                                        android:id="@+id/txtEmail"
+                                    <TextView
+                                        android:id="@+id/et_email"
                                         android:layout_width="0dp"
                                         android:layout_height="40dp"
                                         android:layout_marginTop="10dp"
                                         android:layout_marginRight="5dp"
                                         android:layout_marginBottom="10dp"
+                                        android:gravity="center_vertical"
                                         android:layout_weight="1.5"
+                                        android:textColor="@color/primary"
                                         android:background="@drawable/line_bottom"
                                         android:drawableLeft="@drawable/ic_email_profile"
                                         android:drawablePadding="10dp"
-                                        android:hint="Example@gmail.com"
-                                        android:inputType="textEmailAddress"
+                                        android:text="example@gmail.com"
                                         android:paddingLeft="10dp"
                                         android:textSize="14dp" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
                                     <EditText
-                                        android:id="@+id/txtTelephone"
-                                        android:layout_width="0dp"
+                                        android:id="@+id/et_telephone"
+                                        android:layout_width="match_parent"
                                         android:layout_height="40dp"
                                         android:layout_marginTop="10dp"
                                         android:layout_marginRight="5dp"
                                         android:layout_marginBottom="10dp"
                                         android:layout_weight="1"
+                                        android:textColor="@color/primary"
                                         android:background="@drawable/line_bottom"
                                         android:drawableLeft="@drawable/ic_atention"
                                         android:drawablePadding="10dp"
                                         android:hint="Teléfono"
+                                        android:padding="10dp"
                                         android:inputType="phone"
                                         android:textSize="14dp" />
                                 </LinearLayout>
@@ -169,7 +188,7 @@
                                     android:orientation="vertical"
                                     android:gravity="center">
                                     <EditText
-                                        android:id="@+id/txtUser"
+                                        android:id="@+id/et_user"
                                         android:layout_width="match_parent"
                                         android:layout_height="40dp"
                                         android:layout_marginLeft="5dp"
@@ -180,10 +199,11 @@
                                         android:drawablePadding="10dp"
                                         android:hint="Usuario"
                                         android:inputType="text"
+                                        android:textColor="@color/primary"
                                         android:paddingLeft="10dp"
                                         android:textSize="14dp" />
                                     <EditText
-                                        android:id="@+id/txtPassword"
+                                        android:id="@+id/et_password"
                                         android:layout_width="match_parent"
                                         android:layout_height="40dp"
                                         android:layout_marginLeft="5dp"
@@ -193,6 +213,7 @@
                                         android:drawableLeft="@drawable/ic_key_profile"
                                         android:drawablePadding="10dp"
                                         android:hint="Contraseña"
+                                        android:textColor="@color/primary"
                                         android:inputType="textPassword"
                                         android:paddingLeft="10dp"
                                         android:textSize="14dp" />
@@ -272,10 +293,12 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textColor="@color/primary"
-                                    android:background="@drawable/border_banner_2"
-                                    android:backgroundTint="@color/fifth"
+                                    android:padding="10dp"
+                                    android:background="@drawable/border_profile_tint"
                                     android:text="MI UBICACIÓN ACTUAL"
                                     android:drawableLeft="@drawable/ic_myaddress"
+                                    android:drawablePadding="10dp"
+                                    android:layout_marginBottom="10dp"
                                     android:textSize="11sp"/>
                                <LinearLayout
                                    android:layout_width="match_parent"
@@ -286,9 +309,10 @@
                                        android:layout_height="40dp"
                                        android:layout_weight="2.9"
                                        android:text="Mis direcciones"
-                                       android:textSize="15sp"
+                                       android:textSize="14sp"
                                        android:paddingTop="8dp"
                                        android:paddingBottom="8dp"
+                                       android:fontFamily="sans-serif-light"
                                        android:drawableLeft="@drawable/line_vertical"
                                        android:textColor="@color/primary"/>
                                    <TextView
@@ -309,7 +333,7 @@
                                     android:id="@+id/rvAddress"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:padding="10dp"/>
+                                    android:layout_marginTop="10dp"/>
                             </LinearLayout>
                         </LinearLayout>
                         <LinearLayout
@@ -428,7 +452,7 @@
                     android:id="@+id/cvCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     app:cardElevation="0dp">
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -437,7 +461,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
-                            android:layout_marginTop="120dp">
+                            android:layout_marginTop="145dp">
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="200dp"
@@ -465,6 +489,7 @@
                                             android:layout_height="40dp"
                                             android:layout_weight="4"/>
                                         <EditText
+                                            android:id="@+id/et_cvv"
                                             android:layout_width="0dp"
                                             android:layout_height="40dp"
                                             android:layout_weight="1"
@@ -476,35 +501,56 @@
                                             android:textColor="@color/primary" />
                                     </LinearLayout>
                                     <LinearLayout
+                                        android:id="@+id/numtarjet"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:orientation="horizontal"
                                         android:gravity="center_horizontal">
                                         <EditText
+                                            android:id="@+id/et_num1"
                                             android:layout_width="wrap_content"
                                             android:layout_height="match_parent"
                                             android:text="9999"
+                                            android:background="@drawable/line_bottom"
+                                            android:textColor="@color/primary"
+                                            android:maxLength="4"
+                                            android:hint="9999"
                                             android:letterSpacing="0.2"
                                             android:textSize="13sp"
                                             android:layout_marginRight="10dp"/>
                                         <EditText
+                                            android:id="@+id/et_num2"
                                             android:layout_width="wrap_content"
                                             android:layout_height="match_parent"
                                             android:text="9999"
+                                            android:background="@drawable/line_bottom"
+                                            android:textColor="@color/primary"
                                             android:textSize="13sp"
+                                            android:maxLength="4"
+                                            android:hint="9999"
                                             android:letterSpacing="0.2"
                                             android:layout_marginRight="10dp"/>
                                         <EditText
+                                            android:id="@+id/et_num3"
                                             android:layout_width="wrap_content"
                                             android:layout_height="match_parent"
                                             android:text="9999"
+                                            android:background="@drawable/line_bottom"
+                                            android:textColor="@color/primary"
                                             android:letterSpacing="0.2"
+                                            android:hint="9999"
                                             android:textSize="13sp"
+                                            android:maxLength="4"
                                             android:layout_marginRight="10dp"/>
                                         <EditText
+                                            android:id="@+id/et_num4"
                                             android:layout_width="wrap_content"
                                             android:layout_height="match_parent"
                                             android:text="9999"
+                                            android:background="@drawable/line_bottom"
+                                            android:textColor="@color/primary"
+                                            android:maxLength="4"
+                                            android:hint="9999"
                                             android:letterSpacing="0.2"
                                             android:textSize="13sp"/>
                                     </LinearLayout>
@@ -523,6 +569,7 @@
                                                 android:layout_height="40dp"
                                                 android:layout_weight="3">
                                                 <EditText
+                                                    android:id="@+id/et_titulary"
                                                     android:layout_width="160dp"
                                                     android:layout_height="match_parent"
                                                     android:textSize="12sp"
@@ -532,6 +579,7 @@
                                                     android:textColor="@color/primary"/>
                                             </LinearLayout>
                                             <EditText
+                                                android:id="@+id/et_date"
                                                 android:layout_width="0dp"
                                                 android:layout_height="40dp"
                                                 android:layout_weight="1"
@@ -567,7 +615,7 @@
                                         android:textColor="@color/primary"/>
                                     <!--Lista de tarjetas (solo 3)-->
                                     <androidx.recyclerview.widget.RecyclerView
-                                        android:id="@+id/rvcard"
+                                        android:id="@+id/rvCard"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:padding="10dp" />
@@ -607,7 +655,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:layout_marginTop="55dp">
+                            android:layout_marginTop="70dp">
                             <ImageView
                                 android:layout_width="150dp"
                                 android:layout_height="150dp"
@@ -622,13 +670,13 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="85dp"
         android:background="@drawable/back_pane_profile"
         app:elevation="0dp">
         <Toolbar
             android:id="@+id/toolbarConference"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="70dp"
             android:gravity="center_vertical">
 
             <LinearLayout

@@ -24,6 +24,7 @@
                 android:layout_weight="1"
                 android:padding="5dp">
                 <ImageView
+                    android:id="@+id/iv_imagen"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/item_cuadrado"/>
@@ -35,6 +36,7 @@
                 android:orientation="vertical"
                 android:padding="10dp">
                 <TextView
+                    android:id="@+id/tv_nombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Nombre del producto"
@@ -42,11 +44,13 @@
                     android:textSize="16sp"
                     android:layout_marginBottom="5dp"/>
                 <TextView
+                    android:id="@+id/tv_descripcion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Descripción del producto"
                     android:layout_marginBottom="5dp"/>
                 <TextView
+                    android:id="@+id/tv_precio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="$120.00"
@@ -92,6 +96,7 @@
                     android:background="@drawable/hover_operation"
                     android:padding="10dp"/>
                 <TextView
+                    android:id="@+id/tv_cantidad"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/border_redondo"

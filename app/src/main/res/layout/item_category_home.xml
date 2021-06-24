@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
-    android:layout_height="70dp"
-    android:layout_margin="5dp"
-    android:layout_width="70dp"
-    app:cardCornerRadius="20px"
+    android:layout_height="60dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginTop="10dp"
+    android:layout_width="60dp"
+    app:cardBackgroundColor="#00FFFFFF"
+    app:cardCornerRadius="0dp"
     app:cardElevation="0dp"
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:backgroundTint="@color/secondary"
-        android:background="@drawable/border_secundary"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/border_banner_2"
+        android:backgroundTint="@color/fifth"
+        android:gravity="center"
         android:orientation="vertical"
-        android:padding="5dp"
-        android:gravity="center">
+        android:padding="5dp">
 
         <ImageView
             android:id="@+id/tv_imagen"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="5dp"
@@ -31,11 +34,11 @@
             android:id="@+id/tv_nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:gravity="center"
             android:text="Electronicos"
             android:textColor="@color/primary"
-            android:textSize="10sp"
-            android:fontFamily="sans-serif-light"/>
+            android:textSize="8sp" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

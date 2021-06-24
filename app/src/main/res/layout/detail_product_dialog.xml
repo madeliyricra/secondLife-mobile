@@ -7,203 +7,267 @@
     android:orientation="vertical">
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         tools:context=".view.ui.fragments.DetailProductDialogFragment">
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <RelativeLayout
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="50dp">
-                <LinearLayout
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="50dp"
                     android:orientation="vertical">
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:cardBackgroundColor="@android:color/transparent"
-                        app:cardElevation="0dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="300dp"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:background="@drawable/pane_detail_prod">
-                            <ImageView
-                                android:id="@+id/iv_imagen"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:src="@drawable/exemplo_product"
-                                android:padding="50dp"/>
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
+
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginTop="20dp">
-                        <TextView
-                            android:id="@+id/tv_nombre"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="20dp"
-                            android:paddingLeft="20dp"
-                            android:layout_marginBottom="5dp"
-                            android:textColor="@color/primary"
-                            android:text="Nombre del producto" />
-                        <TextView
-                            android:id="@+id/tv_precio"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="18dp"
-                            android:paddingLeft="20dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/third"
-                            android:text="$99.90" />
-                        <TextView
-                            android:id="@+id/tv_observacion"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="16sp"
-                            android:paddingLeft="20dp"
-                            android:paddingRight="20dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="15dp"
-                            android:textColor="#5A5858"
-                            android:text="Great words is nothing but just sounds tovar xarakteristikasi uchun tekst shunchaki Lorem ipsum dolor sit amet" />
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Características"
-                                android:textSize="15sp"
-                                android:layout_marginLeft="20dp"
-                                android:drawableLeft="@drawable/ic_list"
-                                android:textColor="@color/primary"/>
-                            <!--Lista de caracteristicas-->
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/rvCategory"
+                            app:cardBackgroundColor="@android:color/transparent"
+                            app:cardElevation="0dp">
+
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginRight="20dp"
-                                android:layout_marginTop="5dp"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="250dp"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center"
-                        android:background="@drawable/border_detail_prod"
-                        android:padding="6dp">
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1.5"
-                            android:gravity="center"
-                            android:layout_marginLeft="10dp">
-                            <ImageButton
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:src="@drawable/ic_dec"
-                                android:background="@drawable/border_redondo"
-                                android:padding="10dp"/>
-                            <TextView
-                                android:id="@+id/tv_cantidad"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:background="@drawable/border_redondo"
-                                android:layout_weight="1"
-                                android:layout_marginRight="5dp"
-                                android:layout_marginLeft="5dp"
+                                android:layout_height="350dp"
+                                android:background="@drawable/back_pane_product"
                                 android:gravity="center"
-                                android:text="1"/>
-                            <ImageButton
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:src="@drawable/ic_add"
-                                android:background="@drawable/border_redondo"
-                                android:padding="10dp"/>
-                        </LinearLayout>
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/iv_imagen"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:padding="40dp"
+                                    android:src="@drawable/exemplo_product" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp">
-                            <Button
+                            android:layout_marginTop="35dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_nombre"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/border_redondo"
-                                android:backgroundTint="@color/third"
-                                android:text="Añadir al carrito"
-                                android:textColor="@color/white"
-                                android:textAllCaps="false"
-                                android:padding="5dp"
-                                android:layout_marginRight="5dp"/>
+                                android:layout_marginBottom="5dp"
+                                android:paddingLeft="20dp"
+                                android:text="Nombre del producto"
+                                android:textColor="@color/primary"
+                                android:textSize="20dp"
+                                android:fontFamily="sans-serif-light"/>
+
+                            <TextView
+                                android:id="@+id/tv_precio"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="20dp"
+                                android:text="$99.90"
+                                android:textColor="@color/third"
+                                android:textSize="18dp"/>
+
+                            <TextView
+                                android:id="@+id/tv_observacion"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:paddingLeft="20dp"
+                                android:paddingRight="20dp"
+                                android:text="Great words is nothing but just sounds tovar xarakteristikasi uchun tekst shunchaki Lorem ipsum dolor sit amet"
+                                android:textColor="#5A5858"
+                                android:textSize="14sp"
+                                android:fontFamily="sans-serif-light"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="20dp"
+                                    android:drawableLeft="@drawable/ic_list"
+                                    android:text="Características"
+                                    android:textColor="@color/primary"
+                                    android:textSize="14sp"
+                                    android:fontFamily="sans-serif-light"/>
+                                <!--Lista de caracteristicas-->
+                                <TextView
+                                    android:id="@+id/tv_caracteristica"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="20dp"
+                                    android:textSize="14sp"
+                                    android:fontFamily="sans-serif-light"
+                                    android:text="caracteristicas del producto"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="10dp">
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2"/>
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="0.8">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:text="Calidad"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/third"
+                                        android:layout_marginEnd="10dp"/>
+                                    <TextView
+                                        android:id="@+id/tv_calidad"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:text="7.0"
+                                        android:textColor="@color/primary"/>
+                                </LinearLayout>
+                            </LinearLayout>
+
                         </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:orientation="horizontal"
-                    android:gravity="left|center_vertical"
-                    android:paddingLeft="20dp">
-                    <TextView
-                        android:id="@+id/tv_categoria"
-                        android:layout_width="wrap_content"
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="310dp"
                         android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp"
-                        android:textStyle="bold"
-                        android:backgroundTint="@color/fourth"
-                        android:background="@drawable/border_redondo"
-                        android:textColor="@color/fifth"
-                        android:text="categoría"
-                        android:fontFamily="sans-serif-light"
-                        android:textSize="12sp"
-                        android:layout_marginEnd="5dp"/>
-                    <TextView
-                        android:id="@+id/tv_marca"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp"
-                        android:textStyle="bold"
-                        android:backgroundTint="@color/fifth"
-                        android:background="@drawable/border_redondo"
-                        android:textColor="@color/primary"
-                        android:fontFamily="sans-serif-light"
-                        android:textSize="12sp"
-                        android:text="marca" />
-                </LinearLayout>
-            </RelativeLayout>
+                        android:paddingRight="20dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_detail_prod"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:padding="6dp">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1.5"
+                                android:gravity="center">
+
+                                <ImageButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border_redondo"
+                                    android:padding="10dp"
+                                    android:src="@drawable/ic_dec" />
+
+                                <TextView
+                                    android:id="@+id/tv_cantidad"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border_redondo"
+                                    android:gravity="center"
+                                    android:text="1" />
+
+                                <ImageButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/border_redondo"
+                                    android:padding="10dp"
+                                    android:src="@drawable/ic_add" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp">
+
+                                <Button
+                                    android:id="@+id/btn_addProduct"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="5dp"
+                                    android:background="@drawable/border_redondo"
+                                    android:backgroundTint="@color/third"
+                                    android:padding="5dp"
+                                    android:text="Añadir al carrito"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:gravity="left|center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="20dp">
+
+                        <TextView
+                            android:id="@+id/tv_categoria"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:background="@drawable/border_redondo"
+                            android:backgroundTint="#C9ABABAB"
+                            android:fontFamily="sans-serif-light"
+                            android:paddingLeft="20dp"
+                            android:paddingTop="5dp"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="5dp"
+                            android:text="categoría"
+                            android:textColor="@color/primary"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tv_marca"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border"
+                            android:backgroundTint="#E6A889F3"
+                            android:fontFamily="sans-serif-light"
+                            android:paddingLeft="20dp"
+                            android:paddingTop="5dp"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="5dp"
+                            android:text="marca"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
         </ScrollView>
     </FrameLayout>
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="85dp"
         android:background="@drawable/back_pane_profile"
         app:elevation="0dp">
         <Toolbar
@@ -216,12 +280,14 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="horizontal">
-                <ImageButton
+                <Button
+                    android:id="@+id/dp_retornar"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="0.7"
-                    android:background="@color/material_on_surface_stroke"
-                    android:src="@drawable/ic_arrow_left" />
+                    android:layout_height="25dp"
+                    android:layout_weight="0.3"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/hover_arrow_left"
+                   />
                 <TextView
                     android:id="@+id/tv_title_producto"
                     android:layout_width="0dp"
@@ -229,7 +295,6 @@
                     android:layout_weight="4"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center"
-                    android:text="Producto"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
                 <ImageButton

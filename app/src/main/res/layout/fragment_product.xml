@@ -12,42 +12,79 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:orientation="horizontal"
-                android:background="@drawable/pane_product">
+                android:layout_height="160dp"
+                android:layout_marginBottom="10dp">
+                <ImageView
+                    android:id="@+id/iv_imagencategoria"
+                    android:adjustViewBounds="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/item_cuadrado"
+                    android:filterTouchesWhenObscured="true"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/black"
+                    android:alpha="0.6"/>
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="180dp"
-                    android:layout_weight="1"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:layout_marginLeft="20dp">
-                    <ImageView
-                        android:layout_width="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/product_pane"/>
+                        android:layout_weight="0.2">
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.6"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <!---->
+                        <TextView
+                            android:id="@+id/tv_nombrecategoria"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="titulo"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:layout_marginBottom="5dp"/>
+                        <TextView
+                            android:id="@+id/tv_descripcategoria"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="descripcion"
+                            android:textAlignment="center"
+                            android:textSize="12sp"
+                            android:fontFamily="sans-serif-light"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.2">
+                    </LinearLayout>
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="170dp"
-                    android:layout_weight="1.4">
-                    <!---->
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
+            </RelativeLayout>
+            <!--<LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content">-->
                 <!--Lista de categorias-->
-                <androidx.recyclerview.widget.RecyclerView
+                <!--><androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_categoria"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     android:layout_margin="10dp"/>
-            </LinearLayout>
+            </LinearLayout>-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -113,16 +150,22 @@
                     android:layout_weight="1"
                     android:gravity="right|center_vertical">
                     <ImageButton
+                        android:id="@+id/ib_product1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@null"
-                        android:padding="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
                         android:src="@drawable/hover_view_list_square" />
                     <ImageButton
+                        android:id="@+id/ib_product2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@null"
-                        android:padding="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="15dp"
                         android:src="@drawable/hover_views_list" />
                 </LinearLayout>
             </LinearLayout>
@@ -130,11 +173,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:layout_marginBottom="10dp">
                 <!--Lista de productos-->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvProducto"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_gravity="center"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
