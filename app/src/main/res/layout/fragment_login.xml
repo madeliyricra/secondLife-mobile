@@ -22,21 +22,21 @@
             android:src="@drawable/ic_login_1"
              />
 
-        <!--        <Button-->
-<!--            android:id="@+id/btnFaceook"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            android:background="@drawable/border_redondo"-->
-<!--            android:backgroundTint="@color/facebook"-->
-<!--            android:drawableStart="@drawable/logo_facebook"-->
-<!--            android:paddingLeft="20dp"-->
-<!--            android:text="@string/facebook"-->
-<!--            android:textAllCaps="false"-->
-<!--            android:textColor="@color/white" />-->
+                <Button
+            android:id="@+id/btnFacebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/border_redondo"
+            android:backgroundTint="@color/facebook"
+            android:drawableStart="@drawable/logo_facebook"
+            android:paddingLeft="20dp"
+            android:text="@string/facebook"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
 
 
-        <com.facebook.login.widget.LoginButton
+       <!-- <com.facebook.login.widget.LoginButton
             android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,17 +44,17 @@
             android:layout_marginTop="30dp"
             android:layout_marginBottom="10dp"
             android:paddingBottom="11dp"
-            android:paddingTop="11dp"/>
+            android:paddingTop="11dp"/>-->
 
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/sign_in_button"
-            android:layout_width="352dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+<!--        <com.google.android.gms.common.SignInButton-->
+<!--            android:id="@+id/signGoogle"-->
+<!--            android:layout_width="352dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="10dp"-->
 
-            />
+<!--            />-->
 
-        <!--<Button
+        <Button
             android:id="@+id/btnGoogle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
             android:text="@string/google"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            tools:ignore="RtlSymmetry" />-->
+            tools:ignore="RtlSymmetry" />
 
         <EditText
             android:id="@+id/usua"
