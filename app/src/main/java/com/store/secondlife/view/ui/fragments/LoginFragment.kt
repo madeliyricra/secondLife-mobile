@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -19,10 +20,11 @@ import com.store.secondlife.R
 
 class LoginFragment : Fragment(), View.OnClickListener {
 
-    lateinit var btnSignIn: Button
-    lateinit var btnSignUp: Button
-    lateinit var usua: EditText
-    lateinit var passw: EditText
+    private lateinit var btnSignIn: Button
+    private lateinit var btnSignUp: Button
+    private lateinit var usua: EditText
+    private lateinit var passw: EditText
+    private lateinit var forgot:TextView
 
     companion object {
         private const val TAG1 = "EmailPassword"
@@ -34,6 +36,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         // Initialize Firebase Auth
         auth = Firebase.auth
+
     }
 
     override fun onCreateView(
@@ -50,10 +53,15 @@ class LoginFragment : Fragment(), View.OnClickListener {
         btnSignIn.setOnClickListener(this)
         btnSignUp = view.findViewById(R.id.btnSignUp)
         btnSignUp.setOnClickListener(this)
+        forgot=view.findViewById(R.id.forgot)
+        forgot.setOnClickListener(this)
 
         usua = view.findViewById(R.id.usua)
         passw = view.findViewById(R.id.passw)
-        btnSignUp.setOnClickListener(this)
+
+        forgot.setOnClickListener {
+            findNavController().navigate(R.id.passwordFragment)
+        }
     }
 
     override fun onStart() {
@@ -76,9 +84,8 @@ class LoginFragment : Fragment(), View.OnClickListener {
                         // Sign in success, update UI with the signed-in user's information
                         val user = auth.currentUser
                         updateUI(user)
-
-
                         findNavController().navigate(R.id.navHomeFragment)
+
                     } else {
                         Log.w(TAG1, "signInWithEmail:failure", task.exception)
                         Toast.makeText(

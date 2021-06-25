@@ -22,27 +22,27 @@ class LoginActivity: BaseActivity(), OnClickListener {
             val intent = Intent(this@LoginActivity, R.id.navProfileFragment::class.java)
             startActivity(intent)
         }
-        forgot.setOnClickListener(this)
+      //  forgot.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
-        if (v != null) {
-            when (v.id) {
-                R.id.forgot -> {
-                    val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
-                    startActivity(intent)
-                }
-
-                R.id.btnSignIn -> {
-                    login()
-                }
-
-                R.id.btnSignUp -> {
-                    val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
-                    startActivity(intent)
-                }
-            }
-        }
+//        if (v != null) {
+//            when (v.id) {
+//                R.id.forgot -> {
+//                    val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
+//                    startActivity(intent)
+//                }
+//
+//                R.id.btnSignIn -> {
+//                    login()
+//                }
+//
+//                R.id.btnSignUp -> {
+//                    val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+//                    startActivity(intent)
+//                }
+//            }
+//        }
     }
 
     private fun validarLogin(): Boolean {
