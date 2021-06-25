@@ -63,8 +63,8 @@ class GoogleFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         btnGoogle = view.findViewById(R.id.btnGoogle)
         btnGoogle.setOnClickListener(this)
-        sign_in_button= view.findViewById(R.id.sign_in_button)
-        sign_in_button.setOnClickListener(this)
+//        sign_in_button= view.findViewById(R.id.sign_in_button)
+//        sign_in_button.setOnClickListener(this)
 
     }
 
