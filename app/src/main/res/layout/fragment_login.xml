@@ -127,5 +127,14 @@
             android:backgroundTint="@color/fifth"
             android:text="@string/btnSignUp"
             android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/forgot"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="100dp"
+            android:text="@string/forgot_password" />
+
     </LinearLayout>
 </FrameLayout>

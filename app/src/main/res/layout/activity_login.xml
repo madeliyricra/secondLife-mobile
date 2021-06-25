@@ -112,13 +112,13 @@
             android:text="@string/btnSignUp"
             android:textAllCaps="false" />
 
-        <TextView
-            android:id="@+id/forgot"
-            android:layout_width="144dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:foreground="?attr/selectableItemBackground"
-            android:text="@string/forgot_password" />
+<!--        <TextView-->
+<!--            android:id="@+id/forgot"-->
+<!--            android:layout_width="144dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:foreground="?attr/selectableItemBackground"-->
+<!--            android:text="@string/forgot_password" />-->
 
 
     </LinearLayout>
