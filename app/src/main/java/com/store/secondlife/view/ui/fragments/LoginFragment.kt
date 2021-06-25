@@ -104,7 +104,6 @@ class LoginFragment : Fragment(), View.OnClickListener {
         btnFacebook.setOnClickListener {
 
             @Suppress("DEPRECATION")
-            buttonFacebookLogin.setReadPermissions("email", "public_profile")
 
             LoginManager.getInstance().logInWithReadPermissions(this, listOf("email"))
             buttonFacebookLogin.registerCallback(callbackManager, object :
