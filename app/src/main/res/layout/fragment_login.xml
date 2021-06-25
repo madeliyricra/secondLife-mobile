@@ -40,20 +40,30 @@
             android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/border_redondo"
+            android:backgroundTint="@color/facebook"
             android:layout_gravity="center_horizontal"
+            android:drawableLeft="@drawable/logo_google"
+            android:paddingLeft="20dp"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="10dp"
-            android:paddingBottom="11dp"
-            android:paddingTop="11dp"/>
+            android:paddingTop="14dp"
+            android:textAllCaps="false"
+            android:text="@string/facebook"
+            android:paddingBottom="14dp"
+            android:textColor="@color/white" />
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"
-            android:layout_width="352dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-
-            />
-
+            android:background="@drawable/border_redondo"
+            android:backgroundTint="@color/google"
+            android:drawableLeft="@drawable/logo_google"
+            android:paddingLeft="20dp"
+            android:text="@string/google"
+            android:textAllCaps="false"
+            android:textColor="@color/white"/>
         <!--<Button
             android:id="@+id/btnGoogle"
             android:layout_width="match_parent"

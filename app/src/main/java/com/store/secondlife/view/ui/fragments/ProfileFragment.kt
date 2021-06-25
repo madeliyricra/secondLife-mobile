@@ -36,9 +36,12 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnclick()
+
+        var usuario = "ninguno"
         btnlogout = view.findViewById(R.id.btnlogout)
         btnlogout.setOnClickListener(this)
+        btnclick(usuario)
+
     }
 
     override fun onStart() {
@@ -49,7 +52,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    fun btnclick() {
+    fun btnclick(usu: String) {
         val btn = arrayOf(btn_personal_data, btn_addresses, btn_buy, btn_sales, btn_cards)
         var num = 0
         for (b in btn.indices) {
@@ -58,6 +61,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 num = b
                 val bundle: Bundle = Bundle()
                 bundle.putInt("num", num)
+                bundle.putString("usuario",usu)
                 findNavController().navigate(R.id.profileInformationDialogFragment, bundle)
             }
         }

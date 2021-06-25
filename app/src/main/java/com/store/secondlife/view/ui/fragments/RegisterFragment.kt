@@ -18,6 +18,7 @@ import com.google.firebase.ktx.Firebase
 import com.store.secondlife.MainActivity
 import com.store.secondlife.R
 import com.store.secondlife.model.Usuario
+import com.store.secondlife.network.FirestoreService
 
 class RegisterFragment : Fragment(), View.OnClickListener {
 
@@ -32,6 +33,8 @@ class RegisterFragment : Fragment(), View.OnClickListener {
     lateinit var passw: EditText
 
     private lateinit var auth: FirebaseAuth
+
+    private var  firebase: FirestoreService = FirestoreService()
 
     companion object {
         private const val TAG = "EmailPassword"
@@ -70,10 +73,15 @@ class RegisterFragment : Fragment(), View.OnClickListener {
         if (p0 == btnok) {
             val email: String = usua.text.toString().trim()
             val contra: String = passw.text.toString().trim()
-            
+
             val u:Usuario= Usuario()
             u.dni=txtDNI.text.toString()       
+            u.nombre=txtFirstName.text.toString()
+            u.apellido=txtLastName.text.toString()
+            u.usuario=txtUser.text.toString()
+            u.email=usua.text.toString().trim()
 
+            firebase.addUser(u)
 
             auth.createUserWithEmailAndPassword(email,contra)
                 .addOnCompleteListener(requireActivity()) { task ->

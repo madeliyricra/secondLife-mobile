@@ -28,10 +28,10 @@ class FirestoreService {
     /*----metodos con el firebase-------------*/
     /*-------------------usuario-----------------*/
     fun getUsuario(callback: Callback<Usuario>, user:String){
-        firebaseFirestore.collection("usuario").document(user)
+        firebaseFirestore.collection("usuario").whereEqualTo("email", user)
             .get()
-            .addOnSuccessListener { result->
-                if(result!=null){
+            .addOnSuccessListener { results->
+                for (result in results){
                     val us=Usuario()
                     us.key= result.id
                     us.nombre=result.getString("nombre").toString()
@@ -45,8 +45,6 @@ class FirestoreService {
                     us.usuario=result.getString("usuario").toString()
                     us.estado=result.getDouble("estado")!!.toInt()
                     callback.onSuccess(us)
-                }else{
-                    print("Usuario no encontrado")
                 }
             }
     }
@@ -211,22 +209,6 @@ class FirestoreService {
             }
     }
     fun addCard(t: Tarjeta, key:String) {
-        /*val tarjeta= JSONArray("[\n" +
-                "            {\n" +
-                "                'tipo': '[" +
-                "" + t.tipo+
-                "                        ]',\n" +
-                "                'numero': '[" +
-                "" + t.numero+
-                "                           ]',\n" +
-                "                'fec_vencimiento': '[" +
-                "" + t.fec_vencimiento+
-                "                           ]',\n" +
-                "                'cvv': '[" +
-                "" + t.cvv+
-                "                       ]'\n" +
-                "            }\n" +
-                "        ]")*/
         var  user= hashMapOf(
             "tipo" to t.tipo,
                 "numero" to  t.numero,
@@ -239,6 +221,23 @@ class FirestoreService {
                 Toast.makeText(
                     FacebookSdk.getApplicationContext(),
                     "Se ha generado una nueva tarjeta", Toast.LENGTH_SHORT
+                ).show()
+            }
+    }
+
+    fun addUser(u: Usuario) {
+        var  user= hashMapOf(
+            "email" to u.apellido,
+            "usuario" to  u.usuario,
+            "dni" to  u.dni,
+            "nombre" to  u.nombre,
+            "apellido" to u.apellido
+        )
+        firebaseFirestore.collection("usuario").document().set(user)
+            .addOnSuccessListener  {
+                Toast.makeText(
+                    FacebookSdk.getApplicationContext(),
+                    "Se ha generado una nuevo usuario", Toast.LENGTH_SHORT
                 ).show()
             }
     }

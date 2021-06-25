@@ -58,7 +58,7 @@ class ProfileInformationDialogFragment : DialogFragment(), AddressListener, Card
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val user:String="VnS07VzY4T2JrLJYTz9M"
+        val user:String= "madeleyricra@gmail.com"/*arguments?.getString("usuario") as String*/
 
         btnArrow_left.setOnClickListener{
             findNavController().navigate(R.id.navProfileFragment)
@@ -175,7 +175,6 @@ class ProfileInformationDialogFragment : DialogFragment(), AddressListener, Card
 
         }
     }
-
 
     //desactiva todos los cardViews
     private fun DisabledCardView(){

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
@@ -77,12 +78,13 @@ class LoginFragment : Fragment(), View.OnClickListener {
                         val user = auth.currentUser
                         updateUI(user)
 
-
-                        findNavController().navigate(R.id.navHomeFragment)
+                        val bundle: Bundle = Bundle()
+                        bundle.putString("usuario",usu)
+                        findNavController().navigate(R.id.navProfileFragment, bundle)
                     } else {
                         Log.w(TAG1, "signInWithEmail:failure", task.exception)
                         Toast.makeText(
-                            context, "No se puede realizar esta acción.",
+                            context, "Error al iniciar sesión, vuelve a intentaarlo",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
